@@ -45,23 +45,23 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _scatterRamp:
     serializedVersion: 2
-    key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0.2509804, g: 0.32941177, b: 0.31336328, a: 1}
+    key0: {r: 0.2509804, g: 0.32941177, b: 0.31336328, a: 1}
+    key1: {r: 0, g: 0, b: 0, a: 1}
     key2: {r: 0.21568628, g: 0.2943139, b: 0.32941177, a: 0}
-    key3: {r: 0.11574403, g: 0.41769665, b: 0.4811321, a: 0}
+    key3: {r: 0.21568628, g: 0.2943139, b: 0.32941177, a: 0}
     key4: {r: 0.01176471, g: 0.90588236, b: 0.84650886, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 386
-    ctime1: 2891
+    ctime0: 33924
+    ctime1: 39321
     ctime2: 65535
     ctime3: 65535
     ctime4: 65535
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 0
+    atime0: 45296
     atime1: 65535
     atime2: 0
     atime3: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: -1
+    m_ColorSpace: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   _waves:
@@ -117,32 +117,32 @@ MonoBehaviour:
       y: 0
     onmiDir: 1
   _customWaves: 0
-  randomSeed: 41580
+  randomSeed: 52272
   _basicWaveSettings:
     numWaves: 4
-    amplitude: 2
-    direction: -91
-    wavelength: 4.9
+    amplitude: 2.36
+    direction: 0
+    wavelength: 21.5
   _foamSettings:
-    foamType: 1
+    foamType: 2
     basicFoam:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0
