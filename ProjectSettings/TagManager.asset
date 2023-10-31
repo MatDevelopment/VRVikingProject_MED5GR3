@@ -15,7 +15,7 @@ TagManager:
   - RightHandPhysics
   - LeftHandPhysics
   - PlayerLayer
-  - 
+  - NonPhyiscalHand
   - 
   - 
   - 
