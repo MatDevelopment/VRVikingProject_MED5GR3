@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 //using System.Numerics;
@@ -15,6 +16,8 @@ public class handPresencePhysics : MonoBehaviour
     public float showNonPhysicalHandDistance = 0.10f;
 
     private Collider[] handColliders;
+
+    private Boolean isGrabbed = false;
     
     void Start()
     {
@@ -25,16 +28,22 @@ public class handPresencePhysics : MonoBehaviour
 
     public void EnableHandCollider()
     {
-        foreach (var item in handColliders)
+        if (!isGrabbed)
+
         {
-            item.enabled = true;
+            foreach (var item in handColliders)
+            {
+                item.enabled = true;
+            }
         }
 
     }
 
+
     public void EnableHandColliderDelay(float delay)
     {
-Invoke("EnableHandCollider", delay);
+        Invoke("EnableHandCollider", delay);
+        isGrabbed = false;
     }
 
     public void DisableHandCollider()
@@ -42,6 +51,7 @@ Invoke("EnableHandCollider", delay);
         foreach (var item in handColliders)
         {
             item.enabled = false;
+            isGrabbed = true;
         }
 
     }
