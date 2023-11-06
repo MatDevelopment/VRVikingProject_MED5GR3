@@ -7,7 +7,7 @@ public class LevelChanger : MonoBehaviour
 {
     // bool to unlock test conditions
     [SerializeField] bool ReloadSceneTest = true;
-    [SerializeField] bool NewSceneTest = true;
+    [SerializeField] bool NewSceneTest = false;
 
     // Call for animator object in Unity (insert the animator called 'LevelChanger' into inspector)
     public Animator animator;
