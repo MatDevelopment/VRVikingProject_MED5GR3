@@ -49,7 +49,7 @@ public class LevelChanger : MonoBehaviour
         // These conditions only apply when testing. 
         if (Input.GetMouseButtonDown(0) && ReloadSceneTest == true && NewSceneTest == false)
         {
-            FadeToLevel(1);
+            FadeToLevel(SceneManager.GetActiveScene().buildIndex);
             Debug.Log("Reloading Same Scene!");
         }
 
