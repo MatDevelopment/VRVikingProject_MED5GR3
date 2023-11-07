@@ -5,16 +5,25 @@ using Amazon.Polly;
 using Amazon.Runtime;
 using Amazon.Polly.Model;
 using System.Threading.Tasks;
+using Amazon.Runtime.Internal;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
 public class TextToSpeech : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
-    
-    public async void MakeAudioRequest(string message)
+
+    private string accessKey;
+    private string secretKey;
+
+    private void Awake()
     {
-        var credentials = new BasicAWSCredentials("AKIATSG7CAVML7KMYRMG", "5jDZ4+VXOLZIgkaLEBd/raRgkOo70+pitDyR/0Yg");
+        ReadString();
+    }
+
+        public async void MakeAudioRequest(string message)
+    {
+        var credentials = new BasicAWSCredentials(accessKey, secretKey);
         var client = new AmazonPollyClient(credentials, RegionEndpoint.EUCentral1);
 
         var request = new SynthesizeSpeechRequest()
@@ -64,5 +73,17 @@ public class TextToSpeech : MonoBehaviour
                 fileStream.Write(buffer, 0, bytesRead);
             }
         }
+    }
+    
+    private void ReadString()
+    {
+        string path = "Assets/authaws.txt";
+        //Read the text from directly from the test.txt file
+        StreamReader reader = new StreamReader(path);
+        accessKey = reader.ReadLine();
+        if(accessKey == null) accessKey = "";
+        secretKey = reader.ReadLine();
+        if(secretKey == null) secretKey = "";
+        reader.Close();
     }
 }
