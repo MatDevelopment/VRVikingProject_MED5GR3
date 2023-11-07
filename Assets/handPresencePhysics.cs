@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 //using System.Numerics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -51,6 +53,7 @@ public class handPresencePhysics : MonoBehaviour
         foreach (var item in handColliders)
         {
             item.enabled = false;
+            item.gameObject.layer = 10;
             isGrabbed = true;
         }
 
