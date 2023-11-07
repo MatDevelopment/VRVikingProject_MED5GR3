@@ -25,8 +25,8 @@ public class LevelChanger : MonoBehaviour
             // Scene 1
             // Catch goal bools from other script
             [Header ("Test Scene 1 goals:")]
-            [SerializeField] public bool StonesLoaded;
             [SerializeField] public bool WoodChopped;
+            [SerializeField] public bool WoodStacked;
             [HideInInspector] public bool OpeningDoor;
 
             // Scene 2
@@ -45,7 +45,7 @@ public class LevelChanger : MonoBehaviour
         // Managing bools when loading LevelChanger object in new scenes.
         if (Scene1Active == true)
         {
-            StonesLoaded = false;
+            WoodStacked = false;
             WoodChopped = false;
             OpeningDoor = false;
             Debug.Log("Scene 1 Is Now Active!");
