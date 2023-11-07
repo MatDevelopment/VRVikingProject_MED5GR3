@@ -17,37 +17,31 @@ public class LevelChanger : MonoBehaviour
     [SerializeField] bool NewSceneTest = false;
 
     //Determine current scene
-        //Scene 1
-        [HideInInspector] public bool Scene1Active = true;
-            // Catch bools from other script
+        [Header ("Active Scene Bool:")]
+        [SerializeField] public bool Scene1Active = true;
+        [SerializeField] public bool Scene2Active = false;
+        [SerializeField] public bool Scene3Active = false;
+
+            // Scene 1
+            // Catch goal bools from other script
             [Header ("Test Scene 1 goals:")]
             [SerializeField] public bool StonesLoaded;
             [SerializeField] public bool WoodChopped;
             [HideInInspector] public bool OpeningDoor;
 
-        // Scene 2
-        [HideInInspector] public bool Scene2Active = false;
-            // Catch bools from other script
+            // Scene 2
+            // Catch goal bools from other script
             [Header ("Test Scene 2 goals:")]
             [SerializeField] public bool ItemGathered;
 
-        // Scene 3
-        [HideInInspector] public bool Scene3Active = false;
-            // Catch bools from other script
+            // Scene 3 
+            // Catch goal bools from other script
             [Header ("Test Scene 3 goals:")]
             [SerializeField] public bool StonesPlaced;
             [SerializeField] public bool TorchLit;
 
     void Awake()
     {
-        // This condition only applies when testing.
-        if (ReloadSceneTest == true || NewSceneTest == true)
-        {
-            Scene1Active = false;
-            Scene2Active = false;
-            Scene3Active = false;
-        }
-
         // Managing bools when loading LevelChanger object in new scenes.
         if (Scene1Active == true)
         {
