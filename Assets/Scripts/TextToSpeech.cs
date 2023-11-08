@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 using Amazon.Runtime.Internal;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+using Unity.VisualScripting;
 
 public class TextToSpeech : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private Animator animator;
 
     private string accessKey;
     private string secretKey;
@@ -58,6 +60,16 @@ public class TextToSpeech : MonoBehaviour
 
             audioSource.clip = clip;
             audioSource.Play();
+        }
+    }
+
+    // Checks if the audio source is playing to call the animator to transition between talking and idle
+    private void Update() {
+        if (audioSource.isPlaying) {
+            animator.SetBool("isTalking", true);
+        }
+        else {
+            animator.SetBool("isTalking", false);
         }
     }
 
