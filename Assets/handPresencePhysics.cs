@@ -53,7 +53,6 @@ public class handPresencePhysics : MonoBehaviour
         foreach (var item in handColliders)
         {
             item.enabled = false;
-            item.gameObject.layer = 10;
             isGrabbed = true;
         }
 
