@@ -3,30 +3,47 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.InputSystem;
 namespace OpenAI
 {
     public class Whisper : MonoBehaviour
     {
-        [SerializeField] private Button recordButton;
+        //[SerializeField] private Button recordButton;
         [SerializeField] private Dropdown dropdown;
         [SerializeField] private ChatTest chatTest;
         [SerializeField] private Image progress;
+        [SerializeField] private InputActionReference buttonHoldReference = null;
+        [SerializeField] private GameObject currentlyTalking;
         
         private readonly string fileName = "output.wav";
-        private readonly int duration = 5;
+        private readonly int duration = 10;
         
         private AudioClip clip;
-        private bool isRecording;
+        private bool isRecording = false;
         private float time;
         private OpenAIApi openai = new OpenAIApi();
 
+        private void Awake()
+        {
+            buttonHoldReference.action.Enable();
+            buttonHoldReference.action.started += StartRecording;
+            buttonHoldReference.action.performed += StartRecording;
+            buttonHoldReference.action.canceled += StartRecording;
+        }
+
+        private void OnDestroy()
+        {
+            buttonHoldReference.action.started -= StartRecording;
+        }
+
         private void Start()
         {
+            
             foreach (var device in Microphone.devices)
             {
                 dropdown.options.Add(new Dropdown.OptionData(device));
             }
-            recordButton.onClick.AddListener(StartRecording);
+            //recordButton.onClick.AddListener(StartRecording);
             dropdown.onValueChanged.AddListener(ChangeMicrophone);
             
             var index = PlayerPrefs.GetInt("user-mic-device-index");
@@ -38,11 +55,13 @@ namespace OpenAI
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
         
-        private async void StartRecording()
+        private async void StartRecording(InputAction.CallbackContext context)
         {
-            if (isRecording)
-            {                
+            if (context.canceled)
+            {          
+                time = 0;
                 isRecording = false;
+                progress.fillAmount = 1;
                 Debug.Log("Stop recording...");
                     
                 Microphone.End(null);
@@ -59,7 +78,7 @@ namespace OpenAI
 
                 chatTest.SendReply(res.Text);
             }
-            else
+            if(context.performed)
             {
                 Debug.Log("Start recording...");
                 isRecording = true;
@@ -81,7 +100,6 @@ namespace OpenAI
             {
                 time = 0;
                 progress.fillAmount = 0;
-                StartRecording();
             }
         }
     }
