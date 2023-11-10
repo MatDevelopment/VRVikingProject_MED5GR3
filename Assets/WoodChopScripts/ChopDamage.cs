@@ -19,18 +19,18 @@ private void Awake()
 void Update()
 {
     if (healthSystem.health == 0)
-    {
-        Transform LogBrokenTransform = Instantiate(pfLogBroken, transform.position, transform.rotation); 
-        foreach (Transform child in LogBrokenTransform)
-            {
-                if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
+        {
+            Transform LogBrokenTransform = Instantiate(pfLogBroken, transform.position, transform.rotation); 
+            foreach (Transform child in LogBrokenTransform)
                 {
-                    childRigidbody.AddExplosionForce(100f, lastDamagePosition, 5f);
+                    if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
+                    {
+                        childRigidbody.AddExplosionForce(100f, lastDamagePosition, 5f);
+                    }
                 }
-            }
 
-        Destroy(gameObject);
-    }
+            Destroy(gameObject);
+        }
 }
 
 public void Damage(int damageAmount, Vector3 damagePosition)
