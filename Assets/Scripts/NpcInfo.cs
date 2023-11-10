@@ -4,21 +4,24 @@ using UnityEngine;
 
 public enum Occupation
 {
-    Electrician,
-    Taxi_Driver,
-    Software_Engineer,
-    Drug_Dealer,
-    Hardware_Hacker,
-    Fisherman
+    Fisherman,
+    Farmer,
+    Mom,
+    Ninth_Century_Wares_Trader,
+    Livestock_Trader,
+    Slave,
+    Norse_Mythology_Preacher
+    
 }
 
 public enum Talent
 {
     Painting,
     Dancing,
-    Magic,
-    Brain_Control,
-    Fishing
+    Fishing,
+    Hunting,
+    Fighting,
+    Cooking
 }
 
 public enum Personality
@@ -27,7 +30,13 @@ public enum Personality
     Social,
     Political,
     Opportunist,
-    Artistic
+    Artistic,
+    Kind,
+    Altruistic,
+    Naive,
+    Smart,
+    Funny,
+    Confident
 }
 
 public class NpcInfo : MonoBehaviour
