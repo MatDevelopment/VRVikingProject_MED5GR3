@@ -29,20 +29,26 @@ public class AxeDamage : MonoBehaviour
 
         if (Physics.Raycast(rayPoistion.position, rayPoistion.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
+            if (hit.distance < 0.05f)
+            {
+                if (hit.collider.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
+                {
+                    damageable.Damage(50, hit.point);
+                }
+            }
+            else
+            {
+                Debug.Log($"{hit.distance}");
+            }
+
             Debug.DrawRay(rayPoistion.position, rayPoistion.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            //Debug.Log("Did Hit");
         }
 
          else
         {
             Debug.DrawRay(rayPoistion.position, rayPoistion.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
-        }
-
-        
-        if (hit.collider.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
-        {
-            damageable.Damage(50, hit.point);
+            //Debug.Log("Did not Hit");
         }
         
     }
