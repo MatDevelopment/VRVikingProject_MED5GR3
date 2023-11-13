@@ -10,9 +10,13 @@ public class ChopDamage : MonoBehaviour, IDamageable
 [SerializeField] private Transform pfLogBroken;
 private HealthSystem healthSystem;
 private Vector3 lastDamagePosition;
+public int ChoppedWood = 0;
+public LevelChanger levelChanger;
 private void Awake()
 {
     healthSystem = new HealthSystem(100);
+
+    levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
 }
 
 // Using update instead of event system used in video
@@ -28,9 +32,13 @@ void Update()
                         childRigidbody.AddExplosionForce(100f, lastDamagePosition, 5f);
                     }
                 }
-
             Destroy(gameObject);
         }
+
+    if(ChoppedWood == 3)
+    {
+        levelChanger.WoodChopped = true;
+    }
 }
 
 public void Damage(int damageAmount, Vector3 damagePosition)
@@ -38,4 +46,10 @@ public void Damage(int damageAmount, Vector3 damagePosition)
     lastDamagePosition = damagePosition;
     healthSystem.Damage(damageAmount);
 }
+
+public void IsChopped()
+{
+    ChoppedWood += 1;
+}
+
 }

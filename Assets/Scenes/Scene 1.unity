@@ -6365,44 +6365,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
---- !u!84 &115818370
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &115952734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18033,7 +17995,7 @@ Transform:
   m_GameObject: {fileID: 402337959}
   serializedVersion: 2
   m_LocalRotation: {x: -0.056425095, y: 0.49952728, z: -0.8636438, w: 0.037523717}
-  m_LocalPosition: {x: 4.255, y: 6.24, z: -28.899}
+  m_LocalPosition: {x: 4.705, y: 6.659, z: -28.084}
   m_LocalScale: {x: 0.0088599995, y: 0.0088599995, z: 0.0088599995}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46647,6 +46609,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1545865808}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1031870258
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &1031939384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68037,6 +68037,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 60848394}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1539330099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7237052298687091145, guid: 3009fb9bbb78fda47856947cb518f6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 925397565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a32ad27080940840b1869639b7b8aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1539584917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71760,9 +71772,69 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1539330099}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1853782209}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 851735979292730159}
+        m_TargetAssemblyTypeName: ChopDamage, Assembly-CSharp
+        m_MethodName: IsChopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1539330099}
+        m_TargetAssemblyTypeName: ChopDamage, Assembly-CSharp
+        m_MethodName: IsChopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1853782209}
+        m_TargetAssemblyTypeName: ChopDamage, Assembly-CSharp
+        m_MethodName: IsChopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_OnHoverEntered:
@@ -79234,6 +79306,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
+--- !u!114 &1853782209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7237052298687091145, guid: 3009fb9bbb78fda47856947cb518f6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1919063888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a32ad27080940840b1869639b7b8aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1853958856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82126,17 +82210,17 @@ PrefabInstance:
     - target: {fileID: 3231280115820513573, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.299
+      value: 0.338
       objectReference: {fileID: 0}
     - target: {fileID: 3231280115820513573, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.081
+      value: 0.295
       objectReference: {fileID: 0}
     - target: {fileID: 3231280115820513573, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.475
+      value: 0.846
       objectReference: {fileID: 0}
     - target: {fileID: 3231280115820513573, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
