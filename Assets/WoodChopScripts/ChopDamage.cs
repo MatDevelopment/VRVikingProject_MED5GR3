@@ -35,7 +35,7 @@ void Update()
             Destroy(gameObject);
         }
 
-    if(ChoppedWood > 1)
+    if(ChoppedWood > 0)
     {
         levelChanger.WoodChopped = true;
     }
