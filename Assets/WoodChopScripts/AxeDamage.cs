@@ -36,10 +36,10 @@ public class AxeDamage : MonoBehaviour
                     damageable.Damage(50, hit.point);
                 }
             }
-            else
+            /*else
             {
                 Debug.Log($"{hit.distance}");
-            }
+            }*/
 
             Debug.DrawRay(rayPoistion.position, rayPoistion.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             //Debug.Log("Did Hit");
