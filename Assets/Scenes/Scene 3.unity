@@ -49051,6 +49051,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
   - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
   pickedSoundToPlay: 0
+  chatTestScript: {fileID: 1913314628}
+  worldInfoScript: {fileID: 529175938}
+  npcInfoScript: {fileID: 1858730574}
+  gazeManagerScript: {fileID: 1361758799}
 --- !u!4 &1031194939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 3b10ef2caf2292d4e99442a9682de863,
@@ -53153,6 +53157,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
+--- !u!84 &1108662692
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &1110034306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58188,7 +58230,6 @@ MonoBehaviour:
   progress: {fileID: 479291662}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  currentlyTalking: {fileID: 0}
 --- !u!4 &1221211526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b375698b498496640b77976be04ec05e,
@@ -61099,44 +61140,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 657574860}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1289820890
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &1290710678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78095,6 +78098,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 595791153}
+    - targetCorrespondingSourceObject: {fileID: 9008320322171692451, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858730573}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3759164284923407830, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
         type: 3}
@@ -85059,6 +85066,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1107628803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1858730572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858730573}
+  - component: {fileID: 1858730574}
+  m_Layer: 0
+  m_Name: NPC info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1858730573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858730572}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20182467, y: 0.2692318, z: -3.8650417}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1675755199}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1858730574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858730572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c32ac153d6c2a42bbe6456f1d6ac0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Erik
+  npcOccupation: 5
+  npcTalents: 4
+  npcPersonality: 1
 --- !u!4 &1860406631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -87702,8 +87757,10 @@ MonoBehaviour:
   scroll: {fileID: 1747479148}
   sent: {fileID: 8660877164928630359, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
   received: {fileID: 961534450149497043, guid: adc0146c2853ed1418133faaf4379eb1, type: 3}
+  nameOfCurrentNPC: Erik
   npcInfo: {fileID: 1533369148}
   worldInfo: {fileID: 529175938}
+  gazeManager: {fileID: 1361758799}
   textToSpeech: {fileID: 963082272}
   OnReplyReceived:
     m_PersistentCalls:

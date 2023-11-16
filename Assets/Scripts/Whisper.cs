@@ -13,7 +13,6 @@ namespace OpenAI
         [SerializeField] private ChatTest chatTest;
         [SerializeField] private Image progress;
         [SerializeField] private InputActionReference buttonHoldReference = null;
-        [SerializeField] private GameObject currentlyTalking;
         
         private readonly string fileName = "output.wav";
         private readonly int duration = 10;

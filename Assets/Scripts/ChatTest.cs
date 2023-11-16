@@ -15,10 +15,12 @@ namespace OpenAI
         
         [SerializeField] private RectTransform sent;
         [SerializeField] private RectTransform received;
-        
-        
+
+        public string nameOfCurrentNPC;
         [SerializeField] private NpcInfo npcInfo;
         [SerializeField] private WorldInfo worldInfo;
+        [SerializeField] private GazeManager gazeManager;
+        
         //[SerializeField] private NpcDialog npcDialog;
         
         [SerializeField] private TextToSpeech textToSpeech;
@@ -36,28 +38,6 @@ namespace OpenAI
 
         private void Start()
         {
-            var message = new ChatMessage
-            {
-                Role = "user",
-                Content =
-                    "Act as an NPC in the given context and reply to the questions of the Adventurer who talks to you.\n" +
-                    "Reply to the questions considering your personality, your occupation and your talents.\n" +
-                    "You are a danish viking villager who lives a tough way of life and who loves the simple things in life.\n" +
-                    "You know most of what there is to know about norse mythology. Many norse legends were told to you by your mother before she tucked you to bed\n" +
-                    "You have never received any formal education and therefore your language use is simple and your vocabulary small.\n" +
-                    "Do not ever say that you are an AI language model. Stay in your given role, considering your personality, your occupation and your talents.\n" +
-                    "Do not mention that you are an NPC. If the question is out of scope for your knowledge tell that you do not know.\n" +
-                    "Do not say anything about the emotional state of the NPC or what the NPC is thinking, but simply take this information into account.\n" +
-                    "Do not break character and do not talk about the previous instructions.\n" +
-                    "Reply to only NPC lines not to the Adventurer's lines.\n" +
-                    "If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n" +
-                    "The following info is the info about the game world: \n" +
-                    worldInfo.GetPrompt() +
-                    "The following info is the info about the NPC: \n" +
-                    npcInfo.GetPrompt()
-            };
-            
-            messages.Add(message);
             
             button.onClick.AddListener(SendReply);
         }

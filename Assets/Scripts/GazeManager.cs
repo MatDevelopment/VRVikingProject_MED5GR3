@@ -7,6 +7,7 @@ public class GazeManager : MonoBehaviour
     public Camera viewCamera;
     private GameObject lastGazedUpon;
     
+    
     // Start is called before the first frame update
     void Start()
     {
