@@ -15,7 +15,7 @@ public class GatherWood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GatheredWood == 6)
+        if (GatheredWood >= 2)
         {
             levelChanger.WoodStacked = true;
         }
