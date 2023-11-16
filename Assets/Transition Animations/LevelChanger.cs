@@ -53,6 +53,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene2Active == true)
         {
+            OpeningDoor = false;
             ItemGathered = false;
             Debug.Log("Scene 2 Is Now Active!");
         }
@@ -85,7 +86,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene2Active == true)
         {
-            if(ItemGathered == true)
+            if (OpeningDoor == true)
             {
                 FadeToNextLevel();
                 Scene3Active = true;

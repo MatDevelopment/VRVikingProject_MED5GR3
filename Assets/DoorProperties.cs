@@ -19,9 +19,21 @@ public class DoorProperties : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (levelChanger.WoodStacked == true && levelChanger.WoodChopped == true)
+        if (levelChanger.Scene1Active == true)
         {
-            levelChanger.OpeningDoor = true;
+            if (levelChanger.WoodStacked == true && levelChanger.WoodChopped == true)
+            {
+                levelChanger.OpeningDoor = true;
+            }
         }
+
+        if (levelChanger.Scene2Active == true)
+        {
+            if (levelChanger.ItemGathered == true)
+            {
+                levelChanger.OpeningDoor = true;
+            }
+        }
+        
     }
 }
