@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2995180895722810287}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AttachPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2188670424396749146}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ChoppedWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.674, y: 6.11, z: -29.743}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5392922253771975935}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2945965123204067824}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AttachPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,6 +107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChoppedLog1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101700291188762256, guid: 246c5753d768c8645b3a62712070d911,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 101700291188762256, guid: 246c5753d768c8645b3a62712070d911,
         type: 3}
@@ -463,6 +468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChoppedLog2
+      objectReference: {fileID: 0}
+    - target: {fileID: 711818611541271991, guid: e3b5be001bdd79f40b4fe099a93d4dee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 711818611541271991, guid: e3b5be001bdd79f40b4fe099a93d4dee,
         type: 3}
