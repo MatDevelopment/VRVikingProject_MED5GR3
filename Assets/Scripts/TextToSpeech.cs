@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Amazon;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using Amazon.Polly;
 using Amazon.Runtime;
@@ -9,36 +12,48 @@ using Amazon.Runtime.Internal;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using Unity.VisualScripting;
+using UnityEngine.Serialization;
+using static Amazon.Polly.Model.Internal.MarshallTransformations.DescribeVoicesRequestMarshaller;
 
 public class TextToSpeech : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private Animator animator;
-
     private string accessKey;
     private string secretKey;
 
+    [FormerlySerializedAs("voiceIDActor")] [SerializeField] private List<TextToSpeech> voiceIDActorsList;
+    public string voiceID_name;
+    //public List<string> VoiceId { get; }
+
     private void Awake()
     {
+        //List<TextToSpeech> voiceIDActorsList1 = new List<TextToSpeech>(VoiceId.FindValue(voiceID_name));
+        //voiceIDActorsList = VoiceId;
         ReadString();
+        //Predicate<Person> oscarFinder = (Person p) => { return p.Name == "Oscar"; };
     }
 
-        public async void MakeAudioRequest(string message)
+    public async void MakeAudioRequest(string message)
     {
         var credentials = new BasicAWSCredentials(accessKey, secretKey);
         var client = new AmazonPollyClient(credentials, RegionEndpoint.EUCentral1);
 
-        var request = new SynthesizeSpeechRequest()
+        if (voiceIDActorsList != null)
         {
-            Text = message,
-            Engine = Engine.Neural,
-            VoiceId = VoiceId.Stephen,
-            OutputFormat = OutputFormat.Mp3
-        };
+            var request = new SynthesizeSpeechRequest()
+            {
+                Text = message,
+                Engine = Engine.Neural,
+                VoiceId = VoiceId.FindValue(voiceID_name),
+                //VoiceId = voiceIDActorsList.Find(voiceIDActorsList.Contains(voiceID_name)),
+                OutputFormat = OutputFormat.Mp3
+            };
 
-        var response = await client.SynthesizeSpeechAsync(request);
+            var response = await client.SynthesizeSpeechAsync(request);
 
-        WriteIntoFile(response.AudioStream);
+            WriteIntoFile(response.AudioStream);
+        }
 
         string audioPath;
         
@@ -98,4 +113,5 @@ public class TextToSpeech : MonoBehaviour
         if(secretKey == null) secretKey = "";
         reader.Close();
     }
+
 }

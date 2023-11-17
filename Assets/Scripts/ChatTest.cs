@@ -16,6 +16,7 @@ namespace OpenAI
         [SerializeField] private RectTransform sent;
         [SerializeField] private RectTransform received;
 
+        public string nameOfPreviousNPC;
         public string nameOfCurrentNPC;
         [SerializeField] private NpcInfo npcInfo;
         [SerializeField] private WorldInfo worldInfo;
@@ -38,7 +39,7 @@ namespace OpenAI
 
         private void Start()
         {
-            
+            nameOfPreviousNPC = nameOfCurrentNPC;
             button.onClick.AddListener(SendReply);
         }
         
@@ -149,7 +150,7 @@ namespace OpenAI
         private void EndConvo()
         {
             //npcDialog.Recover();
-            messages.Clear();
+            //messages.Clear();
         }
     }
 }
