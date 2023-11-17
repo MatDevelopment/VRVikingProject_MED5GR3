@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -11,44 +12,46 @@ public class DialogueTrigger : MonoBehaviour
     
     public Dialogue dialogue;
 
-    public Queue<string> questions;
+    private List<string> questions;
+    private List<Sound> answers;
+
+    public AudioSource audioSource;
+
+    private int currentIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        questions = new Queue<string>();
+        questions = new List<string>();
+        answers = new List<Sound>();
 
-        questions.Clear();
-
-        foreach (string question in dialogue.questions)
+        foreach (string question in dialogue.questions) // Adds all questions into a list of strings
         {
-            questions.Enqueue(question);
+            questions.Add(question);
         }
 
-        DisplayNextQuestion();
+        foreach (Sound sound in dialogue.answerAudio) // Adds all soundclips to a list of sounds
+        {
+            answers.Add(sound);
+        }
+
+        string currentQuestion = questions[currentIndex]; // Sets current question to index
+        buttonText.text = currentQuestion; // Sets new question as the visible text
     }
 
     // Function called when clicking the button to display the next question in the queue
     public void DisplayNextQuestion()
     {
-        if (questions.Count == 0) {
-            ResetQueue(dialogue);
-            return;
+        audioSource.clip = answers[currentIndex].clip;
+        audioSource.Play(); // Plays the corresponding sound
+
+        currentIndex += 1; // Changes to next question index
+        
+        if (currentIndex >= questions.Count) {
+            currentIndex = 0; // Resets the index if it goes over the total amount of questions
         }
 
-        string question = questions.Dequeue(); // Removes the first question in the queue
+        string question = questions[currentIndex]; // Sets current question to current index
         buttonText.text = question; // Sets new question as the visible text
-    }
-
-    void ResetQueue(Dialogue dialogue)
-    {
-        questions.Clear();
-
-        foreach (string question in dialogue.questions)
-        {
-            questions.Enqueue(question);
-        }
-
-        DisplayNextQuestion();
     }
 }
