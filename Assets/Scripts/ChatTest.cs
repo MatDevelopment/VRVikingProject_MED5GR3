@@ -29,7 +29,7 @@ namespace OpenAI
         public UnityEvent OnReplyReceived;
         
         private string response;        //This string is what ChatGPT answers after a request
-        private bool isDone = true;
+        public bool isDone = true;
         private RectTransform messageRect;
 
         private float height;

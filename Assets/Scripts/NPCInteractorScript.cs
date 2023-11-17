@@ -29,9 +29,23 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     [SerializeField] private NpcInfo npcInfoScript;
     [SerializeField] private TextToSpeech textToSpeechScript;
     [SerializeField] private GazeManager gazeManagerScript;
+    [SerializeField] private LevelChanger levelChangerScript;
     
     private string nameOfThisNPC;
     [SerializeField] string voiceIDNameThisNpc;
+    [TextArea(3,20)]
+    [SerializeField] string itemDescription_Horn;
+    [TextArea(3,20)]
+    [SerializeField] string itemDescription_Brooch;
+    [TextArea(3,20)]
+    [SerializeField] string itemDescription_Blanket;
+    [TextArea(3,20)]
+    [SerializeField] string itemDescription_Knife;
+    [TextArea(3,20)]
+    [SerializeField] string itemDescription_ThorsHammer;
+
+    private bool ItemGathered_Horn = false;
+    
     private List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
     
     
@@ -88,7 +102,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
             {
                 gazeTime += Time.deltaTime; //Count up when the user looks at the NPC 
             }
-            if (gazeTime >= gazeTimeActivate)
+            if (gazeTime >= gazeTimeActivate && chatTestScript.isDone == true)      //JUST ADDED chatTestScript after NPC switching focus NOT WORKING
             {
                 
                 
@@ -135,13 +149,14 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
             }
 
             if (notGazingTime >= notGazingTimeActivate)        //If you haven't looked at this NPC for the set duration, while
-                                                                                                            //and the ChatLog stored on this NPC does not contain the same chat logs as what is stored in the ChatTest.cs script...
             {
                 //UpdateChatLog();                                                   //then we update the chat log stored on this NPC, before we switch to another NPC.
             }
             
             
         }
+
+        
 
         
         
@@ -179,6 +194,42 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
         NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];
         
         NPCaudioSource.Play();
+    }
+
+    
+    //Method that gets called on Select of XR Grab , aka the personal belongings of the deceased that the player are able to bring to the burial
+    public void AppendItemDescriptionToPrompt(string nameOfItem)    //Add a time.DeltaTime that makes sure that there are atleast 30 seconds between item checks
+    {
+        if (levelChangerScript.Scene2Active == true)
+        {
+            if (nameOfItem == "Horn" && ItemGathered_Horn == false && chatTestScript.isDone == true)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+            {
+                chatTestScript.SendReply(itemDescription_Horn);
+                //levelChangerScript.ItemGathered_Horn = false;
+                ItemGathered_Horn = true;       //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+            }
+            else if (nameOfItem == "Brooch")
+            {
+                chatTestScript.SendReply(itemDescription_Brooch);
+                //levelChangerScript.ItemGathered_Brooch = false;
+            }
+            else if (nameOfItem == "Blanket")
+            {
+                chatTestScript.SendReply(itemDescription_Blanket);
+                //levelChangerScript.ItemGathered_Blanket = false;
+            }
+            else if (nameOfItem == "Knife")
+            {
+                chatTestScript.SendReply(itemDescription_Knife);
+                //levelChangerScript.ItemGathered_Knife = false;
+            }
+            else if (nameOfItem == "ThorsHammer")
+            {
+                chatTestScript.SendReply(itemDescription_ThorsHammer);
+                //levelChangerScript.ItemGathered_ThorsHammer = false;
+            }
+            
+        }
     }
 
     public void UpdateChatLog()
