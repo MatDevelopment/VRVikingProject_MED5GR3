@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 public class DialogueTrigger : MonoBehaviour
 {
 
     public TextMeshProUGUI buttonText;
-    
+
+    [SerializeField] private InputActionReference buttonPressReference = null;
+    public bool isHovered = false;
+
     public Dialogue dialogue;
 
     private List<string> questions;
@@ -26,6 +30,9 @@ public class DialogueTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        buttonPressReference.action.Enable();
+        buttonPressReference.action.performed += SelectQuestion;
+
         questions = new List<string>();
         answers = new List<Sound>();
 
@@ -64,6 +71,24 @@ public class DialogueTrigger : MonoBehaviour
         buttonText.text = question; // Sets new question as the visible text
 
 
+    }
+
+    public void SelectQuestion(InputAction.CallbackContext context)
+    {
+        if (isHovered && context.performed)
+        {
+            DisplayNextQuestion();
+        }
+    }
+
+    public void hoverEnter()
+    {
+        isHovered = true;
+    }
+
+    public void hoverExit()
+    {
+        isHovered= false;
     }
 
     private void Update()
