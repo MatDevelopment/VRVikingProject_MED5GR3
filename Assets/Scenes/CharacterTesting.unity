@@ -2105,6 +2105,7 @@ MonoBehaviour:
   animator: {fileID: 6499542538159226317}
   voiceIDActorsList: []
   voiceID_name: 
+  isGenereatingSpeech: 0
 --- !u!82 &214356140
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9806,7 +9807,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 462706811}
   m_Direction: 2
   m_Value: -0.0000025939942
-  m_Size: 0.66653216
+  m_Size: 0.6666616
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10821,6 +10822,7 @@ GameObject:
   - component: {fileID: 1871761044}
   - component: {fileID: 1871761043}
   - component: {fileID: 1871761042}
+  - component: {fileID: 1871761047}
   m_Layer: 5
   m_Name: ScriptedUI Canvas
   m_TagString: Untagged
@@ -10836,7 +10838,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871761040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.122}
+  m_LocalPosition: {x: 0, y: 0, z: -0.169}
   m_LocalScale: {x: 0.00076135003, y: 0.00076135003, z: 0.00076135003}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10945,6 +10947,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1871761047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871761040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3fc596b78a462429a23fb2bf43b024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToFollow: {fileID: 890975342}
+  smoothTime: 0.3
 --- !u!1 &1894812682
 GameObject:
   m_ObjectHideFlags: 0
@@ -11147,7 +11163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008850182, y: 100.000145}
+  m_AnchoredPosition: {x: -0.00008850182, y: 99.99962}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!4 &1959630426 stripped
