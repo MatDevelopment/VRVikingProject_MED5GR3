@@ -16,6 +16,8 @@ public class DialogueTrigger : MonoBehaviour
     private List<Sound> answers;
 
     public AudioSource audioSource;
+    public Animator animator;
+    public GameObject dialogueCanvas;
 
     private int currentIndex = 0;
 
@@ -53,5 +55,19 @@ public class DialogueTrigger : MonoBehaviour
 
         string question = questions[currentIndex]; // Sets current question to current index
         buttonText.text = question; // Sets new question as the visible text
+    }
+
+    private void Update()
+    {
+        if (audioSource.isPlaying)
+        {
+            // dialogueCanvas.SetActive(false);
+            animator.SetBool("isTalking", true);
+        }
+        else
+        {
+            // dialogueCanvas.SetActive(true);
+            animator.SetBool("isTalking", false);
+        }
     }
 }
