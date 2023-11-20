@@ -12,6 +12,11 @@ private HealthSystem healthSystem;
 private Vector3 lastDamagePosition;
 public int ChoppedWood = 0;
 public LevelChanger levelChanger;
+
+public AudioSource WoodChop;
+
+public AudioSource WoodSplit;
+
 private void Awake()
 {
     healthSystem = new HealthSystem(100);
@@ -33,6 +38,7 @@ void Update()
                     }
                 }
             Destroy(gameObject);
+            WoodSplit.Play();
         }
 
     if(ChoppedWood > 0)
@@ -45,6 +51,7 @@ public void Damage(int damageAmount, Vector3 damagePosition)
 {
     lastDamagePosition = damagePosition;
     healthSystem.Damage(damageAmount);
+    WoodChop.Play();
 }
 
 public void IsChopped()
