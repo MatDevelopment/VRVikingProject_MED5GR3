@@ -39,7 +39,7 @@ namespace OpenAI
 
         private void Start()
         {
-            nameOfPreviousNPC = nameOfCurrentNPC;
+            //nameOfPreviousNPC = nameOfCurrentNPC;
             button.onClick.AddListener(SendReply);
         }
         

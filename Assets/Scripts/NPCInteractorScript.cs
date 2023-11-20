@@ -106,10 +106,18 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
                 notGazingTime = 0;      //to here...
                 gazeTime += Time.deltaTime; //Count up when the user looks at the NPC 
             }
-            if (gazeTime >= gazeTimeActivate && chatTestScript.isDone == true)      //JUST ADDED chatTestScript after NPC switching focus NOT WORKING
+            if (gazeTime >= gazeTimeActivate && chatTestScript.isDone == true && chatTestScript.nameOfCurrentNPC != nameOfThisNPC)      //JUST ADDED chatTestScript after NPC switching focus NOT WORKING
             {
-
-                if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)     //If the name of the currently selected NPC to talk to is not equal to the NPC's name that this script is attached to, then...
+                chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
+                //chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
+                textToSpeechScript.audioSource = NPCaudioSource;
+                textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
+                    
+                chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
+                gazeTime = 0;
+                gazeTimeActivate = 3;
+                
+                /*if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)     //If the name of the currently selected NPC to talk to is not equal to the NPC's name that this script is attached to, then...
                 {
                     chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
                     //chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
@@ -117,7 +125,9 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
                     textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
                     
                     chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
-                }
+                    gazeTime = 0;
+                    gazeTimeActivate = 3;
+                }*/
 
                 //if (arrayNPCsounds.Length > 0)
                 //{
@@ -125,8 +135,8 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
                     //gazeTimeActivate = NPCaudioSource.clip.length + 5;   //Time to gaze at NPC to activate another voiceline while looking at it is set to the just played dialogue plus 5 seconds, in order for it to be able to finish its sentence
                 //}
                 
-                gazeTime = 0;
-                gazeTimeActivate = 3;
+                //gazeTime = 0;         //Moved from here....... to up within the if that is before
+                //gazeTimeActivate = 3;     
             }
 
 
