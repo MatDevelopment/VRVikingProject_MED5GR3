@@ -24,6 +24,8 @@ public class TextToSpeech : MonoBehaviour
 
     [FormerlySerializedAs("voiceIDActor")] [SerializeField] private List<TextToSpeech> voiceIDActorsList;
     public string voiceID_name;
+
+    public bool isGenereatingSpeech = false;
     //public List<string> VoiceId { get; }
 
     private void Awake()
@@ -39,8 +41,9 @@ public class TextToSpeech : MonoBehaviour
         var credentials = new BasicAWSCredentials(accessKey, secretKey);
         var client = new AmazonPollyClient(credentials, RegionEndpoint.EUCentral1);
 
-        if (voiceIDActorsList != null)
+        if (voiceID_name.Length > 0)
         {
+            isGenereatingSpeech = true; //NEW
             var request = new SynthesizeSpeechRequest()
             {
                 Text = message,
@@ -74,6 +77,7 @@ public class TextToSpeech : MonoBehaviour
             var clip = DownloadHandlerAudioClip.GetContent(www);
 
             audioSource.clip = clip;
+            isGenereatingSpeech = false; //NEW
             audioSource.Play();
         }
     }

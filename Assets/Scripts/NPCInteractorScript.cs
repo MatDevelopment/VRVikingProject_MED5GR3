@@ -23,6 +23,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     private float notGazingTimeActivate = 2.5f;
     private float gazeTime;
     private float gazeTimeActivate = 3;
+    private float newNPCFocusTime = 2.8f;
     
     [SerializeField] private ChatTest chatTestScript;
     [SerializeField] private WorldInfo worldInfoScript;
@@ -47,6 +48,8 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     private bool ItemGathered_Horn = false;
     
     private List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
+    [SerializeField] private List<string> listOfOtherNpcs = new List<string>();
+    
     
     
     // Start is called before the first frame update
@@ -89,7 +92,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
 
     private void FixedUpdate()
     {
-        Debug.Log(nameOfThisNPC);
+        //Debug.Log(nameOfThisNPC);
     }
 
     // Update is called once per frame
@@ -97,23 +100,23 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     {
         if (isGazingUpon)
         {
-            notGazingTime = 0;
-            if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
+            //notGazingTime = 0;        //Moved from here...
+            if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGenereatingSpeech == false)
             {
+                notGazingTime = 0;      //to here...
                 gazeTime += Time.deltaTime; //Count up when the user looks at the NPC 
             }
             if (gazeTime >= gazeTimeActivate && chatTestScript.isDone == true)      //JUST ADDED chatTestScript after NPC switching focus NOT WORKING
             {
-                
-                
+
                 if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)     //If the name of the currently selected NPC to talk to is not equal to the NPC's name that this script is attached to, then...
                 {
                     chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
-                    chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
-                    chatTestScript.nameOfCurrentNPC = nameOfThisNPC;          //The name of the NPC currently being able to be talked to is changed to this NPC's name.
-
+                    //chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
                     textToSpeechScript.audioSource = NPCaudioSource;
                     textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
+                    
+                    chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
                 }
 
                 //if (arrayNPCsounds.Length > 0)
@@ -123,43 +126,49 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
                 //}
                 
                 gazeTime = 0;
-                gazeTimeActivate = 15;
+                gazeTimeActivate = 3;
             }
-        }
 
-        
 
-        if (isGazingUpon == false)
-        {
-            gazeTime = 0;
-            //if (NPCaudioSource.isPlaying == false)
-            //{
-            //    gazeTimeActivate = 3;
-            //}
-            //else if(arrayNPCsounds.Length > 0)
-            //{
-            //    float remainingAudioTime = (NPCaudioSource.clip.length - NPCaudioSource.time) / NPCaudioSource.pitch;
-            //    gazeTimeActivate = remainingAudioTime + 5;
-            //}
-            
-            
-            if (chatTestScript.nameOfCurrentNPC == nameOfThisNPC)
+
+            if (isGazingUpon == false)
             {
-                notGazingTime += Time.deltaTime;            //Only count the time not looking at this NPC if this NPC is the currently selected NPC to talk to.
+                //gazeTime = 0;     //Moved from here...
+                
+                //if (NPCaudioSource.isPlaying == false)
+                //{
+                //    gazeTimeActivate = 3;
+                //}
+                //else if(arrayNPCsounds.Length > 0)
+                //{
+                //    float remainingAudioTime = (NPCaudioSource.clip.length - NPCaudioSource.time) / NPCaudioSource.pitch;
+                //    gazeTimeActivate = remainingAudioTime + 5;
+                //}
+                
+                
+                if (chatTestScript.nameOfCurrentNPC == nameOfThisNPC && textToSpeechScript.isGenereatingSpeech == false)
+                {
+                    gazeTime = 0;       //To here...
+                    notGazingTime += Time.deltaTime;            //Only count the time not looking at this NPC if this NPC is the currently selected NPC to talk to.
+                }
+
+                if (notGazingTime >= newNPCFocusTime && chatTestScript.isDone == true && listOfOtherNpcs.Contains(gazeManagerScript.lastGazedUpon.transform.parent.name))        //If you haven't looked at this NPC for the set duration, while
+                {
+                    chatTestScript.messages.Clear();
+                    ChatLogWithNPC = chatTestScript.messages;
+
+                    notGazingTime = 0;
+                    //UpdateChatLog();                                                   //then we update the chat log stored on this NPC, before we switch to another NPC.
+                }
+            
+            
             }
 
-            if (notGazingTime >= notGazingTimeActivate)        //If you haven't looked at this NPC for the set duration, while
-            {
-                //UpdateChatLog();                                                   //then we update the chat log stored on this NPC, before we switch to another NPC.
-            }
-            
-            
+        
+
+        
+        
         }
-
-        
-
-        
-        
     }
     
     public void GazingUpon()
@@ -232,7 +241,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
         }
     }
 
-    public void UpdateChatLog()
+    public void UpdateChatLog()     //NOT BEING USED
     {
         if (chatTestScript.nameOfPreviousNPC == nameOfThisNPC)
         {
@@ -240,5 +249,6 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
             //chatTestScript.messages.Clear();
         }
     }
+    
     
 }

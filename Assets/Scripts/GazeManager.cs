@@ -5,7 +5,7 @@ using UnityEngine;
 public class GazeManager : MonoBehaviour
 {
     public Camera viewCamera;
-    private GameObject lastGazedUpon;
+    public GameObject lastGazedUpon;
     
     
     // Start is called before the first frame update

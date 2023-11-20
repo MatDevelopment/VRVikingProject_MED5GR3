@@ -145,9 +145,4 @@ public class LevelChanger : MonoBehaviour
 
     }
 
-    public void CheckItemGathered(bool itemPickedUp)
-    {
-        itemPickedUp = true;
-    }
-    
 }
