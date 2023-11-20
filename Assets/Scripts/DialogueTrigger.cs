@@ -17,9 +17,11 @@ public class DialogueTrigger : MonoBehaviour
 
     public AudioSource audioSource;
     public Animator animator;
-    public GameObject dialogueCanvas;
+    public CanvasGroup dialogueCanvas;
 
     private int currentIndex = 0;
+    private float fadeDuration = 2;
+    private bool faded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +46,13 @@ public class DialogueTrigger : MonoBehaviour
     // Function called when clicking the button to display the next question in the queue
     public void DisplayNextQuestion()
     {
+        StartCoroutine(FadeOut(fadeDuration));
+        dialogueCanvas.interactable = false;
+
         audioSource.clip = answers[currentIndex].clip;
+
         audioSource.Play(); // Plays the corresponding sound
+        faded = true;
 
         currentIndex += 1; // Changes to next question index
         
@@ -55,19 +62,45 @@ public class DialogueTrigger : MonoBehaviour
 
         string question = questions[currentIndex]; // Sets current question to current index
         buttonText.text = question; // Sets new question as the visible text
+
+
     }
 
     private void Update()
     {
         if (audioSource.isPlaying)
         {
-            // dialogueCanvas.SetActive(false);
             animator.SetBool("isTalking", true);
         }
         else
         {
-            // dialogueCanvas.SetActive(true);
+            if (faded == true)
+            {
+                StartCoroutine(FadeIn(fadeDuration));
+                faded = false;
+                dialogueCanvas.interactable = true;
+            }
             animator.SetBool("isTalking", false);
         }
+    }
+
+    IEnumerator FadeIn(float duration)
+    {
+        for (float f = 0; f <= duration; f += Time.deltaTime)
+        {
+            dialogueCanvas.alpha = Mathf.Lerp(0f, 1f, f / duration);
+            yield return null;
+        }
+        dialogueCanvas.alpha = 1;
+    }
+
+    IEnumerator FadeOut(float duration)
+    {
+        for (float f = 0; f <= duration; f += Time.deltaTime)
+        {
+            dialogueCanvas.alpha = Mathf.Lerp(1f, 0f, f / duration);
+            yield return null;
+        }
+        dialogueCanvas.alpha = 0;
     }
 }

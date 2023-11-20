@@ -2612,7 +2612,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761040}
+  dialogueCanvas: {fileID: 1871761042}
 --- !u!1 &367342286
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,7 +6786,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761040}
+  dialogueCanvas: {fileID: 1871761042}
 --- !u!1 &1095182895
 GameObject:
   m_ObjectHideFlags: 0
@@ -9197,7 +9197,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761040}
+  dialogueCanvas: {fileID: 1871761042}
 --- !u!82 &1497928038
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9806,7 +9806,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 462706811}
   m_Direction: 2
   m_Value: -0.0000025939942
-  m_Size: 0.6666074
+  m_Size: 0.66653216
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11147,7 +11147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008850182, y: 99.99999}
+  m_AnchoredPosition: {x: -0.00008850182, y: 100.000145}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!4 &1959630426 stripped
