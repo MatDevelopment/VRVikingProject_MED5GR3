@@ -83,12 +83,19 @@ public class NPCInteractorScript : MonoBehaviour
         //NPCaudioSource = NPCgameObject.GetComponent<AudioSource>();         //Gets the AudioSource component of the NPCgameObject put into the SerializeField in the inspector;
         arrayMax = arrayNPCsounds.Length;     //The length of the helpful NPC sounds array
         pickedSoundToPlay = Random.Range(0, arrayMax); // Grab a random sound out of the max number of sounds
-        //if (arrayNPCsounds.Length != 0)
-        //{
-            //NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];    //Sets the clip on the NPCaudioSource to be the randomly picked helpful dialogue sound
-        //}
+                                                       //if (arrayNPCsounds.Length != 0)
+                                                       //{
+                                                       //NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];    //Sets the clip on the NPCaudioSource to be the randomly picked helpful dialogue sound
+                                                       //}
 
-        nameOfThisNPC = transform.parent.name;
+        if (transform.parent != null)
+        {
+            nameOfThisNPC = transform.parent.name;
+        }
+        else
+        {
+            nameOfThisNPC = transform.name;
+        }
     }
 
     private void FixedUpdate()
