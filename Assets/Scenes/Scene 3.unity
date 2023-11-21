@@ -6805,6 +6805,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
+      propertyPath: AllowLogging
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
+        type: 3}
       propertyPath: levelChanger
       value: 
       objectReference: {fileID: 6249274243375570434}
@@ -8167,6 +8172,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1105199788}
     m_Modifications:
+    - target: {fileID: 2414352597958236491, guid: b3eb21b64da2ebd419990c1720e1c95b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Frida
+      objectReference: {fileID: 0}
     - target: {fileID: 2441415885778809719, guid: b3eb21b64da2ebd419990c1720e1c95b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8217,9 +8227,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3517454639049350334, guid: b3eb21b64da2ebd419990c1720e1c95b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Frida
+      objectReference: {fileID: 0}
     - target: {fileID: 7827533713501950922, guid: b3eb21b64da2ebd419990c1720e1c95b,
         type: 3}
       propertyPath: m_Name
+      value: Frida
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827533713501950922, guid: b3eb21b64da2ebd419990c1720e1c95b,
+        type: 3}
+      propertyPath: m_TagString
       value: Frida
       objectReference: {fileID: 0}
     - target: {fileID: 8610688841006489863, guid: b3eb21b64da2ebd419990c1720e1c95b,
@@ -8255,6 +8275,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1402550086}
+    - targetCorrespondingSourceObject: {fileID: 7827533713501950922, guid: b3eb21b64da2ebd419990c1720e1c95b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1402550089}
   m_SourcePrefab: {fileID: 100100000, guid: b3eb21b64da2ebd419990c1720e1c95b, type: 3}
 --- !u!4 &139088325 stripped
 Transform:
@@ -13572,6 +13596,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3833653527b8b40b9e8291c35193fd, type: 3}
+--- !u!84 &247793958
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!4 &248574789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b375698b498496640b77976be04ec05e,
@@ -17458,7 +17520,7 @@ GameObject:
   - component: {fileID: 332653418}
   m_Layer: 0
   m_Name: GazeCollider
-  m_TagString: Untagged
+  m_TagString: Frida
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29701,7 +29763,7 @@ GameObject:
   - component: {fileID: 595791154}
   m_Layer: 0
   m_Name: ChatController
-  m_TagString: Untagged
+  m_TagString: Erik
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52858,7 +52920,7 @@ GameObject:
   - component: {fileID: 1030126954}
   m_Layer: 0
   m_Name: GazeCollider
-  m_TagString: Untagged
+  m_TagString: Erik
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72065,6 +72127,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcAnimator: {fileID: 1402550085}
   lookTarget: {fileID: 58179240}
+--- !u!54 &1402550089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402550083}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1402987151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -75935,7 +76024,7 @@ GameObject:
   - component: {fileID: 1491957886}
   m_Layer: 0
   m_Name: NPC info
-  m_TagString: Untagged
+  m_TagString: Arne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80353,7 +80442,7 @@ GameObject:
   - component: {fileID: 1576688574}
   m_Layer: 0
   m_Name: ChatController
-  m_TagString: Untagged
+  m_TagString: Frida
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84943,6 +85032,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1686754563}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1675755200
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675755193}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1675907963
 GameObject:
   m_ObjectHideFlags: 0
@@ -85591,9 +85707,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1105199788}
     m_Modifications:
+    - target: {fileID: 910113801581932039, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Erik
+      objectReference: {fileID: 0}
     - target: {fileID: 3759164284923407830, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
         type: 3}
       propertyPath: m_Name
+      value: Erik
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759164284923407830, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
+        type: 3}
+      propertyPath: m_TagString
       value: Erik
       objectReference: {fileID: 0}
     - target: {fileID: 3809774395598048688, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
@@ -85625,6 +85751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[5]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040932067798743593, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Erik
       objectReference: {fileID: 0}
     - target: {fileID: 9008320322171692451, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
         type: 3}
@@ -85704,6 +85835,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1675755194}
+    - targetCorrespondingSourceObject: {fileID: 3759164284923407830, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1675755200}
   m_SourcePrefab: {fileID: 100100000, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e, type: 3}
 --- !u!1 &1687393033
 GameObject:
@@ -88055,7 +88190,7 @@ GameObject:
   - component: {fileID: 1745579525}
   m_Layer: 0
   m_Name: GazeCollider
-  m_TagString: Untagged
+  m_TagString: Arne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93896,7 +94031,7 @@ GameObject:
   - component: {fileID: 1858730574}
   m_Layer: 0
   m_Name: NPC info
-  m_TagString: Untagged
+  m_TagString: Erik
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93956,7 +94091,7 @@ GameObject:
   - component: {fileID: 1860694150}
   m_Layer: 0
   m_Name: NPC info
-  m_TagString: Untagged
+  m_TagString: Frida
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105162,7 +105297,7 @@ GameObject:
   - component: {fileID: 2080791589}
   m_Layer: 0
   m_Name: ChatController
-  m_TagString: Untagged
+  m_TagString: Arne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105635,44 +105770,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
---- !u!84 &2087359241
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!4 &2087617854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 04e0ab4312f682f439b88c86a65672e0,
@@ -107689,6 +107786,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arne
       objectReference: {fileID: 0}
+    - target: {fileID: 2754535414737246279, guid: 2a5edd699a8466b45ab549e8f35371e4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arne
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180638544627051245, guid: 2a5edd699a8466b45ab549e8f35371e4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arne
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934859088015615816, guid: 2a5edd699a8466b45ab549e8f35371e4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arne
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -107717,6 +107829,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2138685033}
+    - targetCorrespondingSourceObject: {fileID: 2754535414737246279, guid: 2a5edd699a8466b45ab549e8f35371e4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138685036}
   m_SourcePrefab: {fileID: 100100000, guid: 2a5edd699a8466b45ab549e8f35371e4, type: 3}
 --- !u!4 &2138685030 stripped
 Transform:
@@ -107770,6 +107886,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcAnimator: {fileID: 2138685032}
   lookTarget: {fileID: 58179240}
+--- !u!54 &2138685036
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106866457}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &2140145663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
