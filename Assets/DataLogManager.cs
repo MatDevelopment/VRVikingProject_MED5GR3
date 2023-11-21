@@ -8,6 +8,9 @@ using System.IO;
 
 public class DataLogManager : MonoBehaviour
 {
+    [Header ("Start Logging")]
+    public bool AllowLogging = true;
+
     [Header ("Find Objects")]
     public LevelChanger levelChanger;
     public ProximityCounter proximityCounter;
@@ -131,8 +134,15 @@ public class DataLogManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        LogUpdate();
-        sw.Close();
+        if (AllowLogging == true)
+        {
+            LogUpdate();
+            sw.Close();
+        }
+        else
+        {
+            Debug.Log("Logging Not Allowed!");
+        }
     }
 
     private void CreateLogText()
