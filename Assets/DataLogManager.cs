@@ -99,8 +99,17 @@ public class DataLogManager : MonoBehaviour
     void Start()
     {
         dataLogManager = gameObject.AddComponent<DataLogManager>();
-        // Creating a new Streamwriter object with desired path
-        sw = new StreamWriter(path);
+
+        if (AllowLogging == true)
+        {
+            // Creating a new Streamwriter object with desired path
+            sw = new StreamWriter(path);
+        }
+        else
+        {
+            Debug.Log("Tesing Not Allowed!");
+        }
+        
     }
 
     // Update is called once per frame
