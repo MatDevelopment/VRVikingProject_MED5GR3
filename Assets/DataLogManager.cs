@@ -9,7 +9,7 @@ using System.IO;
 public class DataLogManager : MonoBehaviour
 {
     [Header ("Start Logging")]
-    public bool AllowLogging = true;
+    public bool AllowLogging = false;
 
     [Header ("Find Objects")]
     public LevelChanger levelChanger;
@@ -92,7 +92,15 @@ public class DataLogManager : MonoBehaviour
             }
         }
 
-        CreateLogText();
+        if (AllowLogging == true)
+        {
+            CreateLogText();
+        }
+        else
+        {
+            Debug.Log("Logging Not Allowed!");
+        }
+        
     }
 
     // Start is called before the first frame update
@@ -104,12 +112,7 @@ public class DataLogManager : MonoBehaviour
         {
             // Creating a new Streamwriter object with desired path
             sw = new StreamWriter(path);
-        }
-        else
-        {
-            Debug.Log("Tesing Not Allowed!");
-        }
-        
+        }     
     }
 
     // Update is called once per frame
@@ -147,10 +150,6 @@ public class DataLogManager : MonoBehaviour
         {
             LogUpdate();
             sw.Close();
-        }
-        else
-        {
-            Debug.Log("Logging Not Allowed!");
         }
     }
 
