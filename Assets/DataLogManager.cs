@@ -134,14 +134,14 @@ public class DataLogManager : MonoBehaviour
         HaroldIntimateTime = proximityCounter.HaroldTimeInIntimate;
 
         //Ingrid
-        IngridSocialTime += proximityCounter.IngridTimeInSocial;
-        IngridPersonalTime += proximityCounter.IngridTimeInPersonal;
-        IngridIntimateTime += proximityCounter.IngridTimeInIntimate;
+        IngridSocialTime = proximityCounter.IngridTimeInSocial;
+        IngridPersonalTime = proximityCounter.IngridTimeInPersonal;
+        IngridIntimateTime = proximityCounter.IngridTimeInIntimate;
 
         //Arne
-        ArneSocialTime += proximityCounter.ArneTimeInSocial;
-        ArnePersonalTime += proximityCounter.ArneTimeInPersonal;
-        ArneIntimateTime += proximityCounter.ArneTimeInIntimate;
+        ArneSocialTime = proximityCounter.ArneTimeInSocial;
+        ArnePersonalTime = proximityCounter.ArneTimeInPersonal;
+        ArneIntimateTime = proximityCounter.ArneTimeInIntimate;
     }
 
     void OnApplicationQuit()
