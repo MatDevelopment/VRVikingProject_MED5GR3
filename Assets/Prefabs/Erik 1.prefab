@@ -1391,6 +1391,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6403507911193223170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3255073047484609251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2650792528407075754}
+  - component: {fileID: 6568728012833402239}
+  m_Layer: 0
+  m_Name: NPC info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2650792528407075754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255073047484609251}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20182467, y: 0.2692318, z: -3.8650417}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1071978089682434192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6568728012833402239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255073047484609251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c32ac153d6c2a42bbe6456f1d6ac0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Erik
+  npcOccupation: 0
+  npcTalents: 2
+  npcPersonality: 1
 --- !u!1 &3266736693142087678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,10 +2013,34 @@ MonoBehaviour:
       m_Calls: []
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3219332940534413504}
+        m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
+        m_MethodName: Start_PickThisNpc_Coroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3219332940534413504}
+        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+        m_MethodName: StopAllCoroutines
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -2327,6 +2399,7 @@ GameObject:
   - component: {fileID: 8044572962442612166}
   - component: {fileID: 1512603582970295868}
   - component: {fileID: 2235399142021099830}
+  - component: {fileID: 3219332940534413504}
   m_Layer: 0
   m_Name: Erik 1
   m_TagString: Untagged
@@ -2352,6 +2425,7 @@ Transform:
   - {fileID: 788513601014012811}
   - {fileID: 7554285114537478780}
   - {fileID: 7706808882921860632}
+  - {fileID: 2650792528407075754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &432510915468840283
@@ -2432,6 +2506,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0322c3d523d23ea49b19a6f846aa18b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3219332940534413504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772641631320151838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCgameObject: {fileID: 9065472327671154450}
+  NPCaudioSource: {fileID: 1582311711752307749}
+  arrayNPCsounds:
+  - {fileID: 8300000, guid: 8f625b0180e853e4faadafedae32d91c, type: 3}
+  - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
+  - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
+  - {fileID: 8300000, guid: 3e334defd1a21d2419c7a0e1b4a01a2d, type: 3}
+  pickedSoundToPlay: 0
+  chatTestScript: {fileID: 0}
+  worldInfoScript: {fileID: 0}
+  npcInfoScript: {fileID: 6568728012833402239}
+  textToSpeechScript: {fileID: 0}
+  gazeManagerScript: {fileID: 0}
+  levelChangerScript: {fileID: 0}
+  voiceIDNameThisNpc: Stephen
+  itemDescription_Horn: 
+  itemDescription_Brooch: 
+  itemDescription_Blanket: 
+  itemDescription_Knife: 
+  itemDescription_ThorsHammer: 
+  listOfOtherNpcs: []
 --- !u!1 &4893497398921221936
 GameObject:
   m_ObjectHideFlags: 0

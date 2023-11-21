@@ -49,7 +49,7 @@ public class NPCInteractorScript : MonoBehaviour
     private bool ItemGathered_Horn = false;
 
     public List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
-    [SerializeField] private List<string> listOfOtherNpcs = new List<string>();
+    //[SerializeField] private List<string> listOfOtherNpcs = new List<string>();
     
     
     
@@ -80,7 +80,7 @@ public class NPCInteractorScript : MonoBehaviour
         
         ChatLogWithNPC.Add(message);
         
-        NPCaudioSource = NPCgameObject.GetComponent<AudioSource>();         //Gets the AudioSource component of the NPCgameObject put into the SerializeField in the inspector;
+        //NPCaudioSource = NPCgameObject.GetComponent<AudioSource>();         //Gets the AudioSource component of the NPCgameObject put into the SerializeField in the inspector;
         arrayMax = arrayNPCsounds.Length;     //The length of the helpful NPC sounds array
         pickedSoundToPlay = Random.Range(0, arrayMax); // Grab a random sound out of the max number of sounds
         //if (arrayNPCsounds.Length != 0)
