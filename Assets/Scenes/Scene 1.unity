@@ -19927,6 +19927,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1647878140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &441279967
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1361758793}
+    m_Modifications:
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626615728222035377, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_Name
+      value: Proximity
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca, type: 3}
+--- !u!4 &441279968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5580135788753214168, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+    type: 3}
+  m_PrefabInstance: {fileID: 441279967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &441299486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -32553,6 +32627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelChanger: {fileID: 45344253682068449}
+  proximityCounter: {fileID: 0}
   gameObject: {fileID: 727087062}
   newFileName: Test 1
 --- !u!4 &727087064
@@ -42925,44 +43000,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 151526713}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &931759458
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!4 &932045027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -44822,6 +44859,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   voiceIDActorsList: []
   voiceID_name: 
+  isGenereatingSpeech: 0
 --- !u!82 &963082273
 AudioSource:
   m_ObjectHideFlags: 0
@@ -62269,6 +62307,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 417464123}
+  - {fileID: 441279968}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1361758794
@@ -72892,6 +72931,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1626571678}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1629832104
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &1635756768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83676,6 +83753,9 @@ MonoBehaviour:
   npcInfo: {fileID: 1533369148}
   worldInfo: {fileID: 529175938}
   gazeManager: {fileID: 0}
+  erikInteractorScript: {fileID: 0}
+  arneInteractorScript: {fileID: 0}
+  fridaInteractorScript: {fileID: 0}
   textToSpeech: {fileID: 963082272}
   OnReplyReceived:
     m_PersistentCalls:
