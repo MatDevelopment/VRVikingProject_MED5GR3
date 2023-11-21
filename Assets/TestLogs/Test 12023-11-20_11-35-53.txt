@@ -1,1 +1,0 @@
-Gaze time on NPC = 0, Prompt Amount = 0, Proximity Time = 0, Experience Time = 44

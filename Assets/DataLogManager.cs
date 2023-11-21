@@ -138,7 +138,7 @@ public class DataLogManager : MonoBehaviour
     private void CreateLogText()
     {
         // Get current time and date
-        string filedate = localTime.ToString("yyyy-MM-dd_HH-mm-ss", CultureInfo.InvariantCulture) + ".txt";
+        string filedate = localTime.ToString(" yyyy-MM-dd_HH-mm-ss", CultureInfo.InvariantCulture) + ".txt";
 
         // Define the path of the log file
         path = Application.dataPath + "/TestLogs" + "/" + Filename + filedate;
@@ -151,7 +151,7 @@ public class DataLogManager : MonoBehaviour
     {
         int currentTime = (int)Mathf.Round(Time.time);
         // Defining what is written in the log text
-        string SensorLogText = ", Experience Time = " + currentTime + "Gaze time on NPC = " + NPCGazeTime + ", Prompt Amount = " + PromptAmount + 
+        string SensorLogText = "Experience Time = " + currentTime + ", Gaze time on NPC = " + NPCGazeTime + ", Prompt Amount = " + PromptAmount + 
         ", Social Proximity Time To Erik = " + ErikSocialTime + ", Personal Proximity Time To Erik = " + ErikPersonalTime + ", Intimate Proximity Time To Erik = " + ErikIntimateTime + 
         ", Social Proximity Time To Frida = " + FridaSocialTime + ", Personal Proximity Time To Frida = " + FridaPersonalTime + ", Intimate Proximity Time To Frida = " + FridaIntimateTime + 
         ", Social Proximity Time To Harold = " + HaroldSocialTime + ", Personal Proximity Time To Harold = " + HaroldPersonalTime + ", Intimate Proximity Time To Harold = " + HaroldIntimateTime + 
