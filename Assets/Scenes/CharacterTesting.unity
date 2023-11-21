@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2617,7 +2617,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761042}
+  dialogueCanvas: {fileID: 1917751701}
 --- !u!114 &345696112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2858,7 +2858,7 @@ RectTransform:
   m_GameObject: {fileID: 399005621}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05, y: 1.11, z: 0.99822676}
+  m_LocalScale: {x: 1.05, y: 1.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1090403469}
@@ -4529,7 +4529,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761042}
+  dialogueCanvas: {fileID: 1917751701}
 --- !u!114 &791894735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5828,14 +5828,14 @@ RectTransform:
   m_GameObject: {fileID: 968604922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1052632, y: 1.1447369, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 345696107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 0}
+  m_AnchoredPosition: {x: -2.57, y: 0}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968604924
@@ -5858,7 +5858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61208aec24989b7418a1c177613eacd0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 081f33aba2fbb3b41a1de49a707a31b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7177,7 +7177,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761042}
+  dialogueCanvas: {fileID: 1917751701}
 --- !u!114 &1090403474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7420,14 +7420,14 @@ RectTransform:
   m_GameObject: {fileID: 1136535750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1052632, y: 1.1447369, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 791894730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 0}
+  m_AnchoredPosition: {x: -2.57, y: 0}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1136535752
@@ -7450,7 +7450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61208aec24989b7418a1c177613eacd0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 081f33aba2fbb3b41a1de49a707a31b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7893,14 +7893,14 @@ RectTransform:
   m_GameObject: {fileID: 1303275596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.006636, y: 0.9747897, z: 0.90277}
+  m_LocalScale: {x: 1.05, y: 1.11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497928033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5748596, y: -0.8}
+  m_AnchoredPosition: {x: -2.57, y: 0}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303275598
@@ -9711,7 +9711,7 @@ MonoBehaviour:
       source: {fileID: 0}
   audioSource: {fileID: 1382984826}
   animator: {fileID: 6499542538159226317}
-  dialogueCanvas: {fileID: 1871761042}
+  dialogueCanvas: {fileID: 1917751701}
 --- !u!114 &1497928038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10269,7 +10269,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 462706811}
   m_Direction: 2
   m_Value: -0.0000025939942
-  m_Size: 0.66608965
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11312,7 +11312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.211, y: 0.077}
+  m_AnchoredPosition: {x: 0.1, y: 1.7}
   m_SizeDelta: {x: 989.50006, y: 557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1871761042
@@ -11477,6 +11477,9 @@ MonoBehaviour:
   npcInfo: {fileID: 552628070}
   worldInfo: {fileID: 285327572}
   gazeManager: {fileID: 0}
+  erikInteractorScript: {fileID: 0}
+  arneInteractorScript: {fileID: 0}
+  fridaInteractorScript: {fileID: 0}
   textToSpeech: {fileID: 214356139}
   OnReplyReceived:
     m_PersistentCalls:
@@ -11491,6 +11494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1917751700}
+  - component: {fileID: 1917751701}
   m_Layer: 0
   m_Name: ScriptedUI
   m_TagString: Untagged
@@ -11507,13 +11511,25 @@ Transform:
   m_GameObject: {fileID: 1917751699}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.09, y: 1.573, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1871761041}
   m_Father: {fileID: 6499542538159226321}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!225 &1917751701
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917751699}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1921570313
 GameObject:
   m_ObjectHideFlags: 0
@@ -11625,7 +11641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008850182, y: 99.999825}
+  m_AnchoredPosition: {x: -0.00008850182, y: 99.99973}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!4 &1959630426 stripped
