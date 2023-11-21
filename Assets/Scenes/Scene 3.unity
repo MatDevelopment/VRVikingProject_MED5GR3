@@ -17498,7 +17498,7 @@ MonoBehaviour:
   worldInfoScript: {fileID: 529175938}
   npcInfoScript: {fileID: 1860694150}
   textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 1361758799}
+  gazeManagerScript: {fileID: 0}
   levelChangerScript: {fileID: 6249274243375570434}
   voiceIDNameThisNpc: Ruth
   itemDescription_Horn: 
@@ -17506,9 +17506,6 @@ MonoBehaviour:
   itemDescription_Blanket: 
   itemDescription_Knife: 
   itemDescription_ThorsHammer: 
-  listOfOtherNpcs:
-  - Erik
-  - Arne
 --- !u!114 &332653415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33051,44 +33048,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 416247758}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &660342002
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &661834396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53209,7 +53168,7 @@ MonoBehaviour:
   worldInfoScript: {fileID: 529175938}
   npcInfoScript: {fileID: 1858730574}
   textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 1361758799}
+  gazeManagerScript: {fileID: 0}
   levelChangerScript: {fileID: 6249274243375570434}
   voiceIDNameThisNpc: Stephen
   itemDescription_Horn: 
@@ -53217,9 +53176,6 @@ MonoBehaviour:
   itemDescription_Blanket: 
   itemDescription_Knife: 
   itemDescription_ThorsHammer: 
-  listOfOtherNpcs:
-  - Frida
-  - Arne
 --- !u!1 &1030648277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -70387,7 +70343,6 @@ GameObject:
   - component: {fileID: 1361758798}
   - component: {fileID: 1361758797}
   - component: {fileID: 1361758796}
-  - component: {fileID: 1361758799}
   - component: {fileID: 1361758800}
   m_Layer: 9
   m_Name: XR Origin (XR Rig)
@@ -70593,20 +70548,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &1361758799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361758790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f8c35739afe2e4eb8a353525c1aafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewCamera: {fileID: 58179245}
-  lastGazedUpon: {fileID: 0}
 --- !u!82 &1361758800
 AudioSource:
   m_ObjectHideFlags: 0
@@ -88154,7 +88095,7 @@ MonoBehaviour:
   worldInfoScript: {fileID: 529175938}
   npcInfoScript: {fileID: 1491957886}
   textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 1361758799}
+  gazeManagerScript: {fileID: 0}
   levelChangerScript: {fileID: 6249274243375570434}
   voiceIDNameThisNpc: Gregory
   itemDescription_Horn: 
@@ -88162,9 +88103,6 @@ MonoBehaviour:
   itemDescription_Blanket: 
   itemDescription_Knife: 
   itemDescription_ThorsHammer: 
-  listOfOtherNpcs:
-  - Frida
-  - Erik
 --- !u!114 &1745579522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97054,7 +96992,7 @@ MonoBehaviour:
   nameOfCurrentNPC: Erik
   npcInfo: {fileID: 1533369148}
   worldInfo: {fileID: 529175938}
-  gazeManager: {fileID: 1361758799}
+  gazeManager: {fileID: 0}
   erikInteractorScript: {fileID: 1030126954}
   arneInteractorScript: {fileID: 1745579521}
   fridaInteractorScript: {fileID: 332653414}
@@ -105697,6 +105635,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
+--- !u!84 &2087359241
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!4 &2087617854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 04e0ab4312f682f439b88c86a65672e0,
