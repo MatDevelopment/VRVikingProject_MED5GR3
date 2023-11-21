@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Threading;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 
 namespace OpenAI
 {
@@ -21,6 +22,10 @@ namespace OpenAI
         [SerializeField] private NpcInfo npcInfo;
         [SerializeField] private WorldInfo worldInfo;
         [SerializeField] private GazeManager gazeManager;
+
+        [SerializeField] private NPCInteractorScript erikInteractorScript;
+        [SerializeField] private NPCInteractorScript arneInteractorScript;
+        [SerializeField] private NPCInteractorScript fridaInteractorScript;
         
         //[SerializeField] private NpcDialog npcDialog;
         
@@ -41,6 +46,21 @@ namespace OpenAI
         {
             //nameOfPreviousNPC = nameOfCurrentNPC;
             button.onClick.AddListener(SendReply);
+            if (nameOfCurrentNPC == "Erik")
+            {
+                textToSpeech.audioSource = erikInteractorScript.NPCaudioSource;
+                //Debug.Log("erik");
+            }
+            if (nameOfCurrentNPC == "Arne")
+            {
+                textToSpeech.audioSource = arneInteractorScript.NPCaudioSource;
+            }
+            if (nameOfCurrentNPC == "Frida")
+            {
+                textToSpeech.audioSource = fridaInteractorScript.NPCaudioSource;
+            }
+            
+            
         }
         
         private RectTransform AppendMessage(ChatMessage message)
@@ -81,6 +101,19 @@ namespace OpenAI
                 Content = input
             };
             messages.Add(message);
+            if (nameOfCurrentNPC == "Erik")
+            {
+                erikInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Arne")
+            {
+                arneInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Frida")
+            {
+                fridaInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            
 
             openai.CreateChatCompletionAsync(new CreateChatCompletionRequest()
             {
@@ -117,6 +150,7 @@ namespace OpenAI
                 OnReplyReceived.Invoke();
                 messageRect = AppendMessage(message);
                 isDone = false;
+                //Debug.Log(text);
             }
             
             messageRect.GetChild(0).GetChild(0).GetComponent<Text>().text = text;
@@ -125,6 +159,7 @@ namespace OpenAI
             scroll.verticalNormalizedPosition = 0;
             
             response = text;
+            Debug.Log(response);
         }
         
         private void OnComplete()
@@ -140,6 +175,18 @@ namespace OpenAI
                 Content = response
             };
             messages.Add(message);
+            if (nameOfCurrentNPC == "Erik")
+            {
+                erikInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Arne")
+            {
+                arneInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Frida")
+            {
+                fridaInteractorScript.ChatLogWithNPC.Add(message);
+            }
             
             textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
             

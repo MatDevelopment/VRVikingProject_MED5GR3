@@ -25,7 +25,6 @@ namespace OpenAI
         private void Awake()
         {
             buttonHoldReference.action.Enable();
-            buttonHoldReference.action.started += StartRecording;
             buttonHoldReference.action.performed += StartRecording;
             buttonHoldReference.action.canceled += StartRecording;
         }
@@ -33,6 +32,8 @@ namespace OpenAI
         private void OnDestroy()
         {
             buttonHoldReference.action.started -= StartRecording;
+            buttonHoldReference.action.performed += StartRecording;
+            buttonHoldReference.action.canceled += StartRecording;
         }
 
         private void Start()

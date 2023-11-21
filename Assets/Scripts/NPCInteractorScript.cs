@@ -8,22 +8,22 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
+public class NPCInteractorScript : MonoBehaviour
 {
     private bool isGazingUpon;
     [SerializeField] private GameObject NPCgameObject;
     //[SerializeField] private GameObject gazeColliderGameObject;
-    private AudioSource NPCaudioSource;
+    public AudioSource NPCaudioSource;
     [SerializeField] private AudioClip[] arrayNPCsounds; // The array controlling the sounds
     
     private int arrayMax;
     public int pickedSoundToPlay;
 
-    private float notGazingTime;
+    /*private float notGazingTime;
     private float notGazingTimeActivate = 2.5f;
     private float gazeTime;
     private float gazeTimeActivate = 3;
-    private float newNPCFocusTime = 2.8f;
+    private float newNPCFocusTime = 2.8f;*/
     
     [SerializeField] private ChatTest chatTestScript;
     [SerializeField] private WorldInfo worldInfoScript;
@@ -33,6 +33,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     [SerializeField] private LevelChanger levelChangerScript;
     
     private string nameOfThisNPC;
+    
     [SerializeField] string voiceIDNameThisNpc;
     [TextArea(3,20)]
     [SerializeField] string itemDescription_Horn;
@@ -46,8 +47,8 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     [SerializeField] string itemDescription_ThorsHammer;
 
     private bool ItemGathered_Horn = false;
-    
-    private List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
+
+    public List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
     [SerializeField] private List<string> listOfOtherNpcs = new List<string>();
     
     
@@ -98,7 +99,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     // Update is called once per frame
     void Update()
     {
-        if (isGazingUpon)
+        /*if (isGazingUpon)
         {
             //notGazingTime = 0;        //Moved from here...
             if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGenereatingSpeech == false)
@@ -127,7 +128,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
                     chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
                     gazeTime = 0;
                     gazeTimeActivate = 3;
-                }*/
+                }#1#
 
                 //if (arrayNPCsounds.Length > 0)
                 //{
@@ -174,14 +175,11 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
             
             }
 
-        
-
-        
-        
-        }
+            
+        }*/
     }
     
-    public void GazingUpon()
+    /*public void GazingUpon()
     {
         isGazingUpon = true;
     }
@@ -189,7 +187,7 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
     public void NotGazingUpon()
     {
         isGazingUpon = false;
-    }
+    }*/
     
     /*private void OnCollisionEnter(Collision other)
     {
@@ -251,14 +249,58 @@ public class NPCInteractorScript : MonoBehaviour, iGazeReceiver
         }
     }
 
-    public void UpdateChatLog()     //NOT BEING USED
+    /*public void UpdateChatLog()     //NOT BEING USED
     {
         if (chatTestScript.nameOfPreviousNPC == nameOfThisNPC)
         {
             ChatLogWithNPC = chatTestScript.messages;
             //chatTestScript.messages.Clear();
         }
+    }*/
+
+    public void Start_PickThisNpc_Coroutine()
+    {
+        StartCoroutine(PickThisNpc());
     }
+    
+    /*public void Start_SaveChatLogOnNpc_Coroutine()
+    {
+        StartCoroutine(SaveChatLogOnNpc());
+    }*/
+    
+    
+    IEnumerator PickThisNpc()
+    {
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGenereatingSpeech == false & NPCaudioSource.isPlaying == false)
+        {
+            yield return new WaitForSeconds(3);
+            Debug.Log("PickThisNPC" + nameOfThisNPC);
+            //chatTestScript.messages.Clear();
+            chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
+            textToSpeechScript.audioSource = NPCaudioSource;
+            textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
+            chatTestScript.nameOfCurrentNPC = nameOfThisNPC;
+            
+            //Maybe insert some dialogue to play that makes it clear that this NPC is now the new NPC in focus.
+        }
+        /*else
+        {
+            StopCoroutine(PickThisNpc());
+        }*/
+    }
+
+    /*IEnumerator SaveChatLogOnNpc()
+    {
+        if (chatTestScript.nameOfCurrentNPC == nameOfThisNPC && chatTestScript.isDone == true && textToSpeechScript.isGenereatingSpeech == false && NPCaudioSource.isPlaying == false)
+        {
+            yield return new WaitForSeconds(2.8f);
+            //ChatLogWithNPC = chatTestScript.messages;
+        }
+        else
+        {
+            StopCoroutine(SaveChatLogOnNpc());
+        }
+    }*/
     
     
 }
