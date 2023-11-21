@@ -37,8 +37,35 @@ public class IntimateSpace : MonoBehaviour
             {
                 proximityCounter.IngridInIntimateZone = true;
             }
+        } 
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Erik"))
+        {
+            proximityCounter.ErikInIntimateZone = true;
         }
-        
+
+        if(levelChanger.Scene3Active == true)
+        {
+            if (other.gameObject.CompareTag("Frida"))
+            {
+                proximityCounter.FridaInIntimateZone = true;
+            }
+            if (other.gameObject.CompareTag("Harold"))
+            {
+                proximityCounter.HaroldInIntimateZone = true;
+            }
+            if (other.gameObject.CompareTag("Arne"))
+            {
+                proximityCounter.ArneInIntimateZone = true;
+            }
+            if (other.gameObject.CompareTag("Ingrid"))
+            {
+                proximityCounter.IngridInIntimateZone = true;
+            }
+        }   
     }
 
     void OnTriggerExit(Collider other)

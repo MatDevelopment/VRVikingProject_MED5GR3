@@ -40,6 +40,34 @@ public class PersonalSpace : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Erik"))
+        {
+            proximityCounter.ErikInPersonalZone = true;
+        }
+
+        if (levelChanger.Scene3Active == true)
+        {
+            if (other.gameObject.CompareTag("Arne"))
+            {
+                proximityCounter.ArneInPersonalZone = true;
+            }
+            if (other.gameObject.CompareTag("Ingrid"))
+            {
+                proximityCounter.IngridInPersonalZone = true;
+            }
+            if (other.gameObject.CompareTag("Harold"))
+            {
+                proximityCounter.HaroldInPersonalZone = true;
+            }
+            if (other.gameObject.CompareTag("Frida"))
+            {
+                proximityCounter.FridaInPersonalZone = true;
+            }
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Erik"))

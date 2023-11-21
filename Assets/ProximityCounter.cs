@@ -16,9 +16,9 @@ public class ProximityCounter : MonoBehaviour
         public bool ErikInSocialZone = false;
 
         // Timers
-        private static float ErikTimerIntimate = 0.0f;
-        private static float ErikTimerPersonal = 0.0f;
-        private static float ErikTimerSocial = 0.0f;
+        private float ErikTimerIntimate = 0.0f;
+        private float ErikTimerPersonal = 0.0f;
+        private float ErikTimerSocial = 0.0f;
         public int ErikTimeInIntimate = 0;
         public int ErikTimeInPersonal = 0;
         public int ErikTimeInSocial = 0;
@@ -31,9 +31,9 @@ public class ProximityCounter : MonoBehaviour
         public bool FridaInSocialZone = false;
         
         // Timers
-        private static float FridaTimerIntimate = 0.0f;
-        private static float FridaTimerPersonal = 0.0f;
-        private static float FridaTimerSocial = 0.0f;
+        private float FridaTimerIntimate = 0.0f;
+        private float FridaTimerPersonal = 0.0f;
+        private float FridaTimerSocial = 0.0f;
         public int FridaTimeInIntimate = 0;
         public int FridaTimeInPersonal = 0;
         public int FridaTimeInSocial = 0;
@@ -46,9 +46,9 @@ public class ProximityCounter : MonoBehaviour
         public bool HaroldInSocialZone = false;
         
         // Timers
-        private static float HaroldTimerIntimate = 0.0f;
-        private static float HaroldTimerPersonal = 0.0f;
-        private static float HaroldTimerSocial = 0.0f;
+        private float HaroldTimerIntimate = 0.0f;
+        private float HaroldTimerPersonal = 0.0f;
+        private float HaroldTimerSocial = 0.0f;
         public int HaroldTimeInIntimate = 0;
         public int HaroldTimeInPersonal = 0;
         public int HaroldTimeInSocial = 0;
@@ -61,9 +61,9 @@ public class ProximityCounter : MonoBehaviour
         public bool IngridInSocialZone = false;
 
         // Timers
-        private static float IngridTimerIntimate = 0.0f;
-        private static float IngridTimerPersonal = 0.0f;
-        private static float IngridTimerSocial = 0.0f;
+        private float IngridTimerIntimate = 0.0f;
+        private float IngridTimerPersonal = 0.0f;
+        private float IngridTimerSocial = 0.0f;
         public int IngridTimeInIntimate = 0;
         public int IngridTimeInPersonal = 0;
         public int IngridTimeInSocial = 0;
@@ -76,9 +76,9 @@ public class ProximityCounter : MonoBehaviour
         public bool ArneInSocialZone = false;
 
         // Timers
-        private static float ArneTimerIntimate = 0.0f;
-        private static float ArneTimerPersonal = 0.0f;
-        private static float ArneTimerSocial = 0.0f;
+        private float ArneTimerIntimate = 0.0f;
+        private float ArneTimerPersonal = 0.0f;
+        private float ArneTimerSocial = 0.0f;
         public int ArneTimeInIntimate = 0;
         public int ArneTimeInPersonal = 0;
         public int ArneTimeInSocial = 0;

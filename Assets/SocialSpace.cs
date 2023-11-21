@@ -40,6 +40,34 @@ public class SocialSpace : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Erik"))
+        {
+            proximityCounter.ErikInSocialZone = true;
+        }
+
+        if (levelChanger.Scene3Active == true)
+        {
+            if (other.gameObject.CompareTag("Arne"))
+            {
+                proximityCounter.ArneInSocialZone = true;
+            }
+            if (other.gameObject.CompareTag("Harold"))
+            {
+                proximityCounter.HaroldInSocialZone = true;
+            }
+            if (other.gameObject.CompareTag("Ingrid"))
+            {
+                proximityCounter.IngridInSocialZone = true;
+            }
+            if (other.gameObject.CompareTag("Frida"))
+            {
+                proximityCounter.FridaInSocialZone = true;
+            }
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Erik"))
