@@ -117,10 +117,10 @@ namespace OpenAI
 
             openai.CreateChatCompletionAsync(new CreateChatCompletionRequest()
             {
-                Model = "gpt-3.5-turbo-0301",
+                Model = "gpt-3.5-turbo-16k-0613",
                 Messages = messages
             }, OnResponse, OnComplete, new CancellationTokenSource());
-
+            
             AppendMessage(message);
             
             inputField.text = "";
@@ -132,11 +132,17 @@ namespace OpenAI
 
             if (text == "") return;
 
-            if (text.Contains("END_CONVO"))
-            {
-                text = text.Replace("END_CONVO", "");
+            /*if (text.Contains("END_CONVO"))           //An example of how you could make sure the prompting (chatlog)
+            {                                           with the OpenAI API gets wiped if the ChatGPT feels like you wanna
+                text = text.Replace("END_CONVO", "");   end the conversation
                 
                 Invoke(nameof(EndConvo), 5);
+            }*/
+            
+            if (text.Contains("FINISH_SEN"))            //This gets appended to the sentence when ChatGPT finishes its response
+            {                                           
+                text = text.Replace("FINISH_SEN", "");      //so here we make sure to remove it from the text so it isn't added to the AWS polly audiorequest
+                
             }
             
             var message = new ChatMessage()
@@ -188,9 +194,15 @@ namespace OpenAI
                 fridaInteractorScript.ChatLogWithNPC.Add(message);
             }
             
-            textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
+            //textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
+
+            if (response.EndsWith("FINISH_SEN"))
+            {
+                textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
+            }
             
             isDone = true;
+            
             response = "";
         }
 

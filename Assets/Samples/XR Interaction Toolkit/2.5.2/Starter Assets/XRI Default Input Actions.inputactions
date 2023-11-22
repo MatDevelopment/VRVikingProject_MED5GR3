@@ -1000,6 +1000,17 @@
                 },
                 {
                     "name": "",
+                    "id": "97565c88-c936-4ce6-b99e-665ded560252",
+                    "path": "<Keyboard>/#(V)",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TalkOnHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "716c7b1c-2b9e-4278-a31a-a42789dfc012",
                     "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",

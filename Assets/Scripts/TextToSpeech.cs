@@ -34,6 +34,7 @@ public class TextToSpeech : MonoBehaviour
         //voiceIDActorsList = VoiceId;
         ReadString();
         //Predicate<Person> oscarFinder = (Person p) => { return p.Name == "Oscar"; };
+        
     }
 
     public async void MakeAudioRequest(string message)

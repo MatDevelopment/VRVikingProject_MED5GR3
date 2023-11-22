@@ -7,10 +7,11 @@
     <list default="true" id="42d7fcbe-1c31-457f-be9d-4ebb48951820" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GazeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GazeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/2.5.2/Starter Assets/XRI Default Input Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/2.5.2/Starter Assets/XRI Default Input Actions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene 3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChatTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChatTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCInteractorScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCInteractorScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TextToSpeech.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TextToSpeech.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Transition Animations/LevelChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Transition Animations/LevelChanger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

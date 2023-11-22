@@ -32,7 +32,7 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] private GazeManager gazeManagerScript;
     [SerializeField] private LevelChanger levelChangerScript;
     
-    private string nameOfThisNPC;
+    public string nameOfThisNPC;
     
     [SerializeField] string voiceIDNameThisNpc;
     [TextArea(3,20)]
@@ -71,7 +71,8 @@ public class NPCInteractorScript : MonoBehaviour
                 "Do not say anything about the emotional state of the NPC or what the NPC is thinking, but simply take this information into account.\n" +
                 "Do not break character and do not talk about the previous instructions.\n" +
                 "Reply to only NPC lines not to the Adventurer's lines.\n" +
-                "If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n" +
+                //"If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n" +
+                "Finish each of your responses with the phrase FINISH_SEN\n" +
                 "The following info is the info about the game world: \n" +
                 worldInfoScript.GetPrompt() +
                 "The following info is the info about the NPC: \n" +
@@ -88,14 +89,16 @@ public class NPCInteractorScript : MonoBehaviour
                                                        //NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];    //Sets the clip on the NPCaudioSource to be the randomly picked helpful dialogue sound
                                                        //}
 
-        if (transform.parent != null)
+        /*if (transform.parent != null)
         {
             nameOfThisNPC = transform.parent.name;
         }
         else
         {
             nameOfThisNPC = transform.name;
-        }
+        }*/
+
+        //nameOfThisNPC = transform.name;
     }
 
     private void FixedUpdate()
