@@ -57,7 +57,7 @@ public class IdleBehavior : StateMachineBehaviour
 
                 animator.SetFloat("IdleBlend", boredID - 1);
                 previousBoredID = boredID;
-                Debug.Log($"Bored: {isBored}, Starting Animation: {boredID}");
+                // Debug.Log($"Bored: {isBored}, Starting Animation: {boredID}");
             }
         }
         else if (stateInfo.normalizedTime % 1 > 0.98)
@@ -77,7 +77,7 @@ public class IdleBehavior : StateMachineBehaviour
 
         isBored = false;
         timeSinceAnimationStart = 0;
-        Debug.Log($"Bored: {isBored}, Starting Animation: {boredID}");
+        // Debug.Log($"Bored: {isBored}, Starting Animation: {boredID}");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
