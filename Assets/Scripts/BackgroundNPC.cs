@@ -1,3 +1,4 @@
+using GLTFast.Schema;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,23 +7,42 @@ using UnityEngine.AI;
 public class BackgroundNPC : MonoBehaviour
 {
     NavMeshAgent agent;
+    Animator animator;
 
     public GameObject[] destinations;
     private int destinationID;
     Vector3 target;
+
+    bool isInteracting = false;
+    float interactionLength = 5;
     
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         UpdateDestination();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("NPCinteract"))
+        {
+            animator.SetTrigger("InteractionTrigger1");
+            isInteracting = true;
+            Debug.Log($"{gameObject.name} interacting: {isInteracting}");
+            agent.Stop();
+
+            StartCoroutine(StandStill(interactionLength));
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, target) < 1)
+
+        if (Vector3.Distance(transform.position, target) < 1 && isInteracting == false)
         {
             NextDestination();
             UpdateDestination();
@@ -43,5 +63,13 @@ public class BackgroundNPC : MonoBehaviour
         {
             destinationID = 0;
         }
+    }
+
+    IEnumerator StandStill(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        isInteracting = false;
+        Debug.Log($"{gameObject.name} interacting: {isInteracting}");
+        agent.Resume();
     }
 }
