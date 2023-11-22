@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class IdleBehavior : StateMachineBehaviour
 {
-    [SerializeField]
-    private int numberOfIdleAnimations;
 
     [SerializeField]
     private int numberOfBoredAnimations;
@@ -16,10 +14,8 @@ public class IdleBehavior : StateMachineBehaviour
     [SerializeField]
     private float blendDuration = 1f;
 
-    private int idleID;
     private int boredID;
     private int previousBoredID;
-    private int currentAnimationID;
 
     private bool isBored = false;
 
@@ -28,15 +24,7 @@ public class IdleBehavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        idleID = Random.Range(0, numberOfIdleAnimations);
-
-        Debug.Log($"Start Animation ID: {idleID}");
-
-        animator.SetFloat("IdleBlend", idleID);
-
-        timeSinceAnimationStart = 0;
-        
-        isBored = false;
+        ResetIdle();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -49,38 +37,47 @@ public class IdleBehavior : StateMachineBehaviour
             if (timeSinceAnimationStart > timeUntilBored && stateInfo.normalizedTime % 1 < 0.02f)
             {
                 isBored = true;
-                boredID = Random.Range(numberOfIdleAnimations, numberOfBoredAnimations + numberOfIdleAnimations);
+                boredID = Random.Range(1, numberOfBoredAnimations + 1);
+                boredID = boredID * 2 - 1;
 
                 if (boredID == previousBoredID)
                 {
-                    boredID++;
+                    boredID += 2;
 
-                    if (boredID >= numberOfIdleAnimations + numberOfBoredAnimations)
+                    if (boredID > numberOfBoredAnimations * 2 + 1)
                     {
-                        boredID -= 2;
+                        boredID -= 4;
 
-                        if (boredID < numberOfIdleAnimations)
+                        if (boredID < 0)
                         {
                             boredID += 2;
                         }
                     }
                 }
 
-                currentAnimationID = boredID;
+                animator.SetFloat("IdleBlend", boredID - 1);
+                previousBoredID = boredID;
                 Debug.Log($"Bored: {isBored}, Starting Animation: {boredID}");
             }
         }
         else if (stateInfo.normalizedTime % 1 > 0.98)
         {
-            isBored = false;
-            timeSinceAnimationStart = 0;
-
-            idleID = Random.Range(0, numberOfIdleAnimations);
-            currentAnimationID = idleID;
-            Debug.Log($"Bored: {isBored}, Starting Animation: {idleID}");
+            ResetIdle();
         }
 
-        animator.SetFloat("IdleBlend", currentAnimationID, blendDuration, Time.deltaTime);
+        animator.SetFloat("IdleBlend", boredID, blendDuration, Time.deltaTime);
+    }
+
+    private void ResetIdle()
+    {
+        if (isBored)
+        {
+            boredID--;
+        }
+
+        isBored = false;
+        timeSinceAnimationStart = 0;
+        Debug.Log($"Bored: {isBored}, Starting Animation: {boredID}");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
