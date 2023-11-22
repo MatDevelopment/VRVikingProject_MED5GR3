@@ -231,28 +231,28 @@ public class NPCInteractorScript : MonoBehaviour
         {
             if (nameOfItem == "Horn" && ItemGathered_Horn == false && chatTestScript.isDone == true)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {
-                chatTestScript.SendReply(itemDescription_Horn);
+                //chatTestScript.SendReply(itemDescription_Horn);
                 //levelChangerScript.ItemGathered_Horn = false;
                 ItemGathered_Horn = true;       //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             }
             else if (nameOfItem == "Brooch")
             {
-                chatTestScript.SendReply(itemDescription_Brooch);
+                //chatTestScript.SendReply(itemDescription_Brooch);
                 //levelChangerScript.ItemGathered_Brooch = false;
             }
             else if (nameOfItem == "Blanket")
             {
-                chatTestScript.SendReply(itemDescription_Blanket);
+                //chatTestScript.SendReply(itemDescription_Blanket);
                 //levelChangerScript.ItemGathered_Blanket = false;
             }
             else if (nameOfItem == "Knife")
             {
-                chatTestScript.SendReply(itemDescription_Knife);
+                //chatTestScript.SendReply(itemDescription_Knife);
                 //levelChangerScript.ItemGathered_Knife = false;
             }
             else if (nameOfItem == "ThorsHammer")
             {
-                chatTestScript.SendReply(itemDescription_ThorsHammer);
+                //chatTestScript.SendReply(itemDescription_ThorsHammer);
                 //levelChangerScript.ItemGathered_ThorsHammer = false;
             }
             

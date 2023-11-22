@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine.UI;
 using System.Threading;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using ReadyPlayerMe.AvatarCreator;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
@@ -49,15 +50,18 @@ namespace OpenAI
             if (nameOfCurrentNPC == "Erik")
             {
                 textToSpeech.audioSource = erikInteractorScript.NPCaudioSource;
+                messages = erikInteractorScript.ChatLogWithNPC;
                 //Debug.Log("erik");
             }
             if (nameOfCurrentNPC == "Arne")
             {
                 textToSpeech.audioSource = arneInteractorScript.NPCaudioSource;
+                messages = arneInteractorScript.ChatLogWithNPC;
             }
             if (nameOfCurrentNPC == "Frida")
             {
                 textToSpeech.audioSource = fridaInteractorScript.NPCaudioSource;
+                messages = fridaInteractorScript.ChatLogWithNPC;
             }
             
             
@@ -95,42 +99,25 @@ namespace OpenAI
 
         public void SendReply(string input)
         {
-            var message = new ChatMessage()
-            {
-                Role = "user",
-                Content = input
-            };
-            messages.Add(message);
-            if (nameOfCurrentNPC == "Erik")
-            {
-                erikInteractorScript.ChatLogWithNPC.Add(message);
-            }
-            if (nameOfCurrentNPC == "Arne")
-            {
-                arneInteractorScript.ChatLogWithNPC.Add(message);
-            }
-            if (nameOfCurrentNPC == "Frida")
-            {
-                fridaInteractorScript.ChatLogWithNPC.Add(message);
-            }
-            
 
-            openai.CreateChatCompletionAsync(new CreateChatCompletionRequest()
+            //response = await AskChatGPT(messages);
+
+            /*openai.CreateChatCompletionAsync(new CreateChatCompletionRequest()
             {
                 Model = "gpt-3.5-turbo-16k-0613",
                 Messages = messages
-            }, OnResponse, OnComplete, new CancellationTokenSource());
-            
+            }, OnResponse, OnComplete, new CancellationTokenSource());*/
+
             //AppendMessage(message);
-            
+
             //inputField.text = "";
         }
 
         private void OnResponse(List<CreateChatCompletionResponse> responses)
         {
-            text = string.Join("", responses.Select(r => r.Choices[0].Delta.Content));
+            /*text = string.Join("", responses.Select(r => r.Choices[0].Delta.Content));
 
-            if (text == "") return;
+            if (text == "") return;*/
 
             /*if (text.Contains("END_CONVO"))           //An example of how you could make sure the prompting (chatlog)
             {                                           with the OpenAI API gets wiped if the ChatGPT feels like you wanna
@@ -140,7 +127,7 @@ namespace OpenAI
             }*/
             
             
-            var message = new ChatMessage()
+            /*var message = new ChatMessage()
             {
                 Role = "assistant",
                 Content = text
@@ -152,7 +139,7 @@ namespace OpenAI
                 //messageRect = AppendMessage(message);
                 isDone = false;
                 //Debug.Log(text);
-            }
+            }*/
             
             /*messageRect.GetChild(0).GetChild(0).GetComponent<Text>().text = text;
             LayoutRebuilder.ForceRebuildLayoutImmediate(messageRect);
@@ -168,15 +155,60 @@ namespace OpenAI
             height += messageRect.sizeDelta.y;
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
             scroll.verticalNormalizedPosition = 0;*/
+
+            //textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
+
+            /*if (response.Contains("FINISH_SEN"))
+            {
+                Debug.Log("Audio REQUEST");
+                textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
+                response = response.Replace("FINISH_SEN", "");
+            }*/
             
-            response = text;
+            //textToSpeech.MakeAudioRequest(response);
             
+            //isDone = true;
+            
+            //Debug.Log(response);
+            
+            //response = "";
+        }
+
+        private void EndConvo()
+        {
+            //npcDialog.Recover();
+            //messages.Clear();
+        }
+        
+        public async Task<string> AskChatGPT(List<ChatMessage> combinedMessages)
+        {
+            CreateChatCompletionRequest request = new CreateChatCompletionRequest();
+            request.Messages = combinedMessages;
+            request.Model = "gpt-3.5-turbo-16k-0613";
+            //request.Temperature = 0.5f;
+            request.MaxTokens = 256;
+
+            var response = await openai.CreateChatCompletion(request);
+
+            if(response.Choices != null && response.Choices.Count > 0)
+            {
+                var chatResponse = response.Choices[0].Message;
+
+                return chatResponse.Content;
+                
+                
+            }
+
+            return null;
+        }
+
+        public List<ChatMessage> AddPlayerInputToChatLog(string playerInput)
+        {
             var message = new ChatMessage()
             {
-                Role = "assistant",
-                Content = response
+                Role = "user",
+                Content = playerInput
             };
-            
             messages.Add(message);
             if (nameOfCurrentNPC == "Erik")
             {
@@ -190,29 +222,33 @@ namespace OpenAI
             {
                 fridaInteractorScript.ChatLogWithNPC.Add(message);
             }
-            
-            //textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
 
-            /*if (response.Contains("FINISH_SEN"))
-            {
-                Debug.Log("Audio REQUEST");
-                textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
-                response = response.Replace("FINISH_SEN", "");
-            }*/
-            
-            textToSpeech.MakeAudioRequest(response);
-            
-            isDone = true;
-            
-            Debug.Log(response);
-            
-            response = "";
+            return messages;
         }
 
-        private void EndConvo()
+        public void AddNpcResponseToChatLog(string npcResponse)
         {
-            //npcDialog.Recover();
-            //messages.Clear();
+            var assistantMessage = new ChatMessage()
+            {
+                Role = "assistant",
+                Content = npcResponse
+            };
+            
+            messages.Add(assistantMessage);
+            if (nameOfCurrentNPC == "Erik")
+            {
+                erikInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+            }
+            if (nameOfCurrentNPC == "Arne")
+            {
+                arneInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+            }
+            if (nameOfCurrentNPC == "Frida")
+            {
+                fridaInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+            }
+
+            messages.Add(assistantMessage);
         }
     }
 }

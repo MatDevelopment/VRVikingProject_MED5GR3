@@ -11,6 +11,7 @@ namespace OpenAI
         //[SerializeField] private Button recordButton;
         [SerializeField] private Dropdown dropdown;
         [SerializeField] private ChatTest chatTest;
+        [SerializeField] private TextToSpeech textToSpeechScript;
         [SerializeField] private Image progress;
         [SerializeField] private InputActionReference buttonHoldReference = null;
         
@@ -78,7 +79,12 @@ namespace OpenAI
                 
                 Debug.Log("Recording: " + res.Text);
 
-                chatTest.SendReply(res.Text);
+                chatTest.AddPlayerInputToChatLog(res.Text);
+                string chatGptResponse = await chatTest.AskChatGPT(chatTest.messages);
+                chatTest.AddNpcResponseToChatLog(chatGptResponse);
+                textToSpeechScript.MakeAudioRequest(chatGptResponse);
+                Debug.Log(chatGptResponse);
+
             }
             if(context.performed)
             {
