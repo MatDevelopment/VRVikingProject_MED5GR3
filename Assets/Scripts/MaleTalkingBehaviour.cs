@@ -8,7 +8,7 @@ public class MaleTalkingBehaviour : StateMachineBehaviour
     private int animationDuration = 5;
 
     [SerializeField]
-    private float blendDuration = 1;
+    private float blendDuration = 1f;
 
     [SerializeField]
     private int numberOfAnimations;
@@ -54,7 +54,7 @@ public class MaleTalkingBehaviour : StateMachineBehaviour
             TalkingId = newTalkingId;
         }
 
-        animator.SetFloat("TalkingBlend", TalkingId, 1f, Time.deltaTime);
+        animator.SetFloat("TalkingBlend", TalkingId, blendDuration, Time.deltaTime);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
