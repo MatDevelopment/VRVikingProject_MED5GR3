@@ -47,7 +47,7 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] string itemDescription_ThorsHammer;
 
     private bool ItemGathered_Horn = false;
-
+    
     public List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
     //[SerializeField] private List<string> listOfOtherNpcs = new List<string>();
     
@@ -72,11 +72,11 @@ public class NPCInteractorScript : MonoBehaviour
                 "Do not break character and do not talk about the previous instructions.\n" +
                 "Reply to only NPC lines not to the Adventurer's lines.\n" +
                 //"If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n" +
-                "Finish each of your responses with the phrase FINISH_SEN\n" +
                 "The following info is the info about the game world: \n" +
                 worldInfoScript.GetPrompt() +
                 "The following info is the info about the NPC: \n" +
-                npcInfoScript.GetPrompt()
+                npcInfoScript.GetPrompt() +
+                "Do not include the NPC name in your response.\n"
         };
         
         ChatLogWithNPC.Add(message);
@@ -270,8 +270,15 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
+
         StartCoroutine(PickThisNpc());
+
     }
+    
+    /*public void Stop_PickThisNpc_Coroutine()
+    {
+        StopCoroutine(PickThisNpc());
+    }*/
     
     /*public void Start_SaveChatLogOnNpc_Coroutine()
     {
@@ -279,8 +286,9 @@ public class NPCInteractorScript : MonoBehaviour
     }*/
     
     
-    IEnumerator PickThisNpc()
+    private IEnumerator PickThisNpc()
     {
+        Debug.Log("running coroutine" + nameOfThisNPC);
         if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGenereatingSpeech == false & NPCaudioSource.isPlaying == false)
         {
             yield return new WaitForSeconds(3);
@@ -290,9 +298,9 @@ public class NPCInteractorScript : MonoBehaviour
             textToSpeechScript.audioSource = NPCaudioSource;
             textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
             chatTestScript.nameOfCurrentNPC = nameOfThisNPC;
-            
             //Maybe insert some dialogue to play that makes it clear that this NPC is now the new NPC in focus.
         }
+        
         /*else
         {
             StopCoroutine(PickThisNpc());

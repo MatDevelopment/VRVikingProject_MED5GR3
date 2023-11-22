@@ -4185,12 +4185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1195273150}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 61
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -5093,6 +5093,44 @@ Transform:
   - {fileID: 369792191}
   m_Father: {fileID: 1734920102}
   m_LocalEulerAnglesHint: {x: 8.035, y: -150.883, z: -8.931}
+--- !u!84 &85248285
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &85765070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6753,6 +6791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataLogManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1498736148167210681, guid: e6e613542551cb4488ad7bd9db55e7a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1593296899910704818, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8279,6 +8322,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1402550089}
+    - targetCorrespondingSourceObject: {fileID: 7827533713501950922, guid: b3eb21b64da2ebd419990c1720e1c95b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1402550090}
   m_SourcePrefab: {fileID: 100100000, guid: b3eb21b64da2ebd419990c1720e1c95b, type: 3}
 --- !u!4 &139088325 stripped
 Transform:
@@ -13596,44 +13643,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3833653527b8b40b9e8291c35193fd, type: 3}
---- !u!84 &247793958
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!4 &248574789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b375698b498496640b77976be04ec05e,
@@ -13861,18 +13870,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1770473299}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &255008073 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 207824303387541127, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1215394902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &255401296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17516,7 +17513,6 @@ GameObject:
   - component: {fileID: 332653417}
   - component: {fileID: 332653416}
   - component: {fileID: 332653415}
-  - component: {fileID: 332653414}
   - component: {fileID: 332653418}
   m_Layer: 0
   m_Name: GazeCollider
@@ -17540,34 +17536,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 139088325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &332653414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332653412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCgameObject: {fileID: 1576688572}
-  NPCaudioSource: {fileID: 1576688576}
-  arrayNPCsounds: []
-  pickedSoundToPlay: 0
-  chatTestScript: {fileID: 1913314628}
-  worldInfoScript: {fileID: 529175938}
-  npcInfoScript: {fileID: 1860694150}
-  textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 0}
-  levelChangerScript: {fileID: 6249274243375570434}
-  voiceIDNameThisNpc: Ruth
-  itemDescription_Horn: 
-  itemDescription_Brooch: 
-  itemDescription_Blanket: 
-  itemDescription_Knife: 
-  itemDescription_ThorsHammer: 
 --- !u!114 &332653415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17726,7 +17694,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332653414}
+      - m_Target: {fileID: 1402550090}
         m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
         m_MethodName: Start_PickThisNpc_Coroutine
         m_Mode: 1
@@ -17741,7 +17709,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332653414}
+      - m_Target: {fileID: 1402550090}
         m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
         m_MethodName: StopAllCoroutines
         m_Mode: 1
@@ -17750,7 +17718,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PickThisNpc()
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_FirstSelectEntered:
@@ -26029,8 +25997,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45be353cf3bb66041aabad5cb6ca94a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStory: 
-  gameWold: 
+  gameStory: A funeral is taking place today for a man called Torsten. Everyone from
+    the village are helping prepare for the funeral. The Adventurer is a person who
+    is passing through the village but has decided to help the villagers prepare
+    for the funeral in exchange for a bed to sleep in for the night.
+  gameWorld: "You are a viking villager from the 900th century living in a small
+    village next to a burial hill named Lindholm H\xF8je located in the northern
+    part of Jylland, Denmark."
 --- !u!4 &529175939
 Transform:
   m_ObjectHideFlags: 0
@@ -33347,18 +33320,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 336758950}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &665868166 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5189222175115296123, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1215394902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &666514951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52917,7 +52878,6 @@ GameObject:
   - component: {fileID: 1030126952}
   - component: {fileID: 1030126951}
   - component: {fileID: 1030126950}
-  - component: {fileID: 1030126954}
   m_Layer: 0
   m_Name: GazeCollider
   m_TagString: Erik
@@ -53098,7 +53058,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1030126954}
+      - m_Target: {fileID: 1675755201}
         m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
         m_MethodName: Start_PickThisNpc_Coroutine
         m_Mode: 1
@@ -53113,7 +53073,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1030126954}
+      - m_Target: {fileID: 1675755201}
         m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
         m_MethodName: StopAllCoroutines
         m_Mode: 1
@@ -53122,7 +53082,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PickThisNpc
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_FirstSelectEntered:
@@ -53206,38 +53166,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1030126954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030126948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCgameObject: {fileID: 595791152}
-  NPCaudioSource: {fileID: 595791156}
-  arrayNPCsounds:
-  - {fileID: 8300000, guid: 8f625b0180e853e4faadafedae32d91c, type: 3}
-  - {fileID: 8300000, guid: 3e334defd1a21d2419c7a0e1b4a01a2d, type: 3}
-  - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
-  - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
-  pickedSoundToPlay: 0
-  chatTestScript: {fileID: 1913314628}
-  worldInfoScript: {fileID: 529175938}
-  npcInfoScript: {fileID: 1858730574}
-  textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 0}
-  levelChangerScript: {fileID: 6249274243375570434}
-  voiceIDNameThisNpc: Stephen
-  itemDescription_Horn: 
-  itemDescription_Brooch: 
-  itemDescription_Blanket: 
-  itemDescription_Knife: 
-  itemDescription_ThorsHammer: 
 --- !u!1 &1030648277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -62778,7 +62706,7 @@ PrefabInstance:
     - target: {fileID: 1122772763945115148, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2013396344419857117, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
@@ -62793,12 +62721,12 @@ PrefabInstance:
     - target: {fileID: 2168307843484233121, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2168307843484233121, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.37593976
       objectReference: {fileID: 0}
     - target: {fileID: 2168307843484233121, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
@@ -62818,17 +62746,17 @@ PrefabInstance:
     - target: {fileID: 3841546406346334064, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3841546406346334064, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3841546406346334064, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 4644870024251062599, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
@@ -72154,6 +72082,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1402550090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402550083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCgameObject: {fileID: 1576688572}
+  NPCaudioSource: {fileID: 1576688576}
+  arrayNPCsounds: []
+  pickedSoundToPlay: 0
+  chatTestScript: {fileID: 1913314628}
+  worldInfoScript: {fileID: 529175938}
+  npcInfoScript: {fileID: 1860694150}
+  textToSpeechScript: {fileID: 963082272}
+  gazeManagerScript: {fileID: 0}
+  levelChangerScript: {fileID: 6249274243375570434}
+  nameOfThisNPC: Frida
+  voiceIDNameThisNpc: Ruth
+  itemDescription_Horn: 
+  itemDescription_Brooch: 
+  itemDescription_Blanket: 
+  itemDescription_Knife: 
+  itemDescription_ThorsHammer: 
 --- !u!4 &1402987151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -84731,6 +84688,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
+--- !u!83 &1666040211
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_LoadType: 0
+  m_Channels: 0
+  m_Frequency: 0
+  m_BitsPerSample: 0
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!4 &1666286170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 04e0ab4312f682f439b88c86a65672e0,
@@ -85059,6 +85044,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1675755201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675755193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCgameObject: {fileID: 595791152}
+  NPCaudioSource: {fileID: 595791156}
+  arrayNPCsounds:
+  - {fileID: 8300000, guid: 8f625b0180e853e4faadafedae32d91c, type: 3}
+  - {fileID: 8300000, guid: 3e334defd1a21d2419c7a0e1b4a01a2d, type: 3}
+  - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
+  - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
+  pickedSoundToPlay: 0
+  chatTestScript: {fileID: 1913314628}
+  worldInfoScript: {fileID: 529175938}
+  npcInfoScript: {fileID: 1858730574}
+  textToSpeechScript: {fileID: 963082272}
+  gazeManagerScript: {fileID: 0}
+  levelChangerScript: {fileID: 6249274243375570434}
+  nameOfThisNPC: Erik
+  voiceIDNameThisNpc: Stephen
+  itemDescription_Horn: 
+  itemDescription_Brooch: 
+  itemDescription_Blanket: 
+  itemDescription_Knife: 
+  itemDescription_ThorsHammer: 
 --- !u!1 &1675907963
 GameObject:
   m_ObjectHideFlags: 0
@@ -85839,6 +85857,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1675755200}
+    - targetCorrespondingSourceObject: {fileID: 3759164284923407830, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1675755201}
   m_SourcePrefab: {fileID: 100100000, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e, type: 3}
 --- !u!1 &1687393033
 GameObject:
@@ -88186,7 +88208,6 @@ GameObject:
   - component: {fileID: 1745579524}
   - component: {fileID: 1745579523}
   - component: {fileID: 1745579522}
-  - component: {fileID: 1745579521}
   - component: {fileID: 1745579525}
   m_Layer: 0
   m_Name: GazeCollider
@@ -88210,34 +88231,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2138685030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1745579521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745579519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCgameObject: {fileID: 2080791587}
-  NPCaudioSource: {fileID: 2080791591}
-  arrayNPCsounds: []
-  pickedSoundToPlay: 0
-  chatTestScript: {fileID: 1913314628}
-  worldInfoScript: {fileID: 529175938}
-  npcInfoScript: {fileID: 1491957886}
-  textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 0}
-  levelChangerScript: {fileID: 6249274243375570434}
-  voiceIDNameThisNpc: Gregory
-  itemDescription_Horn: 
-  itemDescription_Brooch: 
-  itemDescription_Blanket: 
-  itemDescription_Knife: 
-  itemDescription_ThorsHammer: 
 --- !u!114 &1745579522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88396,7 +88389,7 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1745579521}
+      - m_Target: {fileID: 2138685037}
         m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
         m_MethodName: Start_PickThisNpc_Coroutine
         m_Mode: 1
@@ -88411,7 +88404,7 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1745579521}
+      - m_Target: {fileID: 2138685037}
         m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
         m_MethodName: StopAllCoroutines
         m_Mode: 1
@@ -88420,7 +88413,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PickThisNpc
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_FirstSelectEntered:
@@ -88589,18 +88582,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2046702372}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1747479148 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3113669014730152003, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1215394902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1753068000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88897,7 +88878,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c341317b04420f04bb8cfe51234e7e11, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.237
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -90614,7 +90595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1795982155
 AudioSource:
   m_ObjectHideFlags: 0
@@ -97118,19 +97099,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de2fc8ec4b2a3e4da87f0a7f5e5497b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 665868166}
-  button: {fileID: 255008073}
-  scroll: {fileID: 1747479148}
-  sent: {fileID: 8660877164928630359, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
-  received: {fileID: 961534450149497043, guid: adc0146c2853ed1418133faaf4379eb1, type: 3}
-  nameOfPreviousNPC: 
   nameOfCurrentNPC: Erik
   npcInfo: {fileID: 1533369148}
   worldInfo: {fileID: 529175938}
-  gazeManager: {fileID: 0}
-  erikInteractorScript: {fileID: 1030126954}
-  arneInteractorScript: {fileID: 1745579521}
-  fridaInteractorScript: {fileID: 332653414}
+  erikInteractorScript: {fileID: 1675755201}
+  arneInteractorScript: {fileID: 2138685037}
+  fridaInteractorScript: {fileID: 1402550090}
   textToSpeech: {fileID: 963082272}
   OnReplyReceived:
     m_PersistentCalls:
@@ -105374,7 +105348,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 1666040211}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -107833,6 +107807,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2138685036}
+    - targetCorrespondingSourceObject: {fileID: 2754535414737246279, guid: 2a5edd699a8466b45ab549e8f35371e4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138685037}
   m_SourcePrefab: {fileID: 100100000, guid: 2a5edd699a8466b45ab549e8f35371e4, type: 3}
 --- !u!4 &2138685030 stripped
 Transform:
@@ -107913,6 +107891,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2138685037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106866457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80fe7cf1b5fc224fa0daf2560959841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCgameObject: {fileID: 2080791587}
+  NPCaudioSource: {fileID: 2080791591}
+  arrayNPCsounds: []
+  pickedSoundToPlay: 0
+  chatTestScript: {fileID: 1913314628}
+  worldInfoScript: {fileID: 529175938}
+  npcInfoScript: {fileID: 1491957886}
+  textToSpeechScript: {fileID: 963082272}
+  gazeManagerScript: {fileID: 0}
+  levelChangerScript: {fileID: 6249274243375570434}
+  nameOfThisNPC: Arne
+  voiceIDNameThisNpc: Gregory
+  itemDescription_Horn: 
+  itemDescription_Brooch: 
+  itemDescription_Blanket: 
+  itemDescription_Knife: 
+  itemDescription_ThorsHammer: 
 --- !u!4 &2140145663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,

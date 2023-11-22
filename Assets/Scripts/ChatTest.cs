@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine.UI;
 using System.Threading;
 using System.Collections.Generic;
+using ReadyPlayerMe.AvatarCreator;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 
@@ -10,18 +11,16 @@ namespace OpenAI
 {
     public class ChatTest : MonoBehaviour
     {
-        [SerializeField] private InputField inputField;
-        [SerializeField] private Button button;
-        [SerializeField] private ScrollRect scroll;
+        //[SerializeField] private InputField inputField;
+        //[SerializeField] private Button button;
+        //[SerializeField] private ScrollRect scroll;
         
-        [SerializeField] private RectTransform sent;
-        [SerializeField] private RectTransform received;
-
-        public string nameOfPreviousNPC;
+        //[SerializeField] private RectTransform sent;
+        //[SerializeField] private RectTransform received;
+        
         public string nameOfCurrentNPC;
         [SerializeField] private NpcInfo npcInfo;
         [SerializeField] private WorldInfo worldInfo;
-        [SerializeField] private GazeManager gazeManager;
 
         [SerializeField] private NPCInteractorScript erikInteractorScript;
         [SerializeField] private NPCInteractorScript arneInteractorScript;
@@ -32,7 +31,8 @@ namespace OpenAI
         [SerializeField] private TextToSpeech textToSpeech;
         
         public UnityEvent OnReplyReceived;
-        
+
+        private string text;
         private string response;        //This string is what ChatGPT answers after a request
         public bool isDone = true;
         private RectTransform messageRect;
@@ -45,7 +45,7 @@ namespace OpenAI
         private void Start()
         {
             //nameOfPreviousNPC = nameOfCurrentNPC;
-            button.onClick.AddListener(SendReply);
+            //button.onClick.AddListener(SendReply);
             if (nameOfCurrentNPC == "Erik")
             {
                 textToSpeech.audioSource = erikInteractorScript.NPCaudioSource;
@@ -63,7 +63,7 @@ namespace OpenAI
             
         }
         
-        private RectTransform AppendMessage(ChatMessage message)
+        /*private RectTransform AppendMessage(ChatMessage message)
         {
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
 
@@ -86,12 +86,12 @@ namespace OpenAI
             }
 
             return item;
-        }
+        }*/
 
-        private void SendReply()
+        /*private void SendReply()
         {
             SendReply(inputField.text);
-        }
+        }*/
 
         public void SendReply(string input)
         {
@@ -121,14 +121,14 @@ namespace OpenAI
                 Messages = messages
             }, OnResponse, OnComplete, new CancellationTokenSource());
             
-            AppendMessage(message);
+            //AppendMessage(message);
             
-            inputField.text = "";
+            //inputField.text = "";
         }
 
         private void OnResponse(List<CreateChatCompletionResponse> responses)
         {
-            var text = string.Join("", responses.Select(r => r.Choices[0].Delta.Content));
+            text = string.Join("", responses.Select(r => r.Choices[0].Delta.Content));
 
             if (text == "") return;
 
@@ -139,11 +139,6 @@ namespace OpenAI
                 Invoke(nameof(EndConvo), 5);
             }*/
             
-            if (text.Contains("FINISH_SEN"))            //This gets appended to the sentence when ChatGPT finishes its response
-            {                                           
-                text = text.Replace("FINISH_SEN", "");      //so here we make sure to remove it from the text so it isn't added to the AWS polly audiorequest
-                
-            }
             
             var message = new ChatMessage()
             {
@@ -154,32 +149,34 @@ namespace OpenAI
             if (isDone)
             {
                 OnReplyReceived.Invoke();
-                messageRect = AppendMessage(message);
+                //messageRect = AppendMessage(message);
                 isDone = false;
                 //Debug.Log(text);
             }
             
-            messageRect.GetChild(0).GetChild(0).GetComponent<Text>().text = text;
+            /*messageRect.GetChild(0).GetChild(0).GetComponent<Text>().text = text;
             LayoutRebuilder.ForceRebuildLayoutImmediate(messageRect);
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-            scroll.verticalNormalizedPosition = 0;
+            scroll.verticalNormalizedPosition = 0;*/
             
-            response = text;
-            Debug.Log(response);
+            //response = text;
         }
         
         private void OnComplete()
         {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(messageRect);
+            /*LayoutRebuilder.ForceRebuildLayoutImmediate(messageRect);
             height += messageRect.sizeDelta.y;
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-            scroll.verticalNormalizedPosition = 0;
+            scroll.verticalNormalizedPosition = 0;*/
+            
+            response = text;
             
             var message = new ChatMessage()
             {
                 Role = "assistant",
                 Content = response
             };
+            
             messages.Add(message);
             if (nameOfCurrentNPC == "Erik")
             {
@@ -196,12 +193,18 @@ namespace OpenAI
             
             //textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
 
-            if (response.EndsWith("FINISH_SEN"))
+            /*if (response.Contains("FINISH_SEN"))
             {
+                Debug.Log("Audio REQUEST");
                 textToSpeech.MakeAudioRequest(response);        //The audio file is created within the MakeAudioRequest method and is stored in the clip variable within this method
-            }
+                response = response.Replace("FINISH_SEN", "");
+            }*/
+            
+            textToSpeech.MakeAudioRequest(response);
             
             isDone = true;
+            
+            Debug.Log(response);
             
             response = "";
         }

@@ -75,6 +75,8 @@ namespace OpenAI
                     Language = "en"
                 };
                 var res = await openai.CreateAudioTranscription(req);
+                
+                Debug.Log("Recording: " + res.Text);
 
                 chatTest.SendReply(res.Text);
             }
