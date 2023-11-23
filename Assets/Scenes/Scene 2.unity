@@ -7036,6 +7036,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mjolnir_pendant_solid
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f63bb00bb744db409954ec084cd8299,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
+      objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 5f63bb00bb744db409954ec084cd8299,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7065,6 +7070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.8255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 5f63bb00bb744db409954ec084cd8299,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7168,6 +7178,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: M10_VikingHelm_low 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3242548410346108645, guid: 6e0ef18a7d009694f9cf487e975acffe,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
+      objectReference: {fileID: 0}
     - target: {fileID: 7841437979148425152, guid: 6e0ef18a7d009694f9cf487e975acffe,
         type: 3}
       propertyPath: m_SmoothPosition
@@ -7227,6 +7242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836030708451382184, guid: 6e0ef18a7d009694f9cf487e975acffe,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10681,7 +10701,7 @@ GameObject:
   - component: {fileID: 926493549}
   m_Layer: 0
   m_Name: AttachKnife
-  m_TagString: Untagged
+  m_TagString: PersonalItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13769,6 +13789,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 957720506}
   m_LocalEulerAnglesHint: {x: 0, y: 14.968, z: 0}
+--- !u!1 &1251781220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5701954956063795521, guid: 18f2fb65884a1ba4ab6fba63b6da824f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8408008733119432241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1251781223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251781220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff14073e68ad8d40b94a3b9f1a395e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelchanger: {fileID: 0}
+  itemsCollected: 0
 --- !u!1001 &1253426667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15182,10 +15222,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4380216337014386090, guid: 66f1d6329270c84479ad27752af66d84,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 66f1d6329270c84479ad27752af66d84,
         type: 3}
       propertyPath: m_Name
       value: Viking Utility Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 66f1d6329270c84479ad27752af66d84,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
       objectReference: {fileID: 0}
     - target: {fileID: 8214670353175821097, guid: 66f1d6329270c84479ad27752af66d84,
         type: 3}
@@ -22880,10 +22930,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1975718675}
     m_Modifications:
+    - target: {fileID: 237870201054602742, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4373539926373372176, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_Name
       value: BrocheParent (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373539926373372176, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
@@ -22934,6 +22994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133544480784375087, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23990,6 +24055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Horn
       objectReference: {fileID: 0}
+    - target: {fileID: 77796835120618751, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
+      objectReference: {fileID: 0}
     - target: {fileID: 747513303780279877, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24039,6 +24109,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475025144501347708, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978392254035059750, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_TagString
+      value: PersonalItem
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5597656969725590382, guid: 8626b3677526b5440a5f72c8aa18766c, type: 3}
@@ -24265,10 +24345,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basket
       objectReference: {fileID: 0}
+    - target: {fileID: 3389440412994268670, guid: 18f2fb65884a1ba4ab6fba63b6da824f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5701954956063795521, guid: 18f2fb65884a1ba4ab6fba63b6da824f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1251781223}
   m_SourcePrefab: {fileID: 100100000, guid: 18f2fb65884a1ba4ab6fba63b6da824f, type: 3}
 --- !u!4 &8428904828894740170 stripped
 Transform:

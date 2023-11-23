@@ -12,6 +12,7 @@ TagManager:
   - Ingrid
   - Arne
   - NPCinteract
+  - PersonalItem
   layers:
   - Default
   - TransparentFX
