@@ -32,7 +32,7 @@ public class BackgroundNPC : MonoBehaviour
         {
             animator.SetTrigger("InteractionTrigger1");
             isInteracting = true;
-            Debug.Log($"{gameObject.name} interacting: {isInteracting}");
+            // Debug.Log($"{gameObject.name} interacting: {isInteracting}");
             agent.Stop();
 
             StartCoroutine(StandStill(interactionLength));
@@ -72,6 +72,6 @@ public class BackgroundNPC : MonoBehaviour
         agent.Resume();
         yield return new WaitForSeconds(3);
         isInteracting = false;
-        Debug.Log($"{gameObject.name} interacting: {isInteracting}");
+        // Debug.Log($"{gameObject.name} interacting: {isInteracting}");
     }
 }

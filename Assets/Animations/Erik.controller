@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a32616322175742a9de7c361c7cc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 4
+  animationDuration: 3
   blendDuration: 1
   numberOfAnimations: 4
 --- !u!1101 &4087150181250571600
