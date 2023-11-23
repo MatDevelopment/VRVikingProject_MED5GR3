@@ -3657,6 +3657,22 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.49
       objectReference: {fileID: 0}
+    - target: {fileID: 19823046, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823046, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823046, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19823046, guid: f632ee341faffa64ebfa4e2c74d6e422, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17668,6 +17684,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1402550090}
+        m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
+        m_MethodName: StartCoroutine_PlayNpcDialogueAfterSetTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
@@ -25959,13 +25987,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45be353cf3bb66041aabad5cb6ca94a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStory: A funeral is taking place today for a man called Torsten. Everyone from
-    the village are helping prepare for the funeral. The Adventurer is a person who
-    is passing through the village but has decided to help the villagers prepare
-    for the funeral in exchange for a bed to sleep in for the night.
+  gameStory: "A funeral is taking place today for a man called Torsten. Everyone
+    from the village are helping prepare for the funeral. \nThe Traveller is a person
+    who is passing through the village but has decided to help the villagers prepare
+    for the funeral in exchange for sleeping in Torsten's bed for the night. His
+    wife, Frida, has allowed the Traveller to sleep in Torsten's bed if he completes
+    tasks that need to be completed in order for the funeral to take place. The tasks
+    are as follows in this chronological order:"
   gameWorld: "You are a viking villager from the 900th century living in a small
     village next to a burial hill named Lindholm H\xF8je located in the northern
-    part of Jylland, Denmark."
+    part of Jylland, Denmark close to Limfjorden.\nYour village is close to an abundance
+    of forest.\nYour village has suffered a great deal of sandstorms through its
+    existence due to a lack of vegetation growth.\nThe sandstorms have ruined many
+    crop yields.\nFood can become scarce during winter.\nThe environment is generally
+    cold and wet but can become really hot during the summer.\nThe trails and paths
+    within the village boundaries are often very muddy because of the generally wet
+    environment.\nThere are a few warriors living in the village whose duty it is
+    to protect the village and its populace.\nNone of the warriors have fought in
+    battles or wars."
 --- !u!4 &529175939
 Transform:
   m_ObjectHideFlags: 0
@@ -29821,7 +29860,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -53032,6 +53071,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1675755201}
+        m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
+        m_MethodName: StartCoroutine_PlayNpcDialogueAfterSetTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
@@ -63314,6 +63365,7 @@ MonoBehaviour:
   progress: {fileID: 479291662}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  isDoneTalking: 1
 --- !u!4 &1221211526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b375698b498496640b77976be04ec05e,
@@ -66148,6 +66200,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 379302731}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1275199076
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!4 &1277899276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -72065,7 +72155,7 @@ MonoBehaviour:
   worldInfoScript: {fileID: 529175938}
   npcInfoScript: {fileID: 1860694150}
   textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 0}
+  whisperScript: {fileID: 1219121293}
   levelChangerScript: {fileID: 6249274243375570434}
   nameOfThisNPC: Frida
   voiceIDNameThisNpc: Ruth
@@ -72074,6 +72164,7 @@ MonoBehaviour:
   itemDescription_Blanket: 
   itemDescription_Knife: 
   itemDescription_ThorsHammer: 
+  gazeTimeToActivate: 3
 --- !u!4 &1402987151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -75597,44 +75688,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c4dfd0234dcd1479f34df46631187e, type: 3}
---- !u!84 &1484980436
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!4 &1485688586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 3b10ef2caf2292d4e99442a9682de863,
@@ -85069,7 +85122,7 @@ MonoBehaviour:
   worldInfoScript: {fileID: 529175938}
   npcInfoScript: {fileID: 1858730574}
   textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 0}
+  whisperScript: {fileID: 1219121293}
   levelChangerScript: {fileID: 6249274243375570434}
   nameOfThisNPC: Erik
   voiceIDNameThisNpc: Stephen
@@ -85078,6 +85131,7 @@ MonoBehaviour:
   itemDescription_Blanket: 
   itemDescription_Knife: 
   itemDescription_ThorsHammer: 
+  gazeTimeToActivate: 3
 --- !u!1 &1675907963
 GameObject:
   m_ObjectHideFlags: 0
@@ -88393,6 +88447,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2138685037}
         m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
         m_MethodName: Start_PickThisNpc_Coroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2138685037}
+        m_TargetAssemblyTypeName: NPCInteractorScript, Assembly-CSharp
+        m_MethodName: StartCoroutine_PlayNpcDialogueAfterSetTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -94046,8 +94112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Erik
-  npcOccupation: 5
-  npcTalents: 4
+  npcOccupation: 0
+  npcTalents: 2
   npcPersonality: 1
 --- !u!4 &1860406631 stripped
 Transform:
@@ -107912,7 +107978,7 @@ MonoBehaviour:
   worldInfoScript: {fileID: 529175938}
   npcInfoScript: {fileID: 1491957886}
   textToSpeechScript: {fileID: 963082272}
-  gazeManagerScript: {fileID: 0}
+  whisperScript: {fileID: 1219121293}
   levelChangerScript: {fileID: 6249274243375570434}
   nameOfThisNPC: Arne
   voiceIDNameThisNpc: Gregory
@@ -107921,6 +107987,7 @@ MonoBehaviour:
   itemDescription_Blanket: 
   itemDescription_Knife: 
   itemDescription_ThorsHammer: 
+  gazeTimeToActivate: 3
 --- !u!4 &2140145663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,

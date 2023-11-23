@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -19,8 +20,13 @@ namespace OpenAI
         private readonly int duration = 10;
         
         private AudioClip clip;
+        
         private bool isRecording = false;
+        public bool isDoneTalking = true;
+        
         private float time;
+        private float timeToInterruptTalk = 0.5f;
+        
         private OpenAIApi openai = new OpenAIApi();
 
         private void Awake()
@@ -59,7 +65,7 @@ namespace OpenAI
         private async void StartRecording(InputAction.CallbackContext context)
         {
             if (context.canceled)
-            {          
+            {
                 time = 0;
                 isRecording = false;
                 progress.fillAmount = 1;
@@ -72,6 +78,7 @@ namespace OpenAI
                 {
                     FileData = new FileData() {Data = data, Name = "audio.wav"},
                     // File = Application.persistentDataPath + "/" + fileName,
+                    Prompt = "The transcript is the dialogue of a danish villager from the 900th century. This danish villager has a danish accent when speaking english.",
                     Model = "whisper-1",
                     Language = "en"
                 };
@@ -80,14 +87,17 @@ namespace OpenAI
                 Debug.Log("Recording: " + res.Text);
 
                 chatTest.AddPlayerInputToChatLog(res.Text);
+                isDoneTalking = false;
                 string chatGptResponse = await chatTest.AskChatGPT(chatTest.messages);
                 chatTest.AddNpcResponseToChatLog(chatGptResponse);
-                textToSpeechScript.MakeAudioRequest(chatGptResponse);
                 Debug.Log(chatGptResponse);
+                textToSpeechScript.MakeAudioRequest(chatGptResponse);
+                isDoneTalking = true;
 
             }
             if(context.performed)
             {
+                InterruptNpcTalkingAfterDuration(timeToInterruptTalk);
                 Debug.Log("Start recording...");
                 isRecording = true;
     
@@ -101,14 +111,21 @@ namespace OpenAI
             if (isRecording)
             {
                 time += Time.deltaTime;
-                progress.fillAmount = time / duration;
+                progress.fillAmount = time / duration;      //Meant for showing how much time you have left to talk in through a fill amount of a UI progress bar etc. Not being used currently.
             }
             
             if(time >= duration)
             {
                 time = 0;
-                progress.fillAmount = 0;
+                progress.fillAmount = 0;        //Meant for showing how much time you have left to talk in through a fill amount of a UI progress bar etc. Not being used currently.
             }
+        }
+
+        private IEnumerator InterruptNpcTalkingAfterDuration(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            textToSpeechScript.audioSource.Stop();
+            
         }
     }
 }

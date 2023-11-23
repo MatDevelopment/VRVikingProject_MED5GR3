@@ -29,12 +29,12 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] private WorldInfo worldInfoScript;
     [SerializeField] private NpcInfo npcInfoScript;
     [SerializeField] private TextToSpeech textToSpeechScript;
-    [SerializeField] private GazeManager gazeManagerScript;
+    [SerializeField] private Whisper whisperScript;
     [SerializeField] private LevelChanger levelChangerScript;
     
     public string nameOfThisNPC;
+    public string voiceIDNameThisNpc;
     
-    [SerializeField] string voiceIDNameThisNpc;
     [TextArea(3,20)]
     [SerializeField] string itemDescription_Horn;
     [TextArea(3,20)]
@@ -47,6 +47,8 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] string itemDescription_ThorsHammer;
 
     private bool ItemGathered_Horn = false;
+
+    [SerializeField] private float gazeTimeToActivate = 3f;
     
     public List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
     //[SerializeField] private List<string> listOfOtherNpcs = new List<string>();
@@ -59,18 +61,20 @@ public class NPCInteractorScript : MonoBehaviour
         
         var message = new ChatMessage
         {
-            Role = "user",
+            Role = "system",
             Content =
-                "Act as an NPC in the given context and reply to the questions of the Adventurer who talks to you.\n" +
+                "Act as an NPC in the given context and reply to the questions of the Traveller who talks to you.\n" +
                 "Reply to the questions considering your personality, your occupation and your talents.\n" +
-                "You are a danish viking villager who lives a tough way of life and who loves the simple things in life.\n" +
+                "You are a danish viking villager from the 900th century who lives a peaceful way of life and likes the simple things in life.\n" +
                 "You know most of what there is to know about norse mythology. Many norse legends were told to you by your mother before she tucked you to bed\n" +
                 "You have never received any formal education and therefore your language use is simple and your vocabulary small.\n" +
                 "Do not ever say that you are an AI language model. Stay in your given role, considering your personality, your occupation and your talents.\n" +
                 "Do not mention that you are an NPC. If the question is out of scope for your knowledge tell that you do not know.\n" +
                 "Do not say anything about the emotional state of the NPC or what the NPC is thinking, but simply take this information into account.\n" +
                 "Do not break character and do not talk about the previous instructions.\n" +
-                "Reply to only NPC lines not to the Adventurer's lines.\n" +
+                "Reply to only NPC lines not to the Traveller's lines.\n" +
+                "Your responses should be no longer than 40 words.\n" +
+                //"Keep your responses to a maximum word limit of 40 words.\n" +
                 //"If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n" +
                 "The following info is the info about the game world: \n" +
                 worldInfoScript.GetPrompt() +
@@ -88,6 +92,7 @@ public class NPCInteractorScript : MonoBehaviour
                                                        //{
                                                        //NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];    //Sets the clip on the NPCaudioSource to be the randomly picked helpful dialogue sound
                                                        //}
+                                                       
 
         /*if (transform.parent != null)
         {
@@ -109,6 +114,7 @@ public class NPCInteractorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         /*if (isGazingUpon)
         {
             //notGazingTime = 0;        //Moved from here...
@@ -213,14 +219,21 @@ public class NPCInteractorScript : MonoBehaviour
         }
     }*/
     
+    
+    
 
-    public void PlayHelpfulAudioNPC()
+    private void PlayConversationStarterAudioNPC()
     {
-        arrayMax = arrayNPCsounds.Length;
-        pickedSoundToPlay = Random.Range(0, arrayMax);
-        NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];
+        if (arrayNPCsounds.Length > 0)
+        {
+            arrayMax = arrayNPCsounds.Length;
+            pickedSoundToPlay = Random.Range(0, arrayMax);
+            NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];
+            
+            NPCaudioSource.Play();
+            Debug.Log("Played conversation starter");
+        }
         
-        NPCaudioSource.Play();
     }
 
     
@@ -270,9 +283,21 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
+        {
+            StartCoroutine(PickThisNpc());
+        }
+        
+    }
 
-        StartCoroutine(PickThisNpc());
-
+    public void StartCoroutine_PlayNpcDialogueAfterSetTime()
+    {
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && arrayNPCsounds.Length > 0)
+        {
+            Debug.Log("Started NPC dialogue coroutine on: " + nameOfThisNPC);
+            StartCoroutine(PlayNpcDialogueAfterSetTime());
+        }
+        
     }
     
     /*public void Stop_PickThisNpc_Coroutine()
@@ -305,20 +330,18 @@ public class NPCInteractorScript : MonoBehaviour
         {
             StopCoroutine(PickThisNpc());
         }*/
+
     }
 
-    /*IEnumerator SaveChatLogOnNpc()
+    private IEnumerator PlayNpcDialogueAfterSetTime()
     {
-        if (chatTestScript.nameOfCurrentNPC == nameOfThisNPC && chatTestScript.isDone == true && textToSpeechScript.isGenereatingSpeech == false && NPCaudioSource.isPlaying == false)
-        {
-            yield return new WaitForSeconds(2.8f);
-            //ChatLogWithNPC = chatTestScript.messages;
-        }
-        else
-        {
-            StopCoroutine(SaveChatLogOnNpc());
-        }
-    }*/
-    
-    
+        yield return new WaitForSeconds(gazeTimeToActivate);
+        PlayConversationStarterAudioNPC();
+        yield return new WaitForSeconds((gazeTimeToActivate + 3) + NPCaudioSource.clip.length);
+        PlayConversationStarterAudioNPC();
+    }
+
+
+
+
 }

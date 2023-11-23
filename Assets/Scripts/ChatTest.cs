@@ -50,17 +50,21 @@ namespace OpenAI
             if (nameOfCurrentNPC == "Erik")
             {
                 textToSpeech.audioSource = erikInteractorScript.NPCaudioSource;
+                textToSpeech.voiceID_name = erikInteractorScript.voiceIDNameThisNpc;
                 messages = erikInteractorScript.ChatLogWithNPC;
+                
                 //Debug.Log("erik");
             }
             if (nameOfCurrentNPC == "Arne")
             {
                 textToSpeech.audioSource = arneInteractorScript.NPCaudioSource;
+                textToSpeech.voiceID_name = arneInteractorScript.voiceIDNameThisNpc;
                 messages = arneInteractorScript.ChatLogWithNPC;
             }
             if (nameOfCurrentNPC == "Frida")
             {
                 textToSpeech.audioSource = fridaInteractorScript.NPCaudioSource;
+                textToSpeech.voiceID_name = fridaInteractorScript.voiceIDNameThisNpc;
                 messages = fridaInteractorScript.ChatLogWithNPC;
             }
             
@@ -185,7 +189,7 @@ namespace OpenAI
             CreateChatCompletionRequest request = new CreateChatCompletionRequest();
             request.Messages = combinedMessages;
             request.Model = "gpt-3.5-turbo-16k-0613";
-            //request.Temperature = 0.5f;
+            request.Temperature = 0.5f;
             request.MaxTokens = 256;
 
             var response = await openai.CreateChatCompletion(request);
