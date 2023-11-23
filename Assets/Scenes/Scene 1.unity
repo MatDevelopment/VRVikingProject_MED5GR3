@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 335180081}
-  m_IndirectSpecularColor: {r: 0.36125368, g: 0.3269137, b: 0.357572, a: 1}
+  m_IndirectSpecularColor: {r: 0.36138448, g: 0.3268879, b: 0.3577137, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1691,6 +1691,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 941775234}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &35091137
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!4 &35429429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 04e0ab4312f682f439b88c86a65672e0,
@@ -47229,11 +47267,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4fef7608e8ab642b70288a4154ed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whisperScript: {fileID: 1219121293}
   audioSource: {fileID: 963082273}
   animator: {fileID: 46311130}
   voiceIDActorsList: []
   voiceID_name: 
-  isGenereatingSpeech: 0
+  isGeneratingSpeech: 0
+  thinkingClips: []
 --- !u!82 &963082273
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51172,6 +51212,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3219332940534413504, guid: 06dd33f9b5b5f834b976019c16f63e0b,
+        type: 3}
+      propertyPath: nameOfThisNPC
+      value: Erik
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219332940534413504, guid: 06dd33f9b5b5f834b976019c16f63e0b,
+        type: 3}
+      propertyPath: whisperScript
+      value: 
+      objectReference: {fileID: 1219121293}
     - target: {fileID: 3219332940534413504, guid: 06dd33f9b5b5f834b976019c16f63e0b,
         type: 3}
       propertyPath: chatTestScript
@@ -60075,9 +60125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 1924129681}
   chatTest: {fileID: 1913314628}
+  textToSpeechScript: {fileID: 963082272}
   progress: {fileID: 479291662}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  isDoneTalking: 1
 --- !u!4 &1221211526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b375698b498496640b77976be04ec05e,
@@ -82005,44 +82057,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 233334169}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1742535631
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &1744034960
 PrefabInstance:
   m_ObjectHideFlags: 0

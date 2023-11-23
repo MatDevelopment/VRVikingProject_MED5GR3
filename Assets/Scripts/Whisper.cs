@@ -88,11 +88,13 @@ namespace OpenAI
 
                 chatTest.AddPlayerInputToChatLog(res.Text);
                 isDoneTalking = false;
+                // Debug.Log($"isDoneTalking: {isDoneTalking}");
                 string chatGptResponse = await chatTest.AskChatGPT(chatTest.messages);
                 chatTest.AddNpcResponseToChatLog(chatGptResponse);
                 Debug.Log(chatGptResponse);
                 textToSpeechScript.MakeAudioRequest(chatGptResponse);
                 isDoneTalking = true;
+                // Debug.Log($"isDoneTalking: {isDoneTalking}");
 
             }
             if(context.performed)

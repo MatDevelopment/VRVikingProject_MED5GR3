@@ -13,10 +13,13 @@ using UnityEngine.Events;
 using UnityEngine.Networking;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
+using OpenAI;
 using static Amazon.Polly.Model.Internal.MarshallTransformations.DescribeVoicesRequestMarshaller;
 
 public class TextToSpeech : MonoBehaviour
 {
+    [SerializeField] private Whisper whisperScript;
+
     public AudioSource audioSource;
     [SerializeField] private Animator animator;
     private string accessKey;
@@ -27,6 +30,8 @@ public class TextToSpeech : MonoBehaviour
 
     [FormerlySerializedAs("isGenereatingSpeech")] public bool isGeneratingSpeech = false;
     //public List<string> VoiceId { get; }
+
+    public AudioClip[] thinkingClips;
 
     private void Awake()
     {
@@ -85,6 +90,14 @@ public class TextToSpeech : MonoBehaviour
 
     // Checks if the audio source is playing to call the animator to transition between talking and idle
     private void Update() {
+        
+        if (whisperScript.isDoneTalking) {
+            animator.SetBool("isThinking", false);
+        }
+        else {
+            animator.SetBool("isThinking", true);
+        }
+        
         if (audioSource.isPlaying) {
             animator.SetBool("isTalking", true);
         }
