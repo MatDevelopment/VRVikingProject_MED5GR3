@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Amazon.Polly;
 using OpenAI;
 using Unity.VisualScripting;
@@ -125,13 +126,15 @@ public class NPCInteractorScript : MonoBehaviour
     //Method that gets called on Select of XR Grab , aka the personal belongings of the deceased that the player are able to bring to the burial
     public void AppendItemDescriptionToPrompt(string nameOfItem)    //Add a time.DeltaTime that makes sure that there are atleast 30 seconds between item checks
     {
-        if (levelChangerScript.Scene2Active == true)
+        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && textToSpeechScript.audioSource.isPlaying == false)
         {
-            if (nameOfItem == "Horn" && ItemGathered_Horn == false && chatTestScript.isDone == true)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+            if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {
+                MakeNpcDescribeItem(itemDescription_Horn);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                ItemGathered_Horn = true;                               //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 //chatTestScript.SendReply(itemDescription_Horn);
                 //levelChangerScript.ItemGathered_Horn = false;
-                ItemGathered_Horn = true;       //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                //ItemGathered_Horn = true;       
             }
             else if (nameOfItem == "Brooch")
             {
@@ -160,7 +163,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && textToSpeechScript.audioSource.isPlaying == false)
         {
             StartCoroutine(PickThisNpc());
         }
@@ -207,6 +210,17 @@ public class NPCInteractorScript : MonoBehaviour
         yield return new WaitForSeconds((gazeTimeToActivate + 3) + NPCaudioSource.clip.length);
         PlayConversationStarterAudioNPC();
     }
+    
+    private async void MakeNpcDescribeItem(string itemDescription)
+    {
+        chatTestScript.AddChatGptItemDescriptionToChatLog(itemDescription);
+        string chatGptResponse = await chatTestScript.AskChatGPT(chatTestScript.messages);
+        chatTestScript.AddNpcResponseToChatLog(chatGptResponse);
+        Debug.Log(chatGptResponse);
+        textToSpeechScript.MakeAudioRequest(chatGptResponse);
+        whisperScript.isDoneTalking = true;
+    }
+    
 
     
     

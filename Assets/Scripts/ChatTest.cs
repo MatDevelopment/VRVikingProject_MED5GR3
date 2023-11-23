@@ -130,5 +130,29 @@ namespace OpenAI
 
             messages.Add(assistantMessage);
         }
+
+        public List<ChatMessage> AddChatGptItemDescriptionToChatLog(string itemDescription)
+        {
+            var message = new ChatMessage()
+            {
+                Role = "system",
+                Content = itemDescription
+            };
+            messages.Add(message);
+            if (nameOfCurrentNPC == "Erik")
+            {
+                erikInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Arne")
+            {
+                arneInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Frida")
+            {
+                fridaInteractorScript.ChatLogWithNPC.Add(message);
+            }
+
+            return messages;
+        }
     }
 }
