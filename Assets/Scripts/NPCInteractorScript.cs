@@ -314,7 +314,7 @@ public class NPCInteractorScript : MonoBehaviour
     private IEnumerator PickThisNpc()
     {
         Debug.Log("running coroutine" + nameOfThisNPC);
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGenereatingSpeech == false & NPCaudioSource.isPlaying == false)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGeneratingSpeech == false & NPCaudioSource.isPlaying == false)
         {
             yield return new WaitForSeconds(3);
             Debug.Log("PickThisNPC" + nameOfThisNPC);

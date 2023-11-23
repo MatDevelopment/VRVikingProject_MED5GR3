@@ -25,7 +25,7 @@ public class TextToSpeech : MonoBehaviour
     [FormerlySerializedAs("voiceIDActor")] [SerializeField] private List<TextToSpeech> voiceIDActorsList;
     public string voiceID_name;
 
-    public bool isGenereatingSpeech = false;
+    [FormerlySerializedAs("isGenereatingSpeech")] public bool isGeneratingSpeech = false;
     //public List<string> VoiceId { get; }
 
     private void Awake()
@@ -44,7 +44,7 @@ public class TextToSpeech : MonoBehaviour
 
         if (voiceID_name.Length > 0)
         {
-            isGenereatingSpeech = true; //NEW
+            isGeneratingSpeech = true; //NEW
             var request = new SynthesizeSpeechRequest()
             {
                 Text = message,
@@ -78,7 +78,7 @@ public class TextToSpeech : MonoBehaviour
             var clip = DownloadHandlerAudioClip.GetContent(www);
 
             audioSource.clip = clip;
-            isGenereatingSpeech = false; //NEW
+            isGeneratingSpeech = false; //NEW
             audioSource.Play();
         }
     }
