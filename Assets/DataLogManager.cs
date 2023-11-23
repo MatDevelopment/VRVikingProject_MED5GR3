@@ -60,7 +60,7 @@ public class DataLogManager : MonoBehaviour
     static DataLogManager dataLogManager;
 
     void Awake()
-    {
+    {        
         // Don't destroy varaibles
         DontDestroyOnLoad(transform.gameObject);
 
@@ -106,7 +106,7 @@ public class DataLogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dataLogManager = gameObject.AddComponent<DataLogManager>();
+        
 
         if (AllowLogging == true)
         {
