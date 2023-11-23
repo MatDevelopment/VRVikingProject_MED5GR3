@@ -14,7 +14,8 @@ public class BackgroundNPC : MonoBehaviour
     Vector3 target;
 
     bool isInteracting = false;
-    float interactionLength = 5;
+    
+    [SerializeField] float interactionLength = 10;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class BackgroundNPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("NPCinteract"))
+        if (other.gameObject.CompareTag("NPCinteract") && !isInteracting)
         {
             animator.SetTrigger("InteractionTrigger1");
             isInteracting = true;
@@ -68,8 +69,9 @@ public class BackgroundNPC : MonoBehaviour
     IEnumerator StandStill(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        agent.Resume();
+        yield return new WaitForSeconds(3);
         isInteracting = false;
         Debug.Log($"{gameObject.name} interacting: {isInteracting}");
-        agent.Resume();
     }
 }
