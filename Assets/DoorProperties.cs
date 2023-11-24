@@ -29,7 +29,7 @@ public class DoorProperties : MonoBehaviour
 
         if (levelChanger.Scene2Active == true)
         {
-            if (levelChanger.ItemGathered == true)
+            if (levelChanger.AllItemGathered == true)
             {
                 levelChanger.OpeningDoor = true;
             }

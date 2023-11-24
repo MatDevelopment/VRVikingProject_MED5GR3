@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollectItems : MonoBehaviour
 {
-    //public LevelChanger levelchanger;
+    public LevelChanger levelChanger;
     public NPCInteractorScript npcInteractorScript;
         
     public int itemsCollected = 0;
@@ -13,18 +13,11 @@ public class CollectItems : MonoBehaviour
     private string countPrompt_1 = "The Traveller just chose the first personal belonging of Thorsten for Thorsten's funeral. The Traveller needs to choose one more personal belonging. Convey this to the Traveller.";
     private string countPrompt_2 = "The Traveller just chose the last personal belonging of Thorsten for Thorsten's funeral. The Traveller is now ready to go out of the door of the house and go to Thorsten's funeral site. Convey this to the Traveller.";
 
-    private void Start()
+    void Awake()
     {
-        
+        levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
     }
 
-    void Update()
-    {
-        /*if (itemsCollected > 0)
-        {
-            levelchanger.ItemGathered = true;
-        }*/
-    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PersonalItem"))
@@ -38,6 +31,7 @@ public class CollectItems : MonoBehaviour
                     break;
                 case 2:
                     npcInteractorScript.MakeNpcCountRemainingBelongings(countPrompt_2);
+                    levelChanger.AllItemGathered = true;
                     break;
             }
         }

@@ -32,7 +32,7 @@ public class LevelChanger : MonoBehaviour
             // Scene 2
             // Catch goal bools from other script
             [Header ("Test Scene 2 goals:")]
-            [SerializeField] public bool ItemGathered;
+            [SerializeField] public bool AllItemGathered;
 
             // Scene 3 
             // Catch goal bools from other script
@@ -54,7 +54,7 @@ public class LevelChanger : MonoBehaviour
         if (Scene2Active == true)
         {
             OpeningDoor = false;
-            ItemGathered = false;
+            AllItemGathered = false;
             Debug.Log("Scene 2 Is Now Active!");
         }
 
