@@ -84,23 +84,23 @@ namespace OpenAI
 
         public List<ChatMessage> AddPlayerInputToChatLog(string playerInput)
         {
-            var message = new ChatMessage()
+            var userMessage = new ChatMessage()
             {
                 Role = "user",
                 Content = playerInput
             };
-            messages.Add(message);
+            messages.Add(userMessage);
             if (nameOfCurrentNPC == "Erik")
             {
-                erikInteractorScript.ChatLogWithNPC.Add(message);
+                erikInteractorScript.ChatLogWithNPC.Add(userMessage);
             }
             if (nameOfCurrentNPC == "Arne")
             {
-                arneInteractorScript.ChatLogWithNPC.Add(message);
+                arneInteractorScript.ChatLogWithNPC.Add(userMessage);
             }
             if (nameOfCurrentNPC == "Frida")
             {
-                fridaInteractorScript.ChatLogWithNPC.Add(message);
+                fridaInteractorScript.ChatLogWithNPC.Add(userMessage);
             }
 
             return messages;
@@ -131,12 +131,12 @@ namespace OpenAI
             messages.Add(assistantMessage);
         }
 
-        public List<ChatMessage> AddChatGptItemDescriptionToChatLog(string itemDescription)
+        public List<ChatMessage> AddSystemInstructionToChatLog(string instruction)
         {
             var message = new ChatMessage()
             {
                 Role = "system",
-                Content = itemDescription
+                Content = instruction
             };
             messages.Add(message);
             if (nameOfCurrentNPC == "Erik")
@@ -154,5 +154,6 @@ namespace OpenAI
 
             return messages;
         }
+        
     }
 }

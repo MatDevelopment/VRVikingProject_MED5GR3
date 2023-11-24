@@ -29,8 +29,8 @@ TagManager:
   - CandleLayer
   - ChoppedWood
   - ChoppedWoodCollider
-  - 
-  - 
+  - PersonalBelongingsLayer
+  - BasketLayer
   - 
   - 
   - 

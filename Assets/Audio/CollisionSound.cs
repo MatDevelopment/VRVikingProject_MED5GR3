@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Callbacks;
+//using UnityEditor.Callbacks;
 using UnityEngine;
 
 
@@ -15,20 +15,23 @@ public class CollisionSound : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
 
     void OnCollisionEnter(Collision collision) 
     {
-        arrayMax = arrayPhysicSounds.Length;
-        soundToPlay = Random.Range(0, arrayMax);
-        audioSource.clip = arrayPhysicSounds[soundToPlay];
+        if (arrayPhysicSounds.Length > 0)
+        {
+            arrayMax = arrayPhysicSounds.Length;
+            soundToPlay = Random.Range(0, arrayMax);
+            audioSource.clip = arrayPhysicSounds[soundToPlay];
 
-        audioSource.volume = Mathf.Clamp01(collision.relativeVelocity.magnitude / 15);
+            audioSource.volume = Mathf.Clamp01(collision.relativeVelocity.magnitude / 15);
        
-        if (collision.relativeVelocity.magnitude > 2)
-            audioSource.Play();
+            if (collision.relativeVelocity.magnitude > 2)
+                audioSource.Play();
+        }
     }
 
 }

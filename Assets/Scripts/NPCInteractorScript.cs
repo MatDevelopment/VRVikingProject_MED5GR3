@@ -74,6 +74,7 @@ public class NPCInteractorScript : MonoBehaviour
                 "Do not say anything about the emotional state of the NPC or what the NPC is thinking, but simply take this information into account.\n" +
                 "Do not break character and do not talk about the previous instructions.\n" +
                 "Reply to only NPC lines not to the Traveller's lines.\n" +
+                "If the Traveller does not say anything then ask the Traveller what is on their mind.\n" +
                 "Your responses should be no longer than 40 words.\n" +
                 //"Keep your responses to a maximum word limit of 40 words.\n" +
                 //"If my reply indicates that I want to end the conversation, finish your sentence with the phrase END_CONVO\n" +
@@ -207,13 +208,26 @@ public class NPCInteractorScript : MonoBehaviour
     {
         yield return new WaitForSeconds(gazeTimeToActivate);
         PlayConversationStarterAudioNPC();
-        yield return new WaitForSeconds((gazeTimeToActivate + 3) + NPCaudioSource.clip.length);
+        yield return new WaitForSeconds(gazeTimeToActivate + NPCaudioSource.clip.length);
         PlayConversationStarterAudioNPC();
     }
     
+    
     private async void MakeNpcDescribeItem(string itemDescription)
     {
-        chatTestScript.AddChatGptItemDescriptionToChatLog(itemDescription);
+        whisperScript.isDoneTalking = false;
+        chatTestScript.AddSystemInstructionToChatLog(itemDescription);
+        string chatGptResponse = await chatTestScript.AskChatGPT(chatTestScript.messages);
+        chatTestScript.AddNpcResponseToChatLog(chatGptResponse);
+        Debug.Log(chatGptResponse);
+        textToSpeechScript.MakeAudioRequest(chatGptResponse);
+        whisperScript.isDoneTalking = true;
+    }
+    
+    public async void MakeNpcCountRemainingBelongings(string countPrompt)
+    {
+        whisperScript.isDoneTalking = false;
+        chatTestScript.AddSystemInstructionToChatLog(countPrompt);
         string chatGptResponse = await chatTestScript.AskChatGPT(chatTestScript.messages);
         chatTestScript.AddNpcResponseToChatLog(chatGptResponse);
         Debug.Log(chatGptResponse);
@@ -231,13 +245,13 @@ public class NPCInteractorScript : MonoBehaviour
 
     //-------------OLD CODE--------------//
     
-        void Update()
+        /*void Update()
     {
         
         /*if (isGazingUpon)
         {
             //notGazingTime = 0;        //Moved from here...
-            if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGenereatingSpeech == false)
+            if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false)
             {
                 notGazingTime = 0;      //to here...
                 gazeTime += Time.deltaTime; //Count up when the user looks at the NPC 
@@ -263,7 +277,7 @@ public class NPCInteractorScript : MonoBehaviour
                     chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
                     gazeTime = 0;
                     gazeTimeActivate = 3;
-                }#1#
+                }#2#
 
                 //if (arrayNPCsounds.Length > 0)
                 //{
@@ -311,8 +325,8 @@ public class NPCInteractorScript : MonoBehaviour
             }
 
             
-        }*/
-    }
+        }#1#
+    }*/
     
     /*public void GazingUpon()
     {
