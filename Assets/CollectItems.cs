@@ -15,7 +15,8 @@ public class CollectItems : MonoBehaviour
 
     void Awake()
     {
-        levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
+        //levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();          //Redundant code execution since the level changer script is already being accessed through the inspector and stored in the variable levelChanger
+                                                                                                //Generally you do not want to use Find() method since it's expensive and slows down the program.
     }
 
     public void OnTriggerEnter(Collider other)

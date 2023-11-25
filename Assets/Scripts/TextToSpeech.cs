@@ -45,11 +45,12 @@ public class TextToSpeech : MonoBehaviour
     public async void MakeAudioRequest(string message)
     {
         var credentials = new BasicAWSCredentials(accessKey, secretKey);
-        var client = new AmazonPollyClient(credentials, RegionEndpoint.EUCentral1);
+        var client = new AmazonPollyClient(credentials, RegionEndpoint.EUCentral1); //Originally EUCentral1
 
         if (voiceID_name.Length > 0)
         {
             isGeneratingSpeech = true; //NEW
+            
             var request = new SynthesizeSpeechRequest()
             {
                 Text = message,
