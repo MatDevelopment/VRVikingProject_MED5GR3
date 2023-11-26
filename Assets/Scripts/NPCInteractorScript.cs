@@ -29,6 +29,8 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] private ChatTest chatTestScript;
     [SerializeField] private WorldInfo worldInfoScript;
     [SerializeField] private NpcInfo npcInfoScript;
+    [SerializeField] private TaskInfo taskInfoScript;
+    [SerializeField] private sceneInfo sceneInfoScript;
     [SerializeField] private TextToSpeech textToSpeechScript;
     [SerializeField] private Whisper whisperScript;
     [SerializeField] private LevelChanger levelChangerScript;
@@ -82,7 +84,11 @@ public class NPCInteractorScript : MonoBehaviour
                 worldInfoScript.GetPrompt() +
                 "The following info is the info about the NPC: \n" +
                 npcInfoScript.GetPrompt() +
-                "Do not include the NPC name in your response.\n"
+                "Do not include the NPC name in your response.\n" +
+                "The following info is the info about the NPC's current surroundings: \n" +
+                sceneInfoScript.GetPrompt() +
+                "The following info is the info about the Traveller's current task and subtasks: \n" +
+                taskInfoScript.GetPrompt()
         };
         
         ChatLogWithNPC.Add(message);

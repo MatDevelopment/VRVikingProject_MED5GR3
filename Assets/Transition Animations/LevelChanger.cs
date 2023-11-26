@@ -38,7 +38,11 @@ public class LevelChanger : MonoBehaviour
             // Catch goal bools from other script
             [Header ("Test Scene 3 goals:")]
             [SerializeField] public bool StonesPlaced;
+            [SerializeField] public bool WoodPlacedOnPyre;
             [SerializeField] public bool TorchLit;
+
+            private int countStonesPlaced;
+            private int countWoodPlaced;
 
     void Awake()
     {
@@ -143,6 +147,28 @@ public class LevelChanger : MonoBehaviour
             Debug.Log("Can't Reload And Start New Scene At The Same Time!");
         }
 
+    }
+
+    public void CountStonePlacements()
+    {
+        countStonesPlaced++;
+        Debug.Log("Stones placed: " + countStonesPlaced);
+
+        if (countStonesPlaced == 12)
+        {
+            StonesPlaced = true;
+        }
+    }
+    
+    public void CountWooodPlacements()
+    {
+        countWoodPlaced++;
+        Debug.Log("Wood placed: " + countWoodPlaced);
+        
+        if (countWoodPlaced == 6)
+        {
+            WoodPlacedOnPyre = true;
+        }
     }
 
 }

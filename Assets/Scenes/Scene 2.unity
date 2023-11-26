@@ -4690,6 +4690,8 @@ MonoBehaviour:
   chatTestScript: {fileID: 538264677}
   worldInfoScript: {fileID: 2055502856}
   npcInfoScript: {fileID: 1032947596}
+  taskInfoScript: {fileID: 1807610666}
+  sceneInfoScript: {fileID: 835290296}
   textToSpeechScript: {fileID: 1916229181}
   whisperScript: {fileID: 816927121}
   levelChangerScript: {fileID: 109734148}
@@ -9389,6 +9391,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 538324312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &835290295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835290297}
+  - component: {fileID: 835290296}
+  m_Layer: 0
+  m_Name: Scene Info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &835290296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835290295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e860a7ab79d9f42ae5d29720c7c4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneInfo: You and the Traveller are currently inside the home of Thorsten.
+--- !u!4 &835290297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835290295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.049197, y: 7.305814, z: -31.450779}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &837978797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 49807b7f8bf295e45a441f086be26404,
@@ -20629,6 +20676,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb9b0cc3da640a40940ea1905dc765f, type: 3}
+--- !u!1 &1807610665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1807610667}
+  - component: {fileID: 1807610666}
+  m_Layer: 0
+  m_Name: Task Info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1807610666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807610665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0291eb6a5847c45b6c054db54e081c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  task: 'The current task for the traveller is to find two of Thorsten''s personal
+    belongings for Thorsten to bring with him into the afterlife in Hel in norse
+    mythology.
+
+    The NPC needs to subtly help the Traveller in choosing two personal
+    belongings.'
+  subTasks: '1. Find a personal belonging of Thorsten''s.
+
+    2. Find a second personal
+    belonging.
+
+    3. Go to funeral ceremony through the door.'
+--- !u!4 &1807610667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807610665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.4820952, y: 7.5881248, z: -31.497004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1810577545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23478,11 +23581,8 @@ MonoBehaviour:
     who is passing through the village but has decided to help the villagers prepare
     for the funeral in exchange for sleeping in Thorsten's bed for the night. His
     widow, Frida, has allowed the Traveller to sleep in Thorsten's bed if he completes
-    tasks that need to be completed in order for the funeral to take place.\nYou
-    and the Traveller are currently inside the home of Thorsten.\nThe current task
-    for the traveller is to find two of Thorsten's personal belongings for Thorsten
-    to bring with him into the afterlife in Hel in norse mythology.\nSubtly help
-    the Traveller in choosing two personal belongings."
+    tasks that need to be completed in order for the funeral to take place. Each
+    task consists of a set of subtasks that needs to be completed."
   gameWorld: "You are a viking villager from the 900th century living in a small
     village next to a burial hill named Lindholm H\xF8je located in the northern
     part of Jylland, Denmark close to Limfjorden.\nYour village is close to an abundance
@@ -24894,12 +24994,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -124.756
       objectReference: {fileID: 0}
+    - target: {fileID: 5108177231110626466, guid: ff14792790ec38246bbc8844e9aea775,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5593130710406668622, guid: ff14792790ec38246bbc8844e9aea775,
         type: 3}
       propertyPath: m_Name
       value: viking_axe_LP.obj
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5108177231110626466, guid: ff14792790ec38246bbc8844e9aea775, type: 3}
+    - {fileID: 4906623226820445916, guid: ff14792790ec38246bbc8844e9aea775, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -25184,6 +25291,10 @@ SceneRoots:
   - {fileID: 306577640}
   - {fileID: 390043689}
   - {fileID: 1905786980}
+  - {fileID: 1259870001}
+  - {fileID: 2055502857}
+  - {fileID: 1807610667}
+  - {fileID: 835290297}
   - {fileID: 572609694}
   - {fileID: 50457005}
   - {fileID: 1577160253}
@@ -25198,8 +25309,6 @@ SceneRoots:
   - {fileID: 5579585}
   - {fileID: 1760156371}
   - {fileID: 1407994425}
-  - {fileID: 2055502857}
-  - {fileID: 1259870001}
   - {fileID: 439217971}
   - {fileID: 8758453412318241759}
   - {fileID: 987231972529314264}
