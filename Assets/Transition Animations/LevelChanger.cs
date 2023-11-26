@@ -171,4 +171,14 @@ public class LevelChanger : MonoBehaviour
         }
     }
 
+    public void DecrementStoneCount()
+    {
+        countStonesPlaced--;
+    }
+    
+    public void DecrementWoodCount()
+    {
+        countWoodPlaced--;
+    }
+
 }
