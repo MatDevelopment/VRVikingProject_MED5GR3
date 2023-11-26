@@ -13,6 +13,7 @@ TagManager:
   - Arne
   - NPCinteract
   - PersonalItem
+  - PlayerZone
   layers:
   - Default
   - TransparentFX
