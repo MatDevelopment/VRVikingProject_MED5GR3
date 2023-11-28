@@ -14,6 +14,8 @@ TagManager:
   - NPCinteract
   - PersonalItem
   - PlayerZone
+  - TorchFireHere
+  - IgniteFuneralPyreTag
   layers:
   - Default
   - TransparentFX

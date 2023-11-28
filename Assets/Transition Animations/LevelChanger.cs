@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class LevelChanger : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class LevelChanger : MonoBehaviour
             [Header ("Test Scene 3 goals:")]
             [SerializeField] public bool StonesPlaced;
             [SerializeField] public bool WoodPlacedOnPyre;
-            [SerializeField] public bool TorchLit;
+            [FormerlySerializedAs("TorchLit")] [SerializeField] public bool FuneralPyreLit;
 
             private int countStonesPlaced;
             private int countWoodPlaced;
@@ -65,7 +66,7 @@ public class LevelChanger : MonoBehaviour
         if (Scene3Active == true)
         {
             StonesPlaced = false;
-            TorchLit = false;
+            FuneralPyreLit = false;
             Debug.Log("Scene 3 Is Now Active!");
         }
         
@@ -100,7 +101,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene3Active == true)
         {
-            if(StonesPlaced == true && TorchLit == true)
+            if(StonesPlaced == true && FuneralPyreLit == true)
             {
                 Debug.Log("Experience Is Over!");
             }
