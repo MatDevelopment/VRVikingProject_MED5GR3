@@ -123,9 +123,9 @@ namespace OpenAI
             }
         }
 
-        private IEnumerator InterruptNpcTalkingAfterDuration(float duration)
+        private IEnumerator InterruptNpcTalkingAfterDuration(float interruptDuration)
         {
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(interruptDuration);
             textToSpeechScript.audioSource.Stop();
             
         }

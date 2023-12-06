@@ -15,10 +15,14 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] private GameObject NPCgameObject;
     //[SerializeField] private GameObject gazeColliderGameObject;
     public AudioSource NPCaudioSource;
-    [SerializeField] private AudioClip[] arrayNPCsounds; // The array controlling the sounds
+    [SerializeField] private AudioClip[] arrayNPCsounds; // The array controlling the sounds for the conversation starter sounds
+    [SerializeField] private AudioClip[] arrayNPCitemSounds; // The array controlling the sounds for item description sounds
     
-    private int arrayMax;
+    private int arrayConversationSoundsMax;
+    private int arrayItemSoundsMax;
+    
     public int pickedSoundToPlay;
+    public int pickedItemSoundToPlay;
 
     /*private float notGazingTime;
     private float notGazingTimeActivate = 2.5f;
@@ -50,6 +54,9 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] string itemDescription_ThorsHammer;
 
     private bool ItemGathered_Horn = false;
+    private bool ItemGathered_Brooch = false;
+    private bool ItemGathered_Knife = false;
+    private bool ItemGathered_ThorsHammer = false;
 
     [SerializeField] private float gazeTimeToActivate = 3f;
     
@@ -88,14 +95,15 @@ public class NPCInteractorScript : MonoBehaviour
                 "The following info is the info about the NPC's current surroundings: \n" +
                 sceneInfoScript.GetPrompt() +
                 "The following info is the info about the Traveller's current task and subtasks: \n" +
-                taskInfoScript.GetPrompt()
+                taskInfoScript.GetPrompt() +
+                "If the Traveller asks for your help with their tasks that involves physical activity, then say that you have physical injury that prevents you from physically helping"
         };
         
         ChatLogWithNPC.Add(message);
         
         //NPCaudioSource = NPCgameObject.GetComponent<AudioSource>();         //Gets the AudioSource component of the NPCgameObject put into the SerializeField in the inspector;
-        arrayMax = arrayNPCsounds.Length;     //The length of the helpful NPC sounds array
-        pickedSoundToPlay = Random.Range(0, arrayMax); // Grab a random sound out of the max number of sounds
+        arrayConversationSoundsMax = arrayNPCsounds.Length;     //The length of the helpful NPC sounds array
+        pickedSoundToPlay = Random.Range(0, arrayConversationSoundsMax); // Grab a random sound out of the max number of sounds
                                                        //if (arrayNPCsounds.Length != 0)
                                                        //{
                                                        //NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];    //Sets the clip on the NPCaudioSource to be the randomly picked helpful dialogue sound
@@ -119,8 +127,8 @@ public class NPCInteractorScript : MonoBehaviour
     {
         if (arrayNPCsounds.Length > 0)
         {
-            arrayMax = arrayNPCsounds.Length;
-            pickedSoundToPlay = Random.Range(0, arrayMax);
+            arrayConversationSoundsMax = arrayNPCsounds.Length;
+            pickedSoundToPlay = Random.Range(0, arrayConversationSoundsMax);
             NPCaudioSource.clip = arrayNPCsounds[pickedSoundToPlay];
             
             NPCaudioSource.Play();
@@ -129,39 +137,69 @@ public class NPCInteractorScript : MonoBehaviour
         
     }
 
+    private void PlayAudioOnItemPickup()
+    {
+        if (arrayNPCitemSounds.Length > 0)
+        {
+            arrayItemSoundsMax = arrayNPCitemSounds.Length;
+            //pickedItemSoundToPlay = Random.Range(0, arrayItemSoundsMax);
+            NPCaudioSource.clip = arrayNPCitemSounds[pickedItemSoundToPlay];
+            
+            NPCaudioSource.Play();
+            Debug.Log("Played conversation starter");
+        }
+    }
+    
+    
+
     
     //Method that gets called on Select of XR Grab , aka the personal belongings of the deceased that the player are able to bring to the burial
     public void AppendItemDescriptionToPrompt(string nameOfItem)    //Add a time.DeltaTime that makes sure that there are atleast 30 seconds between item checks
     {
-        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && textToSpeechScript.audioSource.isPlaying == false)
+        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying)
         {
             if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {
+                PlayAudioOnItemPickup();
                 MakeNpcDescribeItem(itemDescription_Horn);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Horn = true;                               //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 //chatTestScript.SendReply(itemDescription_Horn);
                 //levelChangerScript.ItemGathered_Horn = false;
-                //ItemGathered_Horn = true;       
+                //ItemGathered_Horn = true;
+                pickedItemSoundToPlay++;
             }
-            else if (nameOfItem == "Brooch")
+            else if (nameOfItem == "Brooch" && ItemGathered_Brooch == false)
             {
+                PlayAudioOnItemPickup();
+                MakeNpcDescribeItem(itemDescription_Brooch);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                ItemGathered_Brooch = true;
                 //chatTestScript.SendReply(itemDescription_Brooch);
                 //levelChangerScript.ItemGathered_Brooch = false;
+                pickedItemSoundToPlay++;
             }
-            else if (nameOfItem == "Blanket")
+            /*else if (nameOfItem == "Blanket")
             {
+                
                 //chatTestScript.SendReply(itemDescription_Blanket);
                 //levelChangerScript.ItemGathered_Blanket = false;
-            }
-            else if (nameOfItem == "Knife")
+            }*/
+            else if (nameOfItem == "Knife" && ItemGathered_Knife == false)
             {
+                PlayAudioOnItemPickup();
+                MakeNpcDescribeItem(itemDescription_Knife);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                ItemGathered_Knife = true;
                 //chatTestScript.SendReply(itemDescription_Knife);
                 //levelChangerScript.ItemGathered_Knife = false;
+                pickedItemSoundToPlay++;
             }
-            else if (nameOfItem == "ThorsHammer")
+            else if (nameOfItem == "ThorsHammer" && ItemGathered_ThorsHammer == false)
             {
+                PlayAudioOnItemPickup();
+                MakeNpcDescribeItem(itemDescription_ThorsHammer);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                ItemGathered_ThorsHammer = true;
                 //chatTestScript.SendReply(itemDescription_ThorsHammer);
                 //levelChangerScript.ItemGathered_ThorsHammer = false;
+                pickedItemSoundToPlay++;
             }
             
         }
@@ -170,7 +208,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && textToSpeechScript.audioSource.isPlaying == false)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying)
         {
             StartCoroutine(PickThisNpc());
         }
@@ -191,9 +229,9 @@ public class NPCInteractorScript : MonoBehaviour
     private IEnumerator PickThisNpc()
     {
         Debug.Log("running coroutine" + nameOfThisNPC);
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGeneratingSpeech == false & NPCaudioSource.isPlaying == false)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGeneratingSpeech == false & !NPCaudioSource.isPlaying)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
             Debug.Log("PickThisNPC" + nameOfThisNPC);
             //chatTestScript.messages.Clear();
             chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.

@@ -10,6 +10,8 @@ public class PyreTorchScript : MonoBehaviour
     [SerializeField] private LevelChanger levelChangerScript;
     
     [SerializeField] private AudioSource torchAudioSource;
+    [SerializeField] private AudioSource funeralPyreAudioSource;
+    [SerializeField] private AudioClip loopingBonFireSound;
     [SerializeField] private AudioClip soundOfFireStarting;
     [SerializeField] private AudioClip loopingFireSound;
     
@@ -22,6 +24,9 @@ public class PyreTorchScript : MonoBehaviour
     [SerializeField] private GameObject fx_sparks;
     [SerializeField] private GameObject PointLight;
 
+    [SerializeField] private GameObject FuneralFireEffects_1;
+    [SerializeField] private GameObject FuneralFireEffects_2;
+
     //private List<GameObject> listOfChildren;
     
     
@@ -32,6 +37,9 @@ public class PyreTorchScript : MonoBehaviour
         fx_fire.SetActive(false);
         fx_sparks.SetActive(false);
         PointLight.SetActive(false);
+        
+        FuneralFireEffects_1.SetActive(false);
+        FuneralFireEffects_2.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +51,7 @@ public class PyreTorchScript : MonoBehaviour
 
         if (other.CompareTag("IgniteFuneralPyreTag") && playerTorchIsLit == true)
         {
-            levelChangerScript.FuneralPyreLit = true;       //The player has ignited the funeral pyre
+            StartCoroutine(StartSettingFireToPyre());
         }
     }
 
@@ -74,5 +82,23 @@ public class PyreTorchScript : MonoBehaviour
         torchAudioSource.Play();
         
         playerTorchIsLit = true;
+    }
+    
+    IEnumerator StartSettingFireToPyre()
+    {
+        //torchAudioSource.soundOfFireStarting.Play();  
+        funeralPyreAudioSource.clip = soundOfFireStarting;
+        funeralPyreAudioSource.Play();
+        yield return new WaitForSeconds(funeralPyreAudioSource.clip.length);
+        
+        FuneralFireEffects_1.SetActive(true);
+        FuneralFireEffects_2.SetActive(true);
+        
+        torchAudioSource.Stop();
+
+        funeralPyreAudioSource.clip = loopingBonFireSound;
+        funeralPyreAudioSource.Play();
+        
+        levelChangerScript.FuneralPyreLit = true;       //The player has ignited the funeral pyre
     }
 }

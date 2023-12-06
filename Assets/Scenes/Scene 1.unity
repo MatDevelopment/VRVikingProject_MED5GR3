@@ -4294,6 +4294,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 973334318}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -4308,6 +4320,18 @@ MonoBehaviour:
           m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 973334318}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
@@ -13956,6 +13980,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1197966782}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &272965533
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &273813972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19090,7 +19152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1195273150}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -19187,26 +19249,26 @@ MonoBehaviour:
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 2.3
   m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_SmoothPosition: 1
+  m_SmoothPositionAmount: 2.85
+  m_TightenPosition: 0.063
   m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
+  m_SmoothRotation: 1
+  m_SmoothRotationAmount: 2.85
+  m_TightenRotation: 0.063
   m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
   m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
+  m_ThrowSmoothingDuration: 2
   m_ThrowSmoothingCurve:
     serializedVersion: 2
     m_Curve:
@@ -19222,9 +19284,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
+  m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
   m_StartingSingleGrabTransformers: []
@@ -24476,13 +24538,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45be353cf3bb66041aabad5cb6ca94a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStory: "A funeral is taking place today for a man called Torsten. Everyone
-    from the village are helping prepare for the funeral. \r\nThe Traveller is a
-    person who is passing through the village but has decided to help the villagers
-    prepare for the funeral in exchange for sleeping in Torsten's bed for the night.
-    His wife, Frida, has allowed the Traveller to sleep in Torsten's bed if he completes
+  gameStory: "A funeral is taking place today for a man called Thorsten. Everyone
+    from the village are helping prepare for the funeral. \nThe Traveller is a person
+    who is passing through the village but has decided to help the villagers prepare
+    for the funeral in exchange for sleeping in Thorsten's bed for the night. His
+    widow, Ingrid, has allowed the Traveller to sleep in Thorsten's bed if he completes
     tasks that need to be completed in order for the funeral to take place. Each
-    task consists of a set of subtasks that needs to be completed."
+    task consists of a set of subtasks which will be explained in detail later.\nThe
+    tasks are as follows in this chronological order:\nTask 1: The Traveller needs
+    to chop three wooden logs and bring the chopped wood into a cart placed nearby
+    the Traveller.\nTask 2: The Traveller needs to find two personal belongings of
+    Thorsten's to be put by his funeral pyre.\nTask 3: The Traveller needs to assemble
+    a stone formation in the resemblance of a seafaring ship around Thorsten's funeral
+    pyre. The Traveller also needs to put the wood that they chopped in Task 1 unto
+    the funeral pyre.\nTask 4: The Traveller needs to light a torch and thereafter
+    light Thorsten's funeral pyre. The Traveller is also encouraged to talk with
+    the villagers to learn more about Thorsten when he was alive."
   gameWorld: "You are a viking villager from the 900th century living in a small
     village next to a burial hill named Lindholm H\xF8je located in the northern
     part of Jylland, Denmark close to Limfjorden.\nYour village is close to an abundance
@@ -39076,6 +39147,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1511300856}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -39090,6 +39173,18 @@ MonoBehaviour:
           m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1511300856}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
@@ -45328,8 +45423,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
+      propertyPath: m_SmoothPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 925397566}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_AttachEaseInTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
       propertyPath: m_UseDynamicAttach
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1195273150}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_ThrowVelocityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothPositionAmount
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothRotationAmount
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 6761211786992408106, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
@@ -45395,6 +45535,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1539330100}
   m_SourcePrefab: {fileID: 100100000, guid: 3009fb9bbb78fda47856947cb518f6b7, type: 3}
+--- !u!4 &925397566 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 879254462895636560, guid: 3009fb9bbb78fda47856947cb518f6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 925397565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &926581066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48427,6 +48573,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77459436eeb3aeb48871d657bcb5fd7f, type: 3}
+--- !u!137 &973334318 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7499939610243109775, guid: 77459436eeb3aeb48871d657bcb5fd7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 973334317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &974344098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60062,7 +60214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e860a7ab79d9f42ae5d29720c7c4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneInfo: 
+  SceneInfo: You and the Traveller are outside the house of Thorsten at the center
+    of the village of Lindholm.
 --- !u!4 &1217653506
 Transform:
   m_ObjectHideFlags: 0
@@ -68014,8 +68167,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0291eb6a5847c45b6c054db54e081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  task: 
-  subTasks: 
+  task: The current task is Task 1. All tasks preceding this task has already been
+    done by the Traveller.
+  subTasks: 'Subtask 1: Chop three pieces of wood.
+
+    Subtask 2: Place chopped
+    wood pieces in the nearby wagon.
+
+    Subtask 3: Go to the door of Thorsten''s
+    house and find two of his personal belongings for Thorsten to bring with him
+    into the afterlife.'
 --- !u!4 &1390665343
 Transform:
   m_ObjectHideFlags: 0
@@ -73780,6 +73941,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c99d0ba506360a43b8cea08ef805d25, type: 3}
+--- !u!137 &1511300856 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8312990531973804203, guid: 3c99d0ba506360a43b8cea08ef805d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 1511300855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1512107452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74740,44 +74907,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1286307923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &1533667705
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!4 &1534466862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -90714,13 +90843,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
+      propertyPath: m_SmoothScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
       propertyPath: m_MovementType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
+      propertyPath: m_SmoothPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_AttachEaseInTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
       propertyPath: m_UseDynamicAttach
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1195273150}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_ThrowVelocityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothPositionAmount
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothRotationAmount
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 6761211786992408106, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
@@ -102046,8 +102220,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
+      propertyPath: m_SmoothPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 974989469325589920}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_AttachEaseInTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
       propertyPath: m_UseDynamicAttach
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1195273150}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_ThrowVelocityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothPositionAmount
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298636041562707361, guid: 3009fb9bbb78fda47856947cb518f6b7,
+        type: 3}
+      propertyPath: m_SmoothRotationAmount
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 6761211786992408106, guid: 3009fb9bbb78fda47856947cb518f6b7,
         type: 3}
@@ -102113,6 +102332,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 851735979292730160}
   m_SourcePrefab: {fileID: 100100000, guid: 3009fb9bbb78fda47856947cb518f6b7, type: 3}
+--- !u!4 &974989469325589920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 879254462895636560, guid: 3009fb9bbb78fda47856947cb518f6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 974989469325589919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2644867338565782432
 PrefabInstance:
   m_ObjectHideFlags: 0
