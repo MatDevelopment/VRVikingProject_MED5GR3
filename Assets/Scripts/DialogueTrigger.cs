@@ -27,6 +27,10 @@ public class DialogueTrigger : MonoBehaviour
     private float fadeDuration = 2;
     private bool faded = false;
 
+    public static int EPid = 0;
+    public static int EWid = 0;
+    public static int EBid = 0;
+
     public bool isErikPersonal = false;
     public bool isErikWorld = false;
     public bool isErikBurial = false;
@@ -34,6 +38,10 @@ public class DialogueTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (isErikPersonal) { currentIndex = EPid; }
+        if (isErikWorld) { currentIndex = EWid; }
+        if (isErikBurial) { currentIndex = EBid; }
+
         buttonPressReference.action.Enable();
         buttonPressReference.action.performed += SelectQuestion;
 
@@ -66,7 +74,11 @@ public class DialogueTrigger : MonoBehaviour
         faded = true;
 
         currentIndex += 1; // Changes to next question index
-        
+
+        if (isErikPersonal) { EPid = currentIndex; }
+        if (isErikWorld) { EWid = currentIndex; }
+        if (isErikBurial) { EBid = currentIndex; }
+
         if (currentIndex >= questions.Count) {
             currentIndex = 0; // Resets the index if it goes over the total amount of questions
         }
