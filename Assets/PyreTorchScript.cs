@@ -17,7 +17,7 @@ public class PyreTorchScript : MonoBehaviour
     
     private bool playerTorchIsLit = false;
 
-    private float timeTillLitTorch = 1.75f;
+    //private float timeTillLitTorch = 1.75f;
 
     [SerializeField] private GameObject fx_smoke;
     [SerializeField] private GameObject fx_fire;
