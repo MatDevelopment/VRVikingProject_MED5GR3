@@ -27,6 +27,10 @@ public class DialogueTrigger : MonoBehaviour
     private float fadeDuration = 2;
     private bool faded = false;
 
+    public bool isErikPersonal = false;
+    public bool isErikWorld = false;
+    public bool isErikBurial = false;
+
     // Start is called before the first frame update
     void Start()
     {
