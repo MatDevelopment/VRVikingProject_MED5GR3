@@ -34,7 +34,7 @@ TagManager:
   - ChoppedWoodCollider
   - PersonalBelongingsLayer
   - BasketLayer
-  - 
+  - NoPlayerCollision
   - 
   - 
   - 

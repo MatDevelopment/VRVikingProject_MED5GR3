@@ -7,6 +7,9 @@ public class CollectItems : MonoBehaviour
 {
     public LevelChanger levelChanger;
     public NPCInteractorScript npcInteractorScript;
+
+    public GameObject Door;
+    public GameObject DoorOpen;
         
     public int itemsCollected = 0;
 
@@ -34,6 +37,13 @@ public class CollectItems : MonoBehaviour
                     npcInteractorScript.MakeNpcCountRemainingBelongings(countPrompt_2);
                     levelChanger.AllItemGathered = true;
                     break;
+            }
+
+            if (itemsCollected == 2)
+            {
+                Debug.Log("Door Open"+ itemsCollected);
+                Door.SetActive(false);
+                DoorOpen.SetActive(true);
             }
         }
         
