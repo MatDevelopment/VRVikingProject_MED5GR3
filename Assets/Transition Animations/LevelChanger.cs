@@ -117,7 +117,7 @@ public class LevelChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Testing();
+        Testing();
 
         // Conditions for interactive experience
         

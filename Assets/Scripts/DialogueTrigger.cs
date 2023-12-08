@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class DialogueTrigger : MonoBehaviour
     public bool isErikPersonal = false;
     public bool isErikWorld = false;
     public bool isErikBurial = false;
+
+    private void Awake()
+    {
+        if (LevelChanger.LLM_VersionPlaying)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
