@@ -29,9 +29,9 @@ public class LevelChanger : MonoBehaviour
         [SerializeField] public bool Scene3Active = false;
         [SerializeField] public bool Scene4Active = false;
         
+    // Button press to start definition
+        [Header ("Button Reference:")]
         [SerializeField] private InputActionReference buttonPressToStart = null;
-        
-        public bool lookingAtNpc;
 
             // Scene 1
             // Catch goal bools from other script
