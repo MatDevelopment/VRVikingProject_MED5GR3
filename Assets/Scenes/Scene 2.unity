@@ -15498,10 +15498,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
   - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
   arrayNPCitemSounds:
-  - {fileID: 8300000, guid: 957967f509ef05d43987cae4df1ebed9, type: 3}
-  - {fileID: 8300000, guid: 1067895428f8b88489fddbc417fd9c86, type: 3}
-  - {fileID: 8300000, guid: e6129fdd7ea51db438c726a5e18a524d, type: 3}
-  - {fileID: 8300000, guid: b288d53f51772b445b4e8055845768db, type: 3}
+  - {fileID: 8300000, guid: 72e53e113e180d7428e8459e0fe649c1, type: 3}
+  - {fileID: 8300000, guid: 461d3e7eecaa84240883ba7ace04d714, type: 3}
+  - {fileID: 8300000, guid: 74f3e4c73793a3e46895ea29eaa4dd1b, type: 3}
+  - {fileID: 8300000, guid: 398fc4d991079f84cac8f6402b3deb6d, type: 3}
   pickedSoundToPlay: 0
   pickedItemSoundToPlay: 0
   chatTestScript: {fileID: 538264677}
@@ -20971,6 +20971,7 @@ MonoBehaviour:
   progress: {fileID: 1577160254}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  isRecording: 0
   isDoneTalking: 1
 --- !u!4 &816927122
 Transform:
