@@ -51,6 +51,11 @@ public class DataLogManager : MonoBehaviour
      public static int ArnePersonalTime = 0;
      public static int ArneIntimateTime = 0;
 
+    // Gaze Time Variables
+    private float startGazeTime = 0f;
+    private float stopGazeTime = 0f;
+    private float totalGazeTime = 0f;
+
     // Keep script intact
     static DataLogManager dataLogManager;
 
@@ -113,25 +118,29 @@ public class DataLogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Erik
-        ErikSocialTime = proximityCounter.ErikTimeInSocial;
-        ErikPersonalTime = proximityCounter.ErikTimeInPersonal;
-        ErikIntimateTime = proximityCounter.ErikTimeInIntimate;
+        // Proximity Times
+            //Erik
+            ErikSocialTime = proximityCounter.ErikTimeInSocial;
+            ErikPersonalTime = proximityCounter.ErikTimeInPersonal;
+            ErikIntimateTime = proximityCounter.ErikTimeInIntimate;
 
-        //Frida
-        FridaSocialTime = proximityCounter.FridaTimeInSocial;
-        FridaPersonalTime = proximityCounter.FridaTimeInPersonal;
-        FridaIntimateTime = proximityCounter.FridaTimeInIntimate;
+            //Frida
+            FridaSocialTime = proximityCounter.FridaTimeInSocial;
+            FridaPersonalTime = proximityCounter.FridaTimeInPersonal;
+            FridaIntimateTime = proximityCounter.FridaTimeInIntimate;
 
-        //Ingrid
-        IngridSocialTime = proximityCounter.IngridTimeInSocial;
-        IngridPersonalTime = proximityCounter.IngridTimeInPersonal;
-        IngridIntimateTime = proximityCounter.IngridTimeInIntimate;
+            //Ingrid
+            IngridSocialTime = proximityCounter.IngridTimeInSocial;
+            IngridPersonalTime = proximityCounter.IngridTimeInPersonal;
+            IngridIntimateTime = proximityCounter.IngridTimeInIntimate;
 
-        //Arne
-        ArneSocialTime = proximityCounter.ArneTimeInSocial;
-        ArnePersonalTime = proximityCounter.ArneTimeInPersonal;
-        ArneIntimateTime = proximityCounter.ArneTimeInIntimate;
+            //Arne
+            ArneSocialTime = proximityCounter.ArneTimeInSocial;
+            ArnePersonalTime = proximityCounter.ArneTimeInPersonal;
+            ArneIntimateTime = proximityCounter.ArneTimeInIntimate;
+
+        // Gaze time
+        NPCGazeTime = (int) (totalGazeTime % 60);
     }
 
     void OnApplicationQuit()
@@ -167,5 +176,19 @@ public class DataLogManager : MonoBehaviour
 
         // Appending the string to the textfile which means it is written behind the current text
         sw.WriteLine(SensorLogText);
+    }
+
+    
+    public void StartCountGaze()        //Called on action event of Hover Enter on NPC gaze collider
+    {
+        startGazeTime = Time.fixedTime;         //The time in seconds since the start of the game saved in startGazeTime float variable
+    }
+
+    public void StopGazeCount()
+    {
+        stopGazeTime = Time.fixedTime;          //The time in seconds since the start of the game stored in stopGazeTime, when the user stops looking at an NPC
+        totalGazeTime += (stopGazeTime - startGazeTime);        //The time that the user has JUST spent looking at an NPC is added to the totalGazeTime float variable,
+                                                                //by subtracting the time from when the user started looking at the NPC, from the current time when
+                                                                //the user stopped looking at the NPC.
     }
 }
