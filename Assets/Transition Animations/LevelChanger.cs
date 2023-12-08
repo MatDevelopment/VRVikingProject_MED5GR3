@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -20,9 +21,11 @@ public class LevelChanger : MonoBehaviour
 
     //Determine current scene
         [Header ("Active Scene Bool:")]
-        [SerializeField] public bool Scene1Active = true;
+        [SerializeField] public bool IntroSceneActive = true;
+        [SerializeField] public bool Scene1Active = false;
         [SerializeField] public bool Scene2Active = false;
         [SerializeField] public bool Scene3Active = false;
+        [SerializeField] public bool Scene4Active = false;
         
         
         public bool lookingAtNpc;
@@ -83,9 +86,21 @@ public class LevelChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Testing();
+        //Testing();
 
         // Conditions for interactive experience
+
+        if (IntroSceneActive == true)
+        {
+            /*if (context.performed)
+            {
+                FadeToNextLevel();
+                Scene1Active = true;
+                IntroSceneActive = false;
+            }*/
+            
+            
+        }
         
         if (Scene1Active == true)
         {
@@ -109,8 +124,21 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene3Active == true)
         {
-            if(StonesPlaced == true && FuneralPyreLit == true)
+            if(StonesPlaced == true && WoodPlacedOnPyre == true)
             {
+                FadeToNextLevel();
+                Scene4Active = true;
+                Scene3Active = false;
+            }
+        }
+
+        if (Scene4Active == true)
+        {
+            if (FuneralPyreLit == true)
+            {
+                //Add coroutine her som først fader til næste scene efter lidt tid så man kan nå at høre musikken osv. ved slutningen af Thorsten's begravelse
+                FadeToNextLevel();
+                Scene4Active = false;
                 Debug.Log("Experience Is Over!");
             }
         }
