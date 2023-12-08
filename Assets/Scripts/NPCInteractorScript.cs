@@ -146,7 +146,6 @@ public class NPCInteractorScript : MonoBehaviour
             NPCaudioSource.clip = arrayNPCitemSounds[pickedItemSoundToPlay];
             
             NPCaudioSource.Play();
-            Debug.Log("Played conversation starter");
         }
     }
     
@@ -217,7 +216,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void StartCoroutine_PlayNpcDialogueAfterSetTime()
     {
-        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && arrayNPCsounds.Length > 0)
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && arrayNPCsounds.Length > 0)
         {
             Debug.Log("Started NPC dialogue coroutine on: " + nameOfThisNPC);
             StartCoroutine(PlayNpcDialogueAfterSetTime());
@@ -250,10 +249,18 @@ public class NPCInteractorScript : MonoBehaviour
 
     private IEnumerator PlayNpcDialogueAfterSetTime()
     {
-        yield return new WaitForSeconds(gazeTimeToActivate);
-        PlayConversationStarterAudioNPC();
-        yield return new WaitForSeconds(gazeTimeToActivate + NPCaudioSource.clip.length);
-        PlayConversationStarterAudioNPC();
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
+        {
+            yield return new WaitForSeconds(gazeTimeToActivate);
+            PlayConversationStarterAudioNPC();
+        }
+
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
+        {
+            yield return new WaitForSeconds(gazeTimeToActivate + NPCaudioSource.clip.length);
+            PlayConversationStarterAudioNPC();
+        }
+        
     }
     
     

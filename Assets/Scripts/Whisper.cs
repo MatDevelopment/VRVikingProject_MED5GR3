@@ -21,7 +21,7 @@ namespace OpenAI
         
         private AudioClip clip;
         
-        private bool isRecording = false;
+        public bool isRecording = false;
         public bool isDoneTalking = true;
         
         private float time;

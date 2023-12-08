@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -27,6 +29,7 @@ public class LevelChanger : MonoBehaviour
         [SerializeField] public bool Scene3Active = false;
         [SerializeField] public bool Scene4Active = false;
         
+        [SerializeField] private InputActionReference buttonPressToStart = null;
         
         public bool lookingAtNpc;
 
@@ -56,8 +59,16 @@ public class LevelChanger : MonoBehaviour
             private float stopGazeTime = 0f;
             private float totalGazeTime = 0f;
 
+            [SerializeField] private AudioSource ambienceMusicAudioSource;
+
     void Awake()
     {
+        if (IntroSceneActive == true)
+        {
+            buttonPressToStart.action.Enable();
+            buttonPressToStart.action.performed += StartExperienceOnButtonPress;
+        }
+        
         // Managing bools when loading LevelChanger object in new scenes.
         if (Scene1Active == true)
         {
@@ -65,6 +76,7 @@ public class LevelChanger : MonoBehaviour
             WoodChopped = false;
             OpeningDoor = false;
             Debug.Log("Scene 1 Is Now Active!");
+            
         }
 
         if (Scene2Active == true)
@@ -77,10 +89,27 @@ public class LevelChanger : MonoBehaviour
         if (Scene3Active == true)
         {
             StonesPlaced = false;
-            FuneralPyreLit = false;
+            WoodPlacedOnPyre = false;
             Debug.Log("Scene 3 Is Now Active!");
         }
         
+        if (Scene4Active == true)
+        {
+            FuneralPyreLit = false;
+            Debug.Log("Scene 4 Is Now Active!");
+        }
+    }
+
+    public void StartExperienceOnButtonPress(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            //buttonPressToStart.action.Disable();
+            buttonPressToStart.action.performed += StartExperienceOnButtonPress;
+            FadeToNextLevel();
+            IntroSceneActive = false;
+            Scene1Active = true;
+        }
     }
 
     // Update is called once per frame
@@ -89,18 +118,6 @@ public class LevelChanger : MonoBehaviour
         //Testing();
 
         // Conditions for interactive experience
-
-        if (IntroSceneActive == true)
-        {
-            /*if (context.performed)
-            {
-                FadeToNextLevel();
-                Scene1Active = true;
-                IntroSceneActive = false;
-            }*/
-            
-            
-        }
         
         if (Scene1Active == true)
         {
@@ -137,7 +154,8 @@ public class LevelChanger : MonoBehaviour
             if (FuneralPyreLit == true)
             {
                 //Add coroutine her som først fader til næste scene efter lidt tid så man kan nå at høre musikken osv. ved slutningen af Thorsten's begravelse
-                FadeToNextLevel();
+                StartCoroutine(EndSceneAfterWaitTime());
+                StartCoroutine(PlayMusicAfterWaitTime());
                 Scene4Active = false;
                 Debug.Log("Experience Is Over!");
             }
@@ -224,6 +242,18 @@ public class LevelChanger : MonoBehaviour
         yield return new WaitUntil(lookingAtNpc);
         
     }*/
+
+    private IEnumerator PlayMusicAfterWaitTime()
+    {
+        yield return new WaitForSeconds(2f);
+        ambienceMusicAudioSource.Play();
+    }
+    
+    private IEnumerator EndSceneAfterWaitTime()
+    {
+        yield return new WaitForSeconds(20);
+        FadeToNextLevel();
+    }
 
     public void StartCountGaze()        //Called on action event of Hover Enter on NPC gaze collider
     {

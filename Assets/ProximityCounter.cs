@@ -146,7 +146,7 @@ public class ProximityCounter : MonoBehaviour
     {
         ErikCounter();
 
-        if (levelChanger.Scene3Active == true)
+        if (levelChanger.Scene4Active == true)
         {
             FridaCounter();
             HaroldCounter();
