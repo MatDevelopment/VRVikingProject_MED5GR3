@@ -13,6 +13,7 @@ namespace OpenAI
         [SerializeField] private Dropdown dropdown;
         [SerializeField] private ChatTest chatTest;
         [SerializeField] private TextToSpeech textToSpeechScript;
+        //[SerializeField] private LevelChanger levelChangerScript;
         [SerializeField] private Image progress;
         [SerializeField] private InputActionReference buttonHoldReference = null;
         
@@ -31,16 +32,23 @@ namespace OpenAI
 
         private void Awake()
         {
-            buttonHoldReference.action.Enable();
-            buttonHoldReference.action.performed += StartRecording;
-            buttonHoldReference.action.canceled += StartRecording;
+            if (LevelChanger.LLM_VersionPlaying == true)
+            {
+                buttonHoldReference.action.Enable();
+                buttonHoldReference.action.performed += StartRecording;
+                buttonHoldReference.action.canceled += StartRecording;
+            }
         }
 
         private void OnDestroy()
         {
-            buttonHoldReference.action.started -= StartRecording;
-            buttonHoldReference.action.performed += StartRecording;
-            buttonHoldReference.action.canceled += StartRecording;
+            if (LevelChanger.LLM_VersionPlaying == false)
+            {
+                buttonHoldReference.action.started -= StartRecording;
+                buttonHoldReference.action.performed += StartRecording;
+                buttonHoldReference.action.canceled += StartRecording;
+            }
+            
         }
 
         private void Start()
@@ -64,7 +72,7 @@ namespace OpenAI
         
         private async void StartRecording(InputAction.CallbackContext context)
         {
-            if (context.canceled)
+            if (context.canceled && LevelChanger.LLM_VersionPlaying == true)
             {
                 time = 0;
                 isRecording = false;
@@ -97,7 +105,7 @@ namespace OpenAI
                 // Debug.Log($"isDoneTalking: {isDoneTalking}");
 
             }
-            if(context.performed)
+            if(context.performed && LevelChanger.LLM_VersionPlaying == true)
             {
                 InterruptNpcTalkingAfterDuration(timeToInterruptTalk);
                 Debug.Log("Start recording...");

@@ -2626,6 +2626,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
+      propertyPath: SetLLM_VersionPlaying
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
+        type: 3}
       propertyPath: ambienceMusicAudioSource
       value: 
       objectReference: {fileID: 1801887596}

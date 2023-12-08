@@ -15,7 +15,12 @@ public class LevelChanger : MonoBehaviour
 
     // Variable for loading certain level (based on level index)
     private int levelToLoad;
-
+    
+    // bool to check if you are playing the AI version of the experience (AI or scripted dialogue version)
+    public static bool LLM_VersionPlaying;
+    [SerializeField] public bool SetLLM_VersionPlaying;
+    
+    
     // bool to unlock test conditions
     [Header ("Test Load Scene Function:")]
     [SerializeField] bool ReloadSceneTest = true;
@@ -61,6 +66,7 @@ public class LevelChanger : MonoBehaviour
     {
         if (IntroSceneActive == true)
         {
+            LLM_VersionPlaying = SetLLM_VersionPlaying;
             buttonPressToStart.action.Enable();
             buttonPressToStart.action.performed += StartExperienceOnButtonPress;
         }
@@ -250,4 +256,6 @@ public class LevelChanger : MonoBehaviour
         yield return new WaitForSeconds(20);
         FadeToNextLevel();
     }
+    
+    
 }
