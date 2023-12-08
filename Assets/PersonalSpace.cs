@@ -29,10 +29,6 @@ public class PersonalSpace : MonoBehaviour
             {
                 proximityCounter.IngridInPersonalZone = true;
             }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInPersonalZone = true;
-            }
             if (other.gameObject.CompareTag("Frida"))
             {
                 proximityCounter.FridaInPersonalZone = true;
@@ -57,10 +53,6 @@ public class PersonalSpace : MonoBehaviour
             {
                 proximityCounter.IngridInPersonalZone = true;
             }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInPersonalZone = true;
-            }
             if (other.gameObject.CompareTag("Frida"))
             {
                 proximityCounter.FridaInPersonalZone = true;
@@ -84,10 +76,6 @@ public class PersonalSpace : MonoBehaviour
             if (other.gameObject.CompareTag("Ingrid"))
             {
                 proximityCounter.IngridInPersonalZone = false;
-            }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInPersonalZone = false;
             }
             if (other.gameObject.CompareTag("Frida"))
             {

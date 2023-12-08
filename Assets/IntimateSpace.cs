@@ -25,10 +25,6 @@ public class IntimateSpace : MonoBehaviour
             {
                 proximityCounter.FridaInIntimateZone = true;
             }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInIntimateZone = true;
-            }
             if (other.gameObject.CompareTag("Arne"))
             {
                 proximityCounter.ArneInIntimateZone = true;
@@ -53,10 +49,6 @@ public class IntimateSpace : MonoBehaviour
             {
                 proximityCounter.FridaInIntimateZone = true;
             }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInIntimateZone = true;
-            }
             if (other.gameObject.CompareTag("Arne"))
             {
                 proximityCounter.ArneInIntimateZone = true;
@@ -80,10 +72,6 @@ public class IntimateSpace : MonoBehaviour
             if (other.gameObject.CompareTag("Frida"))
             {
                 proximityCounter.FridaInIntimateZone = false;
-            }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInIntimateZone = false;
             }
             if (other.gameObject.CompareTag("Arne"))
             {

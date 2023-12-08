@@ -41,11 +41,6 @@ public class DataLogManager : MonoBehaviour
      public static int FridaPersonalTime = 0;
      public static int FridaIntimateTime = 0;
 
-     //Harold
-     public static int HaroldSocialTime = 0;
-     public static int HaroldPersonalTime = 0;
-     public static int HaroldIntimateTime = 0;
-
      //Ingrid
      public static int IngridSocialTime = 0;
      public static int IngridPersonalTime = 0;
@@ -128,11 +123,6 @@ public class DataLogManager : MonoBehaviour
         FridaPersonalTime = proximityCounter.FridaTimeInPersonal;
         FridaIntimateTime = proximityCounter.FridaTimeInIntimate;
 
-        //Harold
-        HaroldSocialTime = proximityCounter.HaroldTimeInSocial;
-        HaroldPersonalTime = proximityCounter.HaroldTimeInPersonal;
-        HaroldIntimateTime = proximityCounter.HaroldTimeInIntimate;
-
         //Ingrid
         IngridSocialTime = proximityCounter.IngridTimeInSocial;
         IngridPersonalTime = proximityCounter.IngridTimeInPersonal;
@@ -172,7 +162,6 @@ public class DataLogManager : MonoBehaviour
         string SensorLogText = "Experience Time = " + currentTime + ", Gaze time on NPC = " + NPCGazeTime + ", Prompt Amount = " + PromptAmount + 
         ", Social Proximity Time To Erik = " + ErikSocialTime + ", Personal Proximity Time To Erik = " + ErikPersonalTime + ", Intimate Proximity Time To Erik = " + ErikIntimateTime + 
         ", Social Proximity Time To Frida = " + FridaSocialTime + ", Personal Proximity Time To Frida = " + FridaPersonalTime + ", Intimate Proximity Time To Frida = " + FridaIntimateTime + 
-        ", Social Proximity Time To Harold = " + HaroldSocialTime + ", Personal Proximity Time To Harold = " + HaroldPersonalTime + ", Intimate Proximity Time To Harold = " + HaroldIntimateTime + 
         ", Social Proximity Time To Ingrid = " + IngridSocialTime + ", Personal Proximity Time To Ingrid = " + IngridPersonalTime + ", Intimate Proximity Time To Ingrid = " + IngridIntimateTime + 
         ", Social Proximity Time To Arne = " + ArneSocialTime + ", Personal Proximity Time To Arne = " + ArnePersonalTime + ", Intimate Proximity Time To Arne = " + ArneIntimateTime;
 

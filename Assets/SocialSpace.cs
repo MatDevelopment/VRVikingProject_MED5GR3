@@ -25,10 +25,6 @@ public class SocialSpace : MonoBehaviour
             {
                 proximityCounter.ArneInSocialZone = true;
             }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInSocialZone = true;
-            }
             if (other.gameObject.CompareTag("Ingrid"))
             {
                 proximityCounter.IngridInSocialZone = true;
@@ -53,10 +49,6 @@ public class SocialSpace : MonoBehaviour
             {
                 proximityCounter.ArneInSocialZone = true;
             }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInSocialZone = true;
-            }
             if (other.gameObject.CompareTag("Ingrid"))
             {
                 proximityCounter.IngridInSocialZone = true;
@@ -80,10 +72,6 @@ public class SocialSpace : MonoBehaviour
             if (other.gameObject.CompareTag("Arne"))
             {
                 proximityCounter.ArneInSocialZone = false;
-            }
-            if (other.gameObject.CompareTag("Harold"))
-            {
-                proximityCounter.HaroldInSocialZone = false;
             }
             if (other.gameObject.CompareTag("Ingrid"))
             {

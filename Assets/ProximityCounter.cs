@@ -38,21 +38,6 @@ public class ProximityCounter : MonoBehaviour
         public int FridaTimeInPersonal = 0;
         public int FridaTimeInSocial = 0;
 
-        //Harold
-        [Header ("Harold Zones")]
-        // Spaces
-        public bool HaroldInIntimateZone = false;
-        public bool HaroldInPersonalZone = false;
-        public bool HaroldInSocialZone = false;
-        
-        // Timers
-        private float HaroldTimerIntimate = 0.0f;
-        private float HaroldTimerPersonal = 0.0f;
-        private float HaroldTimerSocial = 0.0f;
-        public int HaroldTimeInIntimate = 0;
-        public int HaroldTimeInPersonal = 0;
-        public int HaroldTimeInSocial = 0;
-
         //Ingrid
         [Header ("Ingrid Zones")]
         // Spaces
@@ -112,15 +97,6 @@ public class ProximityCounter : MonoBehaviour
             FridaTimeInPersonal = FridaTimeInPersonal;
             FridaTimeInSocial = FridaTimeInSocial;
 
-        //Harold    
-            // Timers
-            HaroldTimerIntimate = HaroldTimerIntimate;
-            HaroldTimerPersonal = HaroldTimerPersonal;
-            HaroldTimerSocial = HaroldTimerSocial;
-            HaroldTimeInIntimate = HaroldTimeInIntimate;
-            HaroldTimeInPersonal = HaroldTimeInPersonal;
-            HaroldTimeInSocial = HaroldTimeInSocial;
-
         //Ingrid
             // Timers
             IngridTimerIntimate = IngridTimerIntimate;
@@ -149,7 +125,6 @@ public class ProximityCounter : MonoBehaviour
         if (levelChanger.Scene4Active == true)
         {
             FridaCounter();
-            HaroldCounter();
             IngridCounter();
             ArneCounter();
         }
@@ -199,29 +174,6 @@ public class ProximityCounter : MonoBehaviour
         {
             FridaTimerIntimate += Time.deltaTime;
             FridaTimeInIntimate = (int) (FridaTimerIntimate % 60);
-        }
-    }
-    void HaroldCounter()
-    {
-        //When in social zone, add time to social timer
-        if (HaroldInSocialZone == true && HaroldInPersonalZone == false && HaroldInIntimateZone == false)
-        {
-            HaroldTimerSocial += Time.deltaTime; 
-            HaroldTimeInSocial = (int) (HaroldTimerSocial % 60);
-        }
-
-        //When in Personal zone, add time to Personal timer
-        else if (HaroldInSocialZone == true && HaroldInPersonalZone == true && HaroldInIntimateZone == false)
-        {
-            HaroldTimerPersonal += Time.deltaTime;
-            HaroldTimeInPersonal = (int) (HaroldTimerPersonal % 60);
-        }
-
-        //When in intimate zone, add time to intimate timer
-        else if (HaroldInSocialZone == true && HaroldInPersonalZone == true && HaroldInIntimateZone == true)
-        {
-            HaroldTimerIntimate += Time.deltaTime;
-            HaroldTimeInIntimate = (int) (HaroldTimerIntimate % 60);
         }
     }
     void IngridCounter()
