@@ -10,7 +10,9 @@ public enum Occupation
     Ninth_Century_Wares_Trader,
     Livestock_Trader,
     Slave,
-    Norse_Mythology_Preacher
+    Norse_Mythology_Preacher,
+    Warrior,
+    Weaver
     
 }
 
@@ -21,7 +23,8 @@ public enum Talent
     Fishing,
     Hunting,
     Fighting,
-    Cooking
+    Cooking,
+    Weaving
 }
 
 public enum Personality
@@ -36,21 +39,29 @@ public enum Personality
     Naive,
     Smart,
     Funny,
-    Confident
+    Confident,
+    Boastful
 }
 
 public class NpcInfo : MonoBehaviour
 {
     [SerializeField] private string npcName = "";
+    [SerializeField] private int npcAge;
     [SerializeField] private Occupation npcOccupation;
     [SerializeField] private Talent npcTalents;
     [SerializeField] private Personality npcPersonality;
+    
+    [TextArea(3,20)]
+    [SerializeField] private string npcPersonalityDescription;
 
     public string GetPrompt()
     {
         return $"NPC Name: {npcName}\n" +
+               $"NPC Age: {npcAge}\n" +
                $"NPC Occupation: {npcOccupation.ToString()}\n" +
                $"NPC Talent: {npcTalents.ToString()}\n" +
-               $"NPC Personality: {npcPersonality.ToString()}\n";
+               $"NPC Personality: {npcPersonality.ToString()}\n" +
+               $"NPC Personality Description: {npcPersonalityDescription}\n";
+
     }
 }

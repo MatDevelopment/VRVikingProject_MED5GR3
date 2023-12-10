@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 
 public class NPCInteractorScript : MonoBehaviour
 {
-    private bool isGazingUpon;
+    //private bool isGazingUpon;
     [SerializeField] private GameObject NPCgameObject;
     //[SerializeField] private GameObject gazeColliderGameObject;
     public AudioSource NPCaudioSource;
@@ -57,8 +57,13 @@ public class NPCInteractorScript : MonoBehaviour
     private bool ItemGathered_Brooch = false;
     private bool ItemGathered_Knife = false;
     private bool ItemGathered_ThorsHammer = false;
+    
+    private bool playedFirstVoiceLine = false;
+    private bool playedSecondVoiceLine = false;
+    
+    public static bool lookingAtOtherThanSelectedNPC;
 
-    [SerializeField] private float gazeTimeToActivate = 3f;
+    private float gazeTimeToActivate = 2f;
     
     public List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
     //[SerializeField] private List<string> listOfOtherNpcs = new List<string>();
@@ -96,7 +101,8 @@ public class NPCInteractorScript : MonoBehaviour
                 sceneInfoScript.GetPrompt() +
                 "The following info is the info about the Traveller's current task and subtasks: \n" +
                 taskInfoScript.GetPrompt() +
-                "If the Traveller asks for your help with their tasks that involves physical activity, then say that you have physical injury that prevents you from physically helping"
+                "If the Traveller asks for your help with their tasks that involves physical activity, then say that you have physical injury that prevents you from physically helping.\n" +
+                "You are NOT able to physically move around."
         };
         
         ChatLogWithNPC.Add(message);
@@ -125,7 +131,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     private void PlayConversationStarterAudioNPC()
     {
-        if (arrayNPCsounds.Length > 0)
+        if (arrayNPCsounds.Length > 0 && textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
         {
             arrayConversationSoundsMax = arrayNPCsounds.Length;
             pickedSoundToPlay = Random.Range(0, arrayConversationSoundsMax);
@@ -155,7 +161,7 @@ public class NPCInteractorScript : MonoBehaviour
     //Method that gets called on Select of XR Grab , aka the personal belongings of the deceased that the player are able to bring to the burial
     public void AppendItemDescriptionToPrompt(string nameOfItem)    //Add a time.DeltaTime that makes sure that there are atleast 30 seconds between item checks
     {
-        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying)
+        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false)
         {
             if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {
@@ -207,11 +213,10 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false && lookingAtOtherThanSelectedNPC == true)
         {
             StartCoroutine(PickThisNpc());
         }
-        
     }
 
     public void StartCoroutine_PlayNpcDialogueAfterSetTime()
@@ -228,9 +233,9 @@ public class NPCInteractorScript : MonoBehaviour
     private IEnumerator PickThisNpc()
     {
         Debug.Log("running coroutine" + nameOfThisNPC);
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC & chatTestScript.isDone == true & textToSpeechScript.isGeneratingSpeech == false & !NPCaudioSource.isPlaying)
+        yield return new WaitForSeconds(2);
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false & whisperScript.isDoneTalking == true && whisperScript.isRecording == false && lookingAtOtherThanSelectedNPC == true)
         {
-            yield return new WaitForSeconds(2);
             Debug.Log("PickThisNPC" + nameOfThisNPC);
             //chatTestScript.messages.Clear();
             chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
@@ -249,16 +254,20 @@ public class NPCInteractorScript : MonoBehaviour
 
     private IEnumerator PlayNpcDialogueAfterSetTime()
     {
-        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && playedFirstVoiceLine == false)
         {
+            playedSecondVoiceLine = false;
             yield return new WaitForSeconds(gazeTimeToActivate);
             PlayConversationStarterAudioNPC();
+            playedFirstVoiceLine = true;
         }
 
-        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && playedSecondVoiceLine == false)
         {
+            playedFirstVoiceLine = false;
             yield return new WaitForSeconds(gazeTimeToActivate + NPCaudioSource.clip.length);
             PlayConversationStarterAudioNPC();
+            playedSecondVoiceLine = true;
         }
         
     }
@@ -285,8 +294,23 @@ public class NPCInteractorScript : MonoBehaviour
         textToSpeechScript.MakeAudioRequest(chatGptResponse);
         whisperScript.isDoneTalking = true;
     }
-    
 
+    public void PlayerIsLookingAtOtherThanSelectedNpc()
+    {
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
+        {
+            lookingAtOtherThanSelectedNPC = true;
+        }
+    }
+    
+    public void PlayerNotLookingAtOtherThanSelectedNpc()
+    {
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
+        {
+            lookingAtOtherThanSelectedNPC = false;
+        }
+    }
+    
     
     
     

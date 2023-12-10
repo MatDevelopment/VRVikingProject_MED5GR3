@@ -26,7 +26,7 @@ namespace OpenAI
         public bool isDoneTalking = true;
         
         private float time;
-        private float timeToInterruptTalk = 0.5f;
+        private float timeToInterruptTalk = 0.25f;
         
         private OpenAIApi openai = new OpenAIApi();
 
@@ -74,7 +74,7 @@ namespace OpenAI
         {
             if (context.canceled && LevelChanger.LLM_VersionPlaying == true)
             {
-                time = 0;
+                //time = 0;
                 isRecording = false;
                 progress.fillAmount = 1;
                 Debug.Log("Stop recording...");
@@ -107,7 +107,7 @@ namespace OpenAI
             }
             if(context.performed && LevelChanger.LLM_VersionPlaying == true)
             {
-                InterruptNpcTalkingAfterDuration(timeToInterruptTalk);
+                StartCoroutine(InterruptNpcTalkingAfterDuration(timeToInterruptTalk));
                 Debug.Log("Start recording...");
                 isRecording = true;
     
@@ -116,7 +116,7 @@ namespace OpenAI
             }
         }
         
-        private void Update()
+        /*private void Update()
         {
             if (isRecording)
             {
@@ -129,13 +129,12 @@ namespace OpenAI
                 time = 0;
                 progress.fillAmount = 0;        //Meant for showing how much time you have left to talk in through a fill amount of a UI progress bar etc. Not being used currently.
             }
-        }
+        }*/
 
         private IEnumerator InterruptNpcTalkingAfterDuration(float interruptDuration)
         {
             yield return new WaitForSeconds(interruptDuration);
             textToSpeechScript.audioSource.Stop();
-            
         }
     }
 }

@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using OpenAI;
 using UnityEngine;
 
 public class CollectItems : MonoBehaviour
 {
     public LevelChanger levelChanger;
     public NPCInteractorScript npcInteractorScript;
+    public TextToSpeech textToSpeechScript;
+    public Whisper whisperScript;
 
     public GameObject Door;
     public GameObject DoorOpen;
@@ -24,7 +27,7 @@ public class CollectItems : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PersonalItem"))
+        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false)
         {
             itemsCollected += 1;
             

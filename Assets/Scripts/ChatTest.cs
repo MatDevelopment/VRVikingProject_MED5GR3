@@ -26,7 +26,7 @@ namespace OpenAI
         
         public UnityEvent OnReplyReceived;
         
-        public bool isDone = true;
+        //public bool isDone = true;
 
         private float height;
         private OpenAIApi openai = new OpenAIApi();
