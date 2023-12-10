@@ -21,7 +21,7 @@ public class TextToSpeech : MonoBehaviour
     [SerializeField] private Whisper whisperScript;
 
     public AudioSource audioSource;
-    [SerializeField] public Animator animator;
+    [FormerlySerializedAs("animator")] [SerializeField] public Animator animatorSelectedNpc;
     private string accessKey;
     private string secretKey;
 
@@ -93,17 +93,17 @@ public class TextToSpeech : MonoBehaviour
     private void Update() {
         
         if (whisperScript.isDoneTalking) {
-            animator.SetBool("isThinking", false);
+            animatorSelectedNpc.SetBool("isThinking", false);
         }
         else {
-            animator.SetBool("isThinking", true);
+            animatorSelectedNpc.SetBool("isThinking", true);
         }
         
         if (audioSource.isPlaying) {
-            animator.SetBool("isTalking", true);
+            animatorSelectedNpc.SetBool("isTalking", true);
         }
         else {
-            animator.SetBool("isTalking", false);
+            animatorSelectedNpc.SetBool("isTalking", false);
         }
     }
 
