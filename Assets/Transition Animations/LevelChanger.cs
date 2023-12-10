@@ -104,10 +104,10 @@ public class LevelChanger : MonoBehaviour
 
     public void StartExperienceOnButtonPress(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && IntroSceneActive == true)
         {
-            //buttonPressToStart.action.Disable();
-            buttonPressToStart.action.performed += StartExperienceOnButtonPress;
+            buttonPressToStart.action.Disable();
+            buttonPressToStart.action.performed -= StartExperienceOnButtonPress;
             FadeToNextLevel();
             IntroSceneActive = false;
             Scene1Active = true;
