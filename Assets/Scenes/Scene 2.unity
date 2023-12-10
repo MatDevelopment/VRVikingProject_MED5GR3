@@ -15210,7 +15210,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -19184,7 +19184,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -19587,7 +19587,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -19709,6 +19709,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle4
       objectReference: {fileID: 0}
+    - target: {fileID: 5508337957250707229, guid: 71560920b1232f74690e37d0612e337b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6563804366039199345, guid: 71560920b1232f74690e37d0612e337b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -19783,6 +19788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846784279562311443, guid: 71560920b1232f74690e37d0612e337b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7846784279562311443, guid: 71560920b1232f74690e37d0612e337b,
         type: 3}
@@ -23375,6 +23385,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 1.23
       objectReference: {fileID: 0}
+    - target: {fileID: 10821712, guid: 44eb32dcdfb035f4cb156673d7722d3a, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 44eb32dcdfb035f4cb156673d7722d3a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -25093,7 +25107,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -25774,7 +25788,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -27603,6 +27617,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6829899244081725521, guid: 6b30c47796c387e4aae37f9eccdc08f6,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7208154427422157746, guid: 6b30c47796c387e4aae37f9eccdc08f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27706,7 +27725,7 @@ PrefabInstance:
     - target: {fileID: 9105224734163318879, guid: 6b30c47796c387e4aae37f9eccdc08f6,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9105224734163318879, guid: 6b30c47796c387e4aae37f9eccdc08f6,
         type: 3}
@@ -28170,6 +28189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6778161875149039894, guid: 98e443e0debec9545b9c36136b460929,
         type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778161875149039894, guid: 98e443e0debec9545b9c36136b460929,
+        type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
       objectReference: {fileID: 0}
@@ -28207,6 +28231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Candle3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116467458906935576, guid: 98e443e0debec9545b9c36136b460929,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28966,7 +28995,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -46222,6 +46251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle1
       objectReference: {fileID: 0}
+    - target: {fileID: 5508337957250707229, guid: 71560920b1232f74690e37d0612e337b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6563804366039199345, guid: 71560920b1232f74690e37d0612e337b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46286,6 +46320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846784279562311443, guid: 71560920b1232f74690e37d0612e337b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7846784279562311443, guid: 71560920b1232f74690e37d0612e337b,
         type: 3}
@@ -47271,6 +47310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6778161875149039894, guid: 98e443e0debec9545b9c36136b460929,
         type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778161875149039894, guid: 98e443e0debec9545b9c36136b460929,
+        type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 69559
       objectReference: {fileID: 0}
@@ -47278,6 +47322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Candle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116467458906935576, guid: 98e443e0debec9545b9c36136b460929,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
