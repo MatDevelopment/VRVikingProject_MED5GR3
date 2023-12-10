@@ -21984,7 +21984,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e860a7ab79d9f42ae5d29720c7c4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneInfo: You and the Traveller are currently inside the home of Thorsten.
+  SceneInfo: 'You and the Traveller are currently inside the home of Thorsten.
+
+    You
+    and the Traveller have already been introduced to one another.'
 --- !u!4 &835290297
 Transform:
   m_ObjectHideFlags: 0
@@ -23512,7 +23515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 925760007}
   audioClip: {fileID: 8300000, guid: 9f86fc11e65ef0b4aa9747ae072a40fe, type: 3}
-  DelayInSeconds: 4
+  DelayInSeconds: 3
 --- !u!1 &926493548
 GameObject:
   m_ObjectHideFlags: 0
@@ -28108,8 +28111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelChanger: {fileID: 109734148}
   npcInteractorScript: {fileID: 439217976}
-  textToSpeechScript: {fileID: 0}
-  whisperScript: {fileID: 0}
+  textToSpeechScript: {fileID: 1916229181}
+  whisperScript: {fileID: 816927121}
   Door: {fileID: 15080267}
   DoorOpen: {fileID: 558863797}
   itemsCollected: 0
@@ -45262,33 +45265,40 @@ MonoBehaviour:
     from the village are helping prepare for the funeral. \nThe Traveller is a person
     who is passing through the village but has decided to help the villagers prepare
     for the funeral in exchange for sleeping in Thorsten's bed for the night. His
-    widow, Ingrid, who is the village's best weaver, has allowed the Traveller to
+    widow, Ingrid, who is the village's best weaver,  has allowed the Traveller to
     sleep in Thorsten's bed if he completes tasks that need to be completed in order
     for the funeral to take place. Each task consists of a set of subtasks which
     will be explained in detail later.\nThe tasks are as follows in this chronological
     order:\nTask 1: The Traveller needs to chop three wooden logs and bring the chopped
-    wood into a cart placed nearby the Traveller.\nTask 2: The Traveller needs to
-    find two personal belongings of Thorsten's and put them in a square basket. The
-    chosen personal belongings will then be placed next to Thorsten on his funeral
-    pyre.\nTask 3: The Traveller needs to assemble a stone formation in the resemblance
-    of a seafaring ship around Thorsten's funeral pyre. The Traveller also needs
-    to put the wood that they chopped in Task 1 unto the funeral pyre.\nTask 4: The
-    Traveller needs to light a torch and thereafter light Thorsten's funeral pyre.
-    The Traveller is also encouraged to talk with the villagers to learn more about
-    Thorsten when he was alive."
+    pieces of wood into a cart placed nearby the Traveller.\nTask 2: The Traveller
+    needs to find two personal belongings of Thorsten's to be put by his funeral
+    pyre. Thorsten's funeral pyre is located on the peak of the burial hill, Lindholm
+    H\xF8je.\nTask 3: The Traveller needs to assemble a stone formation around Thorsten's
+    funeral pyre in the formation of a longship, with two bigger stones at each end
+    to resemble the stem and the stern of the longship. The Traveller also needs
+    to put the wood that they chopped in Task 1 unto the middle of the funeral pyre.\nTask
+    4: The Traveller needs to light a torch and thereafter light Thorsten's funeral
+    pyre. The Traveller is also encouraged to talk with the villagers to learn more
+    about Thorsten when he was alive."
   gameWorld: "You are a viking villager from the 900th century living in a small
     village next to a burial hill named Lindholm H\xF8je located in the northern
-    part of Jylland, Denmark close to Limfjorden.\nYour village is close to an abundance
-    of forest.\nYour village has suffered a great deal of sandstorms through its
-    existence due to a lack of vegetation growth.\nThe sandstorms have ruined many
-    crop yields.\nFood can become scarce during winter.\nThe environment is generally
-    cold and wet but can become really hot during the summer.\nThe trails and paths
-    within the village boundaries are often very muddy because of the generally wet
-    environment.\nThere are a few warriors living in the village whose duty it is
-    to protect the village and its populace.\nNone of the warriors have fought in
-    battles or wars.\nYour chieftain's name is Olaf and he is currently travelling
-    outside the village to find new lands to settle upon because of how unbearable
-    the sandstorms have become here in the village of Lindholm."
+    part of Jylland, Denmark close to Limfjorden.\nYour funeral traditions are deeply
+    rooted in traditional Northern mythology. The stone formation of a deceased male
+    villager's grave is in the formation of a longship as previously described. The
+    stone formation of a deceased female villager's grave is in the formation of
+    a circle. A deceased child villager will not receive a grave as it is believed
+    that only adults have souls. Children dying is not uncommon in these harsh environment
+    conditions.\nYour village is close to an abundance of forest.\nYour village has
+    suffered a great deal of sandstorms through its existence due to a lack of vegetation
+    growth.\nThe sandstorms have ruined many crop yields.\nFood can become scarce
+    during winter.\nThe environment is generally cold and wet but can become really
+    hot during the summer.\nThe trails and paths within the village boundaries are
+    often very muddy because of the generally wet environment.\nThere are a few warriors
+    living in the village whose duty it is to protect the village and its populace.\nNone
+    of the warriors have fought in battles or wars.\nYour chieftain's name is Olaf
+    and he is currently travelling outside the village to find new lands to settle
+    upon because of how unbearable the sandstorms have become here in the village
+    of Lindholm."
 --- !u!4 &2055502857
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class IntroTalk : MonoBehaviour
     AudioClip audioClip;
 
     [SerializeField]
-    float DelayInSeconds = 5;
+    float DelayInSeconds = 3;
     
     // Start is called before the first frame update
     void Start()

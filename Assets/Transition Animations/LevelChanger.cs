@@ -90,7 +90,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene2Active == true)
         {
-            SetXROriginPosRotation();
+            //SetXROriginPosRotation();
             OpeningDoor = false;
             AllItemGathered = false;
             Debug.Log("Scene 2 Is Now Active!");
@@ -231,7 +231,7 @@ public class LevelChanger : MonoBehaviour
         countWoodPlaced++;
         Debug.Log("Wood placed: " + countWoodPlaced);
         
-        if (countWoodPlaced == 6)
+        if (countWoodPlaced == 7)
         {
             WoodPlacedOnPyre = true;
         }
