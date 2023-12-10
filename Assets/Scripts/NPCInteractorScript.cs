@@ -65,7 +65,7 @@ public class NPCInteractorScript : MonoBehaviour
     
     public static bool lookingAtOtherThanSelectedNPC;
 
-    private float gazeTimeToActivate = 2f;
+    private float gazeTimeToActivate = 1f;
     
     public List<ChatMessage> ChatLogWithNPC = new List<ChatMessage>();
     //[SerializeField] private List<string> listOfOtherNpcs = new List<string>();
@@ -240,7 +240,7 @@ public class NPCInteractorScript : MonoBehaviour
     private IEnumerator PickThisNpc()
     {
         Debug.Log("running PickThisNpc coroutine: " + nameOfThisNPC);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(gazeTimeToActivate);
         if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false & whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
         {
             Debug.Log("PickThisNPC: " + nameOfThisNPC);
@@ -266,7 +266,7 @@ public class NPCInteractorScript : MonoBehaviour
         if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && playedFirstVoiceLine == false)
         {
             playedSecondVoiceLine = false;
-            yield return new WaitForSeconds(gazeTimeToActivate);
+            yield return new WaitForSeconds(2);
             PlayConversationStarterAudioNPC();
             playedFirstVoiceLine = true;
             yield return new WaitForSeconds(textToSpeechScript.audioSource.clip.length);
@@ -275,7 +275,7 @@ public class NPCInteractorScript : MonoBehaviour
         if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && playedSecondVoiceLine == false)
         {
             playedFirstVoiceLine = false;
-            yield return new WaitForSeconds(gazeTimeToActivate + NPCaudioSource.clip.length);
+            yield return new WaitForSeconds(2 + NPCaudioSource.clip.length);
             PlayConversationStarterAudioNPC();
             playedSecondVoiceLine = true;
         }

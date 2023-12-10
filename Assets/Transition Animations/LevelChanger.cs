@@ -90,7 +90,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene2Active == true)
         {
-            //SetXROriginPosRotation();
+            SetXROriginPosRotation();
             OpeningDoor = false;
             AllItemGathered = false;
             Debug.Log("Scene 2 Is Now Active!");
