@@ -41,13 +41,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IdleBlend
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfBoredAnimations: 2
   timeUntilBored: 7
-  blendDuration: 1
+  blendDuration: 2
 --- !u!1107 &3902178269664679440
 AnimatorStateMachine:
   serializedVersion: 6

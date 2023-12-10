@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfBoredAnimations: 2
   timeUntilBored: 10
-  blendDuration: 1
+  blendDuration: 2
 --- !u!1107 &3902178269664679440
 AnimatorStateMachine:
   serializedVersion: 6

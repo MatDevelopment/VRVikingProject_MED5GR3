@@ -23332,6 +23332,7 @@ GameObject:
   - component: {fileID: 925760007}
   - component: {fileID: 925760009}
   - component: {fileID: 925760008}
+  - component: {fileID: 925760011}
   m_Layer: 0
   m_Name: ChatController
   m_TagString: Erik
@@ -23497,6 +23498,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439217975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925760011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925760006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4be9ead50c48946ad5a12b58bf665f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 925760007}
+  audioClip: {fileID: 8300000, guid: 9f86fc11e65ef0b4aa9747ae072a40fe, type: 3}
+  DelayInSeconds: 4
 --- !u!1 &926493548
 GameObject:
   m_ObjectHideFlags: 0
@@ -42734,7 +42750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whisperScript: {fileID: 816927121}
   audioSource: {fileID: 925760007}
-  animator: {fileID: 439217974}
+  animatorSelectedNpc: {fileID: 439217974}
   voiceIDActorsList: []
   voiceID_name: 
   isGeneratingSpeech: 0
