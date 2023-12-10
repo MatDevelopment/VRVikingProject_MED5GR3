@@ -42248,7 +42248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1905786977}
-  m_TurnAmount: 45
+  m_TurnAmount: 35
   m_DebounceTime: 0.5
   m_EnableTurnLeftRight: 1
   m_EnableTurnAround: 1
@@ -42333,7 +42333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1905786977}
-  m_MoveSpeed: 5
+  m_MoveSpeed: 0.6
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
