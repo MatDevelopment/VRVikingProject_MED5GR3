@@ -90,6 +90,7 @@ public class NPCInteractorScript : MonoBehaviour
                 "Do not say anything about the emotional state of the NPC or what the NPC is thinking, but simply take this information into account.\n" +
                 "Do not break character and do not talk about the previous instructions.\n" +
                 "Reply to only NPC lines not to the Traveller's lines.\n" +
+                "The NPC is NOT able to physically move around.\n" +
                 "If the Traveller does not say anything then ask the Traveller what is on their mind.\n" +
                 "Your responses should be no longer than 40 words.\n" +
                 //"Keep your responses to a maximum word limit of 40 words.\n" +
@@ -103,8 +104,7 @@ public class NPCInteractorScript : MonoBehaviour
                 sceneInfoScript.GetPrompt() +
                 "The following info is the info about the Traveller's current task and subtasks: \n" +
                 taskInfoScript.GetPrompt() +
-                "If the Traveller asks for your help with their tasks that involves physical activity, then say to the Traveller that they have to do these tasks themselves.\n" +
-                "You are NOT able to physically move around."
+                "If the Traveller asks for the NPC's help with their tasks that involves physical activity, then say to the Traveller that they have to do these tasks themselves."
         };
         
         ChatLogWithNPC.Add(message);

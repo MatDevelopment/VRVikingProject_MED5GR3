@@ -62,6 +62,11 @@ public class LevelChanger : MonoBehaviour
 
             [SerializeField] private AudioSource ambienceMusicAudioSource;
 
+            public static Vector3 xrOriginRig_Transform;
+            public static Quaternion xrOriginRig_Rotation;
+
+            [SerializeField] private GameObject xrOriginGameobject;
+
     void Awake()
     {
         if (IntroSceneActive == true)
@@ -69,11 +74,13 @@ public class LevelChanger : MonoBehaviour
             LLM_VersionPlaying = SetLLM_VersionPlaying;
             buttonPressToStart.action.Enable();
             buttonPressToStart.action.performed += StartExperienceOnButtonPress;
+            
         }
         
         // Managing bools when loading LevelChanger object in new scenes.
         if (Scene1Active == true)
         {
+            SetXROriginPosRotation();
             WoodStacked = false;
             WoodChopped = false;
             OpeningDoor = false;
@@ -83,6 +90,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene2Active == true)
         {
+            SetXROriginPosRotation();
             OpeningDoor = false;
             AllItemGathered = false;
             Debug.Log("Scene 2 Is Now Active!");
@@ -90,6 +98,7 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene3Active == true)
         {
+            SetXROriginPosRotation();
             StonesPlaced = false;
             WoodPlacedOnPyre = false;
             Debug.Log("Scene 3 Is Now Active!");
@@ -97,6 +106,7 @@ public class LevelChanger : MonoBehaviour
         
         if (Scene4Active == true)
         {
+            SetXROriginPosRotation();
             FuneralPyreLit = false;
             Debug.Log("Scene 4 Is Now Active!");
         }
@@ -257,5 +267,20 @@ public class LevelChanger : MonoBehaviour
         FadeToNextLevel();
     }
     
-    
+    private void SetXROriginPosRotation()
+    {
+        xrOriginGameobject.transform.localPosition = xrOriginRig_Transform;
+        xrOriginGameobject.transform.localRotation = xrOriginRig_Rotation;
+    }
+
+    private void SaveXR0riginPosRotation()
+    {
+        xrOriginRig_Transform = xrOriginGameobject.transform.localPosition;
+        xrOriginRig_Rotation = xrOriginGameobject.transform.localRotation;
+    }
+
+    private void OnDestroy()
+    {
+        SaveXR0riginPosRotation();
+    }
 }

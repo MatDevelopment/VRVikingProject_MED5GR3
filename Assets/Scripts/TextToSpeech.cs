@@ -21,7 +21,7 @@ public class TextToSpeech : MonoBehaviour
     [SerializeField] private Whisper whisperScript;
 
     public AudioSource audioSource;
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     private string accessKey;
     private string secretKey;
 
