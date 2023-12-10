@@ -16,7 +16,9 @@ public class NPCInteractorScript : MonoBehaviour
     //[SerializeField] private GameObject gazeColliderGameObject;
     public AudioSource NPCaudioSource;
     [SerializeField] private AudioClip[] arrayNPCsounds; // The array controlling the sounds for the conversation starter sounds
+    [SerializeField] public AudioClip[] arrayThinkingNPCsounds;
     [SerializeField] private AudioClip[] arrayNPCitemSounds; // The array controlling the sounds for item description sounds
+    
     
     private int arrayConversationSoundsMax;
     private int arrayItemSoundsMax;
@@ -101,7 +103,7 @@ public class NPCInteractorScript : MonoBehaviour
                 sceneInfoScript.GetPrompt() +
                 "The following info is the info about the Traveller's current task and subtasks: \n" +
                 taskInfoScript.GetPrompt() +
-                "If the Traveller asks for your help with their tasks that involves physical activity, then say that you have physical injury that prevents you from physically helping.\n" +
+                "If the Traveller asks for your help with their tasks that involves physical activity, then say to the Traveller that they have to do these tasks themselves.\n" +
                 "You are NOT able to physically move around."
         };
         
@@ -213,7 +215,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false && lookingAtOtherThanSelectedNPC == true)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false)
         {
             StartCoroutine(PickThisNpc());
         }
@@ -232,14 +234,15 @@ public class NPCInteractorScript : MonoBehaviour
     
     private IEnumerator PickThisNpc()
     {
-        Debug.Log("running coroutine" + nameOfThisNPC);
+        Debug.Log("running PickThisNpc coroutine: " + nameOfThisNPC);
         yield return new WaitForSeconds(2);
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false & whisperScript.isDoneTalking == true && whisperScript.isRecording == false && lookingAtOtherThanSelectedNPC == true)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false & whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
         {
-            Debug.Log("PickThisNPC" + nameOfThisNPC);
+            Debug.Log("PickThisNPC: " + nameOfThisNPC);
             //chatTestScript.messages.Clear();
             chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
             textToSpeechScript.audioSource = NPCaudioSource;
+            chatTestScript.currentNpcThinkingSoundsArray = arrayThinkingNPCsounds;
             textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
             chatTestScript.nameOfCurrentNPC = nameOfThisNPC;
             //Maybe insert some dialogue to play that makes it clear that this NPC is now the new NPC in focus.
@@ -260,6 +263,7 @@ public class NPCInteractorScript : MonoBehaviour
             yield return new WaitForSeconds(gazeTimeToActivate);
             PlayConversationStarterAudioNPC();
             playedFirstVoiceLine = true;
+            yield return new WaitForSeconds(textToSpeechScript.audioSource.clip.length);
         }
 
         if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && playedSecondVoiceLine == false)
@@ -310,8 +314,6 @@ public class NPCInteractorScript : MonoBehaviour
             lookingAtOtherThanSelectedNPC = false;
         }
     }
-    
-    
     
     
     

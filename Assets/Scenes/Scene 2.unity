@@ -15590,6 +15590,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3e334defd1a21d2419c7a0e1b4a01a2d, type: 3}
   - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
   - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
+  arrayThinkingNPCsounds:
+  - {fileID: 8300000, guid: 4987dfc4b6cd9fc47ac79f48896d69ae, type: 3}
+  - {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  - {fileID: 8300000, guid: efc13dd2b9270c24e99130317edd11a2, type: 3}
   arrayNPCitemSounds:
   - {fileID: 8300000, guid: 72e53e113e180d7428e8459e0fe649c1, type: 3}
   - {fileID: 8300000, guid: 461d3e7eecaa84240883ba7ace04d714, type: 3}
@@ -15664,7 +15668,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 896
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -16592,10 +16596,12 @@ MonoBehaviour:
   erikInteractorScript: {fileID: 439217976}
   arneInteractorScript: {fileID: 0}
   fridaInteractorScript: {fileID: 0}
+  ingridInteractorScript: {fileID: 0}
   textToSpeech: {fileID: 1916229181}
   OnReplyReceived:
     m_PersistentCalls:
       m_Calls: []
+  currentNpcThinkingSoundsArray: []
 --- !u!1001 &538324312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46031,7 +46037,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

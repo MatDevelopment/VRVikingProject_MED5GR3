@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
+
 namespace OpenAI
 {
     public class Whisper : MonoBehaviour
@@ -94,6 +96,11 @@ namespace OpenAI
                 
                 Debug.Log("Recording: " + res.Text);
 
+                if (res.Text.Length >= 38)          //If what the user says is longer than 38 characters (including spaces), then the current NPC will say a thinking sound like "Hmm" or "Hmm, let me think"
+                {
+                    StartCoroutine(SayThinkingSoundAfterPlayerTalked());
+                }
+
                 chatTest.AddPlayerInputToChatLog(res.Text);
                 isDoneTalking = false;
                 // Debug.Log($"isDoneTalking: {isDoneTalking}");
@@ -136,5 +143,25 @@ namespace OpenAI
             yield return new WaitForSeconds(interruptDuration);
             textToSpeechScript.audioSource.Stop();
         }
+        
+        
+        public IEnumerator SayThinkingSoundAfterPlayerTalked()      //Gets called in Whisper.cs after the user stops talking (context.cancelled)
+        {
+            yield return new WaitForSeconds(0.5f);
+            PickThinkingSoundToPlay(textToSpeechScript.audioSource);
+        }
+    
+        private void PickThinkingSoundToPlay(AudioSource audioSourceToPlayOn)
+        {
+            if (chatTest.currentNpcThinkingSoundsArray.Length > 0)
+            {
+                int arrayThinkingSoundsMax = chatTest.currentNpcThinkingSoundsArray.Length;
+                int pickedThinkingSoundToPlay = Random.Range(0, arrayThinkingSoundsMax);
+                audioSourceToPlayOn.clip = chatTest.currentNpcThinkingSoundsArray[pickedThinkingSoundToPlay];
+                
+                audioSourceToPlayOn.Play();
+            }
+        }
+        
     }
 }

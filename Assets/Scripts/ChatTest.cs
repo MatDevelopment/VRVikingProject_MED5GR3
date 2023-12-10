@@ -20,6 +20,7 @@ namespace OpenAI
         [SerializeField] private NPCInteractorScript erikInteractorScript;
         [SerializeField] private NPCInteractorScript arneInteractorScript;
         [SerializeField] private NPCInteractorScript fridaInteractorScript;
+        [SerializeField] private NPCInteractorScript ingridInteractorScript;
         
         [SerializeField] private TextToSpeech textToSpeech;
         
@@ -33,12 +34,15 @@ namespace OpenAI
 
         public List<ChatMessage> messages = new List<ChatMessage>();
 
+        public AudioClip[] currentNpcThinkingSoundsArray;
+
         private void Start()
         {
             //nameOfPreviousNPC = nameOfCurrentNPC;
             //button.onClick.AddListener(SendReply);
             if (nameOfCurrentNPC == "Erik")
             {
+                currentNpcThinkingSoundsArray = erikInteractorScript.arrayThinkingNPCsounds;
                 textToSpeech.audioSource = erikInteractorScript.NPCaudioSource;
                 textToSpeech.voiceID_name = erikInteractorScript.voiceIDNameThisNpc;
                 messages = erikInteractorScript.ChatLogWithNPC;
@@ -47,17 +51,25 @@ namespace OpenAI
             }
             if (nameOfCurrentNPC == "Arne")
             {
+                currentNpcThinkingSoundsArray = arneInteractorScript.arrayThinkingNPCsounds;
                 textToSpeech.audioSource = arneInteractorScript.NPCaudioSource;
                 textToSpeech.voiceID_name = arneInteractorScript.voiceIDNameThisNpc;
                 messages = arneInteractorScript.ChatLogWithNPC;
             }
             if (nameOfCurrentNPC == "Frida")
             {
+                currentNpcThinkingSoundsArray = fridaInteractorScript.arrayThinkingNPCsounds;
                 textToSpeech.audioSource = fridaInteractorScript.NPCaudioSource;
                 textToSpeech.voiceID_name = fridaInteractorScript.voiceIDNameThisNpc;
                 messages = fridaInteractorScript.ChatLogWithNPC;
             }
-            
+            if (nameOfCurrentNPC == "Ingrid")
+            {
+                currentNpcThinkingSoundsArray = ingridInteractorScript.arrayThinkingNPCsounds;
+                textToSpeech.audioSource = ingridInteractorScript.NPCaudioSource;
+                textToSpeech.voiceID_name = ingridInteractorScript.voiceIDNameThisNpc;
+                messages = ingridInteractorScript.ChatLogWithNPC;
+            }
             
         }
         
@@ -102,6 +114,10 @@ namespace OpenAI
             {
                 fridaInteractorScript.ChatLogWithNPC.Add(userMessage);
             }
+            if (nameOfCurrentNPC == "Ingrid")
+            {
+                ingridInteractorScript.ChatLogWithNPC.Add(userMessage);
+            }
 
             return messages;
         }
@@ -127,6 +143,10 @@ namespace OpenAI
             {
                 fridaInteractorScript.ChatLogWithNPC.Add(assistantMessage);
             }
+            if (nameOfCurrentNPC == "Ingrid")
+            {
+                ingridInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+            }
 
             messages.Add(assistantMessage);
         }
@@ -150,6 +170,10 @@ namespace OpenAI
             if (nameOfCurrentNPC == "Frida")
             {
                 fridaInteractorScript.ChatLogWithNPC.Add(message);
+            }
+            if (nameOfCurrentNPC == "Ingrid")
+            {
+                ingridInteractorScript.ChatLogWithNPC.Add(message);
             }
 
             return messages;
