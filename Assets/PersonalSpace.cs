@@ -19,7 +19,7 @@ public class PersonalSpace : MonoBehaviour
             proximityCounter.ErikInPersonalZone = true;
         }
 
-        if (levelChanger.Scene3Active == true)
+        if (levelChanger.Scene4Active == true)
         {
             if (other.gameObject.CompareTag("Arne"))
             {
@@ -43,7 +43,7 @@ public class PersonalSpace : MonoBehaviour
             proximityCounter.ErikInPersonalZone = true;
         }
 
-        if (levelChanger.Scene3Active == true)
+        if (levelChanger.Scene4Active == true)
         {
             if (other.gameObject.CompareTag("Arne"))
             {
@@ -67,7 +67,7 @@ public class PersonalSpace : MonoBehaviour
             proximityCounter.ErikInPersonalZone = false;
         }
         
-        if (levelChanger.Scene3Active == true)
+        if (levelChanger.Scene4Active == true)
         {
             if (other.gameObject.CompareTag("Arne"))
             {

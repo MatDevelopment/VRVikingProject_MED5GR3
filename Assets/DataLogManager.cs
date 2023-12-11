@@ -28,7 +28,6 @@ public class DataLogManager : MonoBehaviour
     [Header ("Logged Variables")]
     public static int NPCGazeTime;
     public static int PromptAmount;
-    public static int TotalTime;
 
     // Proximity Time
      //Erik
@@ -61,9 +60,6 @@ public class DataLogManager : MonoBehaviour
 
     void Awake()
     {        
-        // Don't destroy varaibles
-        DontDestroyOnLoad(transform.gameObject);
-
         // Get the current date and time in GMT+2
         localTime = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(2));
 
@@ -140,7 +136,7 @@ public class DataLogManager : MonoBehaviour
             ArneIntimateTime = proximityCounter.ArneTimeInIntimate;
 
         // Gaze time
-        NPCGazeTime = (int) (totalGazeTime % 60);
+        NPCGazeTime = (int) totalGazeTime;
     }
 
     void OnApplicationQuit()

@@ -16,9 +16,9 @@ public class ProximityCounter : MonoBehaviour
         public bool ErikInSocialZone = false;
 
         // Timers
-        private float ErikTimerIntimate = 0.0f;
-        private float ErikTimerPersonal = 0.0f;
-        private float ErikTimerSocial = 0.0f;
+        private static float ErikTimerIntimate = 0.0f;
+        private static float ErikTimerPersonal = 0.0f;
+        private static float ErikTimerSocial = 0.0f;
         public int ErikTimeInIntimate = 0;
         public int ErikTimeInPersonal = 0;
         public int ErikTimeInSocial = 0;
@@ -31,9 +31,9 @@ public class ProximityCounter : MonoBehaviour
         public bool FridaInSocialZone = false;
         
         // Timers
-        private float FridaTimerIntimate = 0.0f;
-        private float FridaTimerPersonal = 0.0f;
-        private float FridaTimerSocial = 0.0f;
+        private static float FridaTimerIntimate = 0.0f;
+        private static float FridaTimerPersonal = 0.0f;
+        private static float FridaTimerSocial = 0.0f;
         public int FridaTimeInIntimate = 0;
         public int FridaTimeInPersonal = 0;
         public int FridaTimeInSocial = 0;
@@ -46,9 +46,9 @@ public class ProximityCounter : MonoBehaviour
         public bool IngridInSocialZone = false;
 
         // Timers
-        private float IngridTimerIntimate = 0.0f;
-        private float IngridTimerPersonal = 0.0f;
-        private float IngridTimerSocial = 0.0f;
+        private static float IngridTimerIntimate = 0.0f;
+        private static float IngridTimerPersonal = 0.0f;
+        private static float IngridTimerSocial = 0.0f;
         public int IngridTimeInIntimate = 0;
         public int IngridTimeInPersonal = 0;
         public int IngridTimeInSocial = 0;
@@ -61,9 +61,9 @@ public class ProximityCounter : MonoBehaviour
         public bool ArneInSocialZone = false;
 
         // Timers
-        private float ArneTimerIntimate = 0.0f;
-        private float ArneTimerPersonal = 0.0f;
-        private float ArneTimerSocial = 0.0f;
+        private static float ArneTimerIntimate = 0.0f;
+        private static float ArneTimerPersonal = 0.0f;
+        private static float ArneTimerSocial = 0.0f;
         public int ArneTimeInIntimate = 0;
         public int ArneTimeInPersonal = 0;
         public int ArneTimeInSocial = 0;
@@ -76,45 +76,7 @@ public class ProximityCounter : MonoBehaviour
         // Find levelChanger
         levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
 
-        // Saving Values
-        //Erik
-            // Timers
-            ErikTimerIntimate = ErikTimerIntimate;
-            ErikTimerPersonal = ErikTimerPersonal;
-            ErikTimerSocial = ErikTimerSocial;
-            ErikTimeInIntimate = ErikTimeInIntimate;
-            ErikTimeInPersonal = ErikTimeInPersonal;
-            ErikTimeInSocial = ErikTimeInSocial;
-
-        if(levelChanger.Scene3Active == true)
-        {
-            //Frida
-            // Timers
-            FridaTimerIntimate = FridaTimerIntimate;
-            FridaTimerPersonal = FridaTimerPersonal;
-            FridaTimerSocial = FridaTimerSocial;
-            FridaTimeInIntimate = FridaTimeInIntimate;
-            FridaTimeInPersonal = FridaTimeInPersonal;
-            FridaTimeInSocial = FridaTimeInSocial;
-
-        //Ingrid
-            // Timers
-            IngridTimerIntimate = IngridTimerIntimate;
-            IngridTimerPersonal = IngridTimerPersonal;
-            IngridTimerSocial = IngridTimerSocial;
-            IngridTimeInIntimate = IngridTimeInIntimate;
-            IngridTimeInPersonal = IngridTimeInPersonal;
-            IngridTimeInSocial = IngridTimeInSocial;
-
-        //Arne
-            // Timers
-            ArneTimerIntimate = ArneTimerIntimate;
-            ArneTimerPersonal = ArneTimerPersonal;
-            ArneTimerSocial = ArneTimerSocial;
-            ArneTimeInIntimate = ArneTimeInIntimate;
-            ArneTimeInPersonal = ArneTimeInPersonal;
-            ArneTimeInSocial = ArneTimeInSocial;
-        }
+        GetProximityValues();
     }
 
     // Update is called once per frame
@@ -130,27 +92,32 @@ public class ProximityCounter : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        StoreProximityValues();
+    }
+
     void ErikCounter()
     {
         //When in social zone, add time to social timer
         if (ErikInSocialZone == true && ErikInPersonalZone == false && ErikInIntimateZone == false)
         {
             ErikTimerSocial += Time.deltaTime; 
-            ErikTimeInSocial = (int) (ErikTimerSocial % 60);
+            ErikTimeInSocial = (int) ErikTimerSocial;
         }
 
         //When in Personal zone, add time to Personal timer
         else if (ErikInSocialZone == true && ErikInPersonalZone == true && ErikInIntimateZone == false)
         {
             ErikTimerPersonal += Time.deltaTime;
-            ErikTimeInPersonal = (int) (ErikTimerPersonal % 60);
+            ErikTimeInPersonal = (int) ErikTimerPersonal;
         }
 
         //When in intimate zone, add time to intimate timer
         else if (ErikInSocialZone == true && ErikInPersonalZone == true && ErikInIntimateZone == true)
         {
             ErikTimerIntimate += Time.deltaTime;
-            ErikTimeInIntimate = (int) (ErikTimerIntimate % 60);
+            ErikTimeInIntimate = (int) ErikTimerIntimate;
         }
     }
     void FridaCounter()
@@ -159,21 +126,21 @@ public class ProximityCounter : MonoBehaviour
         if (FridaInSocialZone == true && FridaInPersonalZone == false && FridaInIntimateZone == false)
         {
             FridaTimerSocial += Time.deltaTime; 
-            FridaTimeInSocial = (int) (FridaTimerSocial % 60);
+            FridaTimeInSocial = (int) FridaTimerSocial ;
         }
 
         //When in Personal zone, add time to Personal timer
         else if (FridaInSocialZone == true && FridaInPersonalZone == true && FridaInIntimateZone == false)
         {
             FridaTimerPersonal += Time.deltaTime;
-            FridaTimeInPersonal = (int) (FridaTimerPersonal % 60);
+            FridaTimeInPersonal = (int) FridaTimerPersonal ;
         }
 
         //When in intimate zone, add time to intimate timer
         else if (FridaInSocialZone == true && FridaInPersonalZone == true && FridaInIntimateZone == true)
         {
             FridaTimerIntimate += Time.deltaTime;
-            FridaTimeInIntimate = (int) (FridaTimerIntimate % 60);
+            FridaTimeInIntimate = (int) FridaTimerIntimate ;
         }
     }
     void IngridCounter()
@@ -182,21 +149,21 @@ public class ProximityCounter : MonoBehaviour
         if (IngridInSocialZone == true && IngridInPersonalZone == false && IngridInIntimateZone == false)
         {
             IngridTimerSocial += Time.deltaTime; 
-            IngridTimeInSocial = (int) (IngridTimerSocial % 60);
+            IngridTimeInSocial = (int) IngridTimerSocial ;
         }
 
         //When in Personal zone, add time to Personal timer
         else if (IngridInSocialZone == true && IngridInPersonalZone == true && IngridInIntimateZone == false)
         {
             IngridTimerPersonal += Time.deltaTime;
-            IngridTimeInPersonal = (int) (IngridTimerPersonal % 60);
+            IngridTimeInPersonal = (int) IngridTimerPersonal;
         }
 
         //When in intimate zone, add time to intimate timer
         else if (IngridInSocialZone == true && IngridInPersonalZone == true && IngridInIntimateZone == true)
         {
             IngridTimerIntimate += Time.deltaTime;
-            IngridTimeInIntimate = (int) (IngridTimerIntimate % 60);
+            IngridTimeInIntimate = (int)IngridTimerIntimate;
         }
     }
     void ArneCounter()
@@ -205,22 +172,139 @@ public class ProximityCounter : MonoBehaviour
         if (ArneInSocialZone == true && ArneInPersonalZone == false && ArneInIntimateZone == false)
         {
             ArneTimerSocial += Time.deltaTime; 
-            ArneTimeInSocial = (int) (ArneTimerSocial % 60);
+            ArneTimeInSocial = (int) ArneTimerSocial;
         }
 
         //When in Personal zone, add time to Personal timer
         else if (ArneInSocialZone == true && ArneInPersonalZone == true && ArneInIntimateZone == false)
         {
             ArneTimerPersonal += Time.deltaTime;
-            ArneTimeInPersonal = (int) (ArneTimerPersonal % 60);
+            ArneTimeInPersonal = (int) ArneTimerPersonal;
         }
 
         //When in intimate zone, add time to intimate timer
         else if (ArneInSocialZone == true && ArneInPersonalZone == true && ArneInIntimateZone == true)
         {
             ArneTimerIntimate += Time.deltaTime;
-            ArneTimeInIntimate = (int) (ArneTimerIntimate % 60);
+            ArneTimeInIntimate = (int) ArneTimerIntimate;
         }
     }
 
+
+    void StoreProximityValues()
+    {
+        // Erik
+            //Intimate Values
+            PlayerPrefs.SetFloat("ErikIntimate", ErikTimerIntimate);
+            PlayerPrefs.SetInt("ErikIntimateTime", ErikTimeInIntimate);
+
+            //Personal Values
+            PlayerPrefs.SetFloat("ErikPersonal", ErikTimerPersonal);
+            PlayerPrefs.SetInt("ErikPersonalTime", ErikTimeInPersonal);
+
+            //Social Values
+            PlayerPrefs.SetFloat("ErikSocial", ErikTimerSocial);
+            PlayerPrefs.SetInt("ErikSocialTime", ErikTimeInSocial);
+
+
+        if (levelChanger.Scene4Active == true)
+        {
+            //Arne
+                //Intimate Values
+                PlayerPrefs.SetFloat("ArneIntimate", ArneTimerIntimate);
+                PlayerPrefs.SetInt("ArneIntimateTime", ArneTimeInIntimate);
+
+                //Personal Values
+                PlayerPrefs.SetFloat("ArnePersonal", ArneTimerPersonal);
+                PlayerPrefs.SetInt("ArnePersonalTime", ArneTimeInPersonal);
+
+                //Social Values
+                PlayerPrefs.SetFloat("ArneSocial", ArneTimerSocial);
+                PlayerPrefs.SetInt("ArneSocialTime", ArneTimeInSocial);
+            
+            //Frida
+                //Intimate Values
+                PlayerPrefs.SetFloat("FridaIntimate", FridaTimerIntimate);
+                PlayerPrefs.SetInt("FridaIntimateTime", FridaTimeInIntimate);
+
+                //Personal Values
+                PlayerPrefs.SetFloat("FridaPersonal", FridaTimerPersonal);
+                PlayerPrefs.SetInt("FridaPersonalTime", FridaTimeInPersonal);
+
+                //Social Values
+                PlayerPrefs.SetFloat("FridaSocial", FridaTimerSocial);
+                PlayerPrefs.SetInt("FridaSocialTime", FridaTimeInSocial);
+
+            //Ingrid
+                //Intimate Values
+                PlayerPrefs.SetFloat("IngridIntimate", IngridTimerIntimate);
+                PlayerPrefs.SetInt("IngridIntimateTime", IngridTimeInIntimate);
+
+                //Personal Values
+                PlayerPrefs.SetFloat("IngridPersonal", IngridTimerPersonal);
+                PlayerPrefs.SetInt("IngridPersonalTime", IngridTimeInPersonal);
+
+                //Social Values
+                PlayerPrefs.SetFloat("IngridSocial", IngridTimerSocial);
+                PlayerPrefs.SetInt("IngridSocialTime", IngridTimeInSocial);
+        }
+    }
+
+    void GetProximityValues()
+    {
+        // Erik
+            // Intimate Values
+            ErikTimerIntimate = PlayerPrefs.GetFloat("ErikIntimate", ErikTimerIntimate);
+            ErikTimeInIntimate = PlayerPrefs.GetInt("ErikIntimateTime", ErikTimeInIntimate);
+
+            // Personal Values
+            ErikTimerPersonal = PlayerPrefs.GetFloat("ErikPersonal", ErikTimerPersonal);
+            ErikTimeInPersonal = PlayerPrefs.GetInt("ErikPersonalTime", ErikTimeInPersonal);
+
+            // Social Values
+            ErikTimerSocial= PlayerPrefs.GetFloat("ErikSocial", ErikTimerSocial);
+            ErikTimeInSocial = PlayerPrefs.GetInt("ErikSocialTime", ErikTimeInSocial);
+
+        if (levelChanger.Scene4Active == true)
+        {
+            //Arne
+                // Intimate Values
+                ArneTimerIntimate = PlayerPrefs.GetFloat("ArneIntimate", ArneTimerIntimate);
+                ArneTimeInIntimate = PlayerPrefs.GetInt("ArneIntimateTime", ArneTimeInIntimate);
+    
+                // Personal Values
+                ArneTimerPersonal = PlayerPrefs.GetFloat("ArnePersonal", ArneTimerPersonal);
+                ArneTimeInPersonal = PlayerPrefs.GetInt("ArnePersonalTime", ArneTimeInPersonal);
+    
+                // Social Values
+                ArneTimerSocial= PlayerPrefs.GetFloat("ArneSocial", ArneTimerSocial);
+                ArneTimeInSocial = PlayerPrefs.GetInt("ArneSocialTime", ArneTimeInSocial);
+            
+            //Frida
+                // Intimate Values
+                FridaTimerIntimate = PlayerPrefs.GetFloat("FridaIntimate", FridaTimerIntimate);
+                FridaTimeInIntimate = PlayerPrefs.GetInt("FridaIntimateTime", FridaTimeInIntimate);
+    
+                // Personal Values
+                FridaTimerPersonal = PlayerPrefs.GetFloat("FridaPersonal", FridaTimerPersonal);
+                FridaTimeInPersonal = PlayerPrefs.GetInt("FridaPersonalTime", FridaTimeInPersonal);
+    
+                // Social Values
+                FridaTimerSocial= PlayerPrefs.GetFloat("FridaSocial", FridaTimerSocial);
+                FridaTimeInSocial = PlayerPrefs.GetInt("FridaSocialTime", FridaTimeInSocial);
+
+            //Ingrid
+                // Intimate Values
+                IngridTimerIntimate = PlayerPrefs.GetFloat("IngridIntimate", IngridTimerIntimate);
+                IngridTimeInIntimate = PlayerPrefs.GetInt("IngridIntimateTime", IngridTimeInIntimate);
+    
+                // Personal Values
+                IngridTimerPersonal = PlayerPrefs.GetFloat("IngridPersonal", IngridTimerPersonal);
+                IngridTimeInPersonal = PlayerPrefs.GetInt("IngridPersonalTime", IngridTimeInPersonal);
+    
+                // Social Values
+                IngridTimerSocial= PlayerPrefs.GetFloat("IngridSocial", IngridTimerSocial);
+                IngridTimeInSocial = PlayerPrefs.GetInt("IngridSocialTime", IngridTimeInSocial);
+        }
+    }
 }

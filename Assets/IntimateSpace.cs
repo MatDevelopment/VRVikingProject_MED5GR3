@@ -19,7 +19,7 @@ public class IntimateSpace : MonoBehaviour
             proximityCounter.ErikInIntimateZone = true;
         }
 
-        if(levelChanger.Scene3Active == true)
+        if(levelChanger.Scene4Active == true)
         {
             if (other.gameObject.CompareTag("Frida"))
             {
@@ -43,7 +43,7 @@ public class IntimateSpace : MonoBehaviour
             proximityCounter.ErikInIntimateZone = true;
         }
 
-        if(levelChanger.Scene3Active == true)
+        if(levelChanger.Scene4Active == true)
         {
             if (other.gameObject.CompareTag("Frida"))
             {
@@ -67,7 +67,7 @@ public class IntimateSpace : MonoBehaviour
             proximityCounter.ErikInIntimateZone = false;
         }
 
-        if(levelChanger.Scene3Active == true)
+        if(levelChanger.Scene4Active == true)
         {
             if (other.gameObject.CompareTag("Frida"))
             {
