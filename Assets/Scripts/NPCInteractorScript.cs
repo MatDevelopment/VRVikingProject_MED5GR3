@@ -296,7 +296,7 @@ public class NPCInteractorScript : MonoBehaviour
         whisperScript.isDoneTalking = true;
     }
     
-    /*public void StartCountGaze()        //Called on action event of Hover Enter on NPC gaze collider
+    public void StartCountGaze()        //Called on action event of Hover Enter on NPC gaze collider
     {
         startGazeTime = Time.fixedTime;         //The time in seconds since the start of the game saved in startGazeTime float variable
     }
@@ -304,12 +304,14 @@ public class NPCInteractorScript : MonoBehaviour
     public void StopGazeCount()
     {
         stopGazeTime = Time.fixedTime;          //The time in seconds since the start of the game stored in stopGazeTime, when the user stops looking at an NPC
+        
+        
         totalGazeTime += (stopGazeTime - startGazeTime);        //The time that the user has JUST spent looking at an NPC is added to the totalGazeTime float variable,
         //by subtracting the time from when the user started looking at the NPC, from the current time when
         //the user stopped looking at the NPC.
         
         
-    }*/
+    }
     
     /*public async void MakeNpcCountRemainingBelongings(string countPrompt)
     {

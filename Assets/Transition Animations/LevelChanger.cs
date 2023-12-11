@@ -316,8 +316,8 @@ public class LevelChanger : MonoBehaviour
         xrOriginGameobject.transform.localRotation = set_XROriginToThisTransform.localRotation;
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         SaveXR0riginPosRotation();
-    }
+    }*/
 }
