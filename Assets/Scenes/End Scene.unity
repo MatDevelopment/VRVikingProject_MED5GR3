@@ -957,6 +957,12 @@ PrefabInstance:
       propertyPath: proximityCounter
       value: 
       objectReference: {fileID: 1615707807}
+    - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
+        type: 3}
+      propertyPath: PromptButtonPress
+      value: 
+      objectReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
