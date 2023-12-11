@@ -240,7 +240,7 @@ public class LevelChanger : MonoBehaviour
         {
             erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. Tell the Traveller that they did a good job.\n");
         }
-        WoodChopped = true;
+        WoodStacked = true;
     }
     
     
@@ -251,7 +251,10 @@ public class LevelChanger : MonoBehaviour
 
         if (countStonesPlaced == 12 && StonesPlaced == false)
         {
-            erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+            if (LLM_VersionPlaying == true)
+            {
+                erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+            }
             StonesPlaced = true;
         }
     }
@@ -263,7 +266,10 @@ public class LevelChanger : MonoBehaviour
         
         if (countWoodPlaced == 7 && WoodPlacedOnPyre == false)
         {
-            erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+            if (LLM_VersionPlaying == true)
+            {
+                erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+            }
             WoodPlacedOnPyre = true;
         }
     }
