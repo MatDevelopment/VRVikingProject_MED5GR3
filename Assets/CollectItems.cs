@@ -42,7 +42,7 @@ public class CollectItems : MonoBehaviour
         }
         
 
-        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false)
+        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false && LevelChanger.LLM_VersionPlaying == true)
         {  
             switch (itemsCollected)
             {
