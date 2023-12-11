@@ -44,8 +44,9 @@ namespace OpenAI
 
         private void OnDestroy()
         {
-            if (LevelChanger.LLM_VersionPlaying == false)
+            if (LevelChanger.LLM_VersionPlaying == true)
             {
+                buttonHoldReference.action.Disable();
                 buttonHoldReference.action.started -= StartRecording;
                 buttonHoldReference.action.performed -= StartRecording;
                 buttonHoldReference.action.canceled -= StartRecording;

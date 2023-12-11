@@ -33049,6 +33049,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2735886809412063553, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3471540276024049268, guid: adc0ffc77eb309a419ac9ff87c8bb70c,
         type: 3}
       propertyPath: m_RaycastTriggerInteraction

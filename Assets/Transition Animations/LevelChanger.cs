@@ -17,7 +17,7 @@ public class LevelChanger : MonoBehaviour
     private int levelToLoad;
     
     // bool to check if you are playing the AI version of the experience (AI or scripted dialogue version)
-    public static bool LLM_VersionPlaying = false;
+    public static bool LLM_VersionPlaying;
     [SerializeField] public bool SetLLM_VersionPlaying;
     
     
