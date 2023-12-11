@@ -96,7 +96,7 @@ namespace OpenAI
                 
                 Debug.Log("Recording: " + res.Text);
 
-                if (res.Text.Length >= 38)          //If what the user says is longer than 38 characters (including spaces), then the current NPC will say a thinking sound like "Hmm" or "Hmm, let me think"
+                if (res.Text.Length >= 25)          //If what the user says is longer than 25 characters (including spaces), then the current NPC will say a thinking sound like "Hmm" or "Hmm, let me think"
                 {
                     StartCoroutine(SayThinkingSoundAfterPlayerTalked());
                 }
@@ -147,7 +147,7 @@ namespace OpenAI
         
         public IEnumerator SayThinkingSoundAfterPlayerTalked()      //Gets called in Whisper.cs after the user stops talking (context.cancelled)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
             PickThinkingSoundToPlay(textToSpeechScript.audioSource);
         }
     
