@@ -27,10 +27,23 @@ public class CollectItems : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false)
+
+        if (other.gameObject.CompareTag("PersonalItem"))
         {
-            itemsCollected += 1;
-            
+            itemsCollected += 1;  
+
+            if (itemsCollected == 2)
+            {
+                Debug.Log("Door Open"+ itemsCollected);
+                Door.SetActive(false);
+                DoorOpen.SetActive(true);
+                levelChanger.AllItemGathered = true;
+            }
+        }
+        
+
+        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false)
+        {  
             switch (itemsCollected)
             {
                 case 1:         //If the player has put a single personal belonging in the basket, then a prompt will be sent to the API instructing it to count the amount of picked items.
@@ -38,16 +51,11 @@ public class CollectItems : MonoBehaviour
                     break;
                 case 2:
                     npcInteractorScript.SendSystemPromptToChatGPT(countPrompt_2);
-                    levelChanger.AllItemGathered = true;
+                    
                     break;
             }
 
-            if (itemsCollected == 2)
-            {
-                Debug.Log("Door Open"+ itemsCollected);
-                Door.SetActive(false);
-                DoorOpen.SetActive(true);
-            }
+            
         }
         
     }
