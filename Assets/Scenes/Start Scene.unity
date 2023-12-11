@@ -466,6 +466,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataLogManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1498736148167210681, guid: e6e613542551cb4488ad7bd9db55e7a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1593296899910704818, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,7 +524,7 @@ PrefabInstance:
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
       propertyPath: AllowLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
@@ -531,6 +536,12 @@ PrefabInstance:
       propertyPath: proximityCounter
       value: 
       objectReference: {fileID: 1281887638}
+    - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
+        type: 3}
+      propertyPath: PromptButtonPress
+      value: 
+      objectReference: {fileID: 4734855619764999305, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3185,7 +3196,7 @@ PrefabInstance:
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
       propertyPath: SetLLM_VersionPlaying
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
@@ -3569,7 +3580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press the A button to start
+  m_text: Press the X button to start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e039b282fbc33740840c938715011af, type: 2}
   m_sharedMaterial: {fileID: 1408447225986419552, guid: 4e039b282fbc33740840c938715011af,
@@ -4095,6 +4106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Proximity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626615728222035377, guid: 34d2c0a03cc8cce44ad6eedcd84d0fca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4955,8 +4971,9 @@ MonoBehaviour:
   m_text: 'You have offered to help the villagers prepare for the funeral of Thorsten,
     in exchange for a bed for the night.
 
-    Learn about the ways of life in the
-    village, the villagers and send Thorsten well on his way to the after-life.'
+    Talk to the villagers to learn about
+    the ways of life in the village, the villagers and send Thorsten well on his
+    way to the after-life.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cfb1f845295d7149a1eb35bb2dd036d, type: 2}
   m_sharedMaterial: {fileID: 1059262822609207477, guid: 2cfb1f845295d7149a1eb35bb2dd036d,

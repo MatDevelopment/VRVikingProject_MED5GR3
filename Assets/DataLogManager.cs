@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 public class DataLogManager : MonoBehaviour
 {
     [Header ("Start Logging")]
-    public bool AllowLogging = false;
+    public bool AllowLogging = true;
 
     [Header ("Find Objects")]
     public LevelChanger levelChanger;
