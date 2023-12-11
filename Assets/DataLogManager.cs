@@ -183,7 +183,8 @@ public class DataLogManager : MonoBehaviour
         ", Social Proximity Time To Erik = " + ErikSocialTime + ", Personal Proximity Time To Erik = " + ErikPersonalTime + ", Intimate Proximity Time To Erik = " + ErikIntimateTime + 
         ", Social Proximity Time To Frida = " + FridaSocialTime + ", Personal Proximity Time To Frida = " + FridaPersonalTime + ", Intimate Proximity Time To Frida = " + FridaIntimateTime + 
         ", Social Proximity Time To Ingrid = " + IngridSocialTime + ", Personal Proximity Time To Ingrid = " + IngridPersonalTime + ", Intimate Proximity Time To Ingrid = " + IngridIntimateTime + 
-        ", Social Proximity Time To Arne = " + ArneSocialTime + ", Personal Proximity Time To Arne = " + ArnePersonalTime + ", Intimate Proximity Time To Arne = " + ArneIntimateTime;
+        ", Social Proximity Time To Arne = " + ArneSocialTime + ", Personal Proximity Time To Arne = " + ArnePersonalTime + ", Intimate Proximity Time To Arne = " + ArneIntimateTime +
+        ", Erik Gaze time = " + Erik_GazeTime + ", Arne Gaze time = " + Arne_GazeTime + ", Frida Gaze time = " + Frida_GazeTime + ", Ingrid Gaze time = " + Ingrid_GazeTime;
 
         // Appending the string to the textfile which means it is written behind the current text
         sw.WriteLine(SensorLogText);
