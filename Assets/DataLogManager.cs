@@ -55,9 +55,6 @@ public class DataLogManager : MonoBehaviour
      public static int ArneIntimateTime = 0;
 
     // Gaze Time Variables
-    private float startGazeTime = 0f;
-    private float stopGazeTime = 0f;
-    private float totalGazeTime = 0f;
 
     public static float Erik_GazeTime;
     public static float Arne_GazeTime;
@@ -149,9 +146,7 @@ public class DataLogManager : MonoBehaviour
             ArneSocialTime = proximityCounter.ArneTimeInSocial;
             ArnePersonalTime = proximityCounter.ArneTimeInPersonal;
             ArneIntimateTime = proximityCounter.ArneTimeInIntimate;
-
-        // Gaze time
-        NPCGazeTime = (int) totalGazeTime;
+            
     }
 
     void OnDestroy()
@@ -184,7 +179,7 @@ public class DataLogManager : MonoBehaviour
     {
         int currentTime = (int)Mathf.Round(Time.time);
         // Defining what is written in the log text
-        string SensorLogText = "Experience Time = " + currentTime + ", Gaze time on NPC = " + NPCGazeTime + ", Prompt Amount = " + PromptAmount + 
+        string SensorLogText = "Experience Time = " + currentTime + ", Prompt Amount = " + PromptAmount + 
         ", Social Proximity Time To Erik = " + ErikSocialTime + ", Personal Proximity Time To Erik = " + ErikPersonalTime + ", Intimate Proximity Time To Erik = " + ErikIntimateTime + 
         ", Social Proximity Time To Frida = " + FridaSocialTime + ", Personal Proximity Time To Frida = " + FridaPersonalTime + ", Intimate Proximity Time To Frida = " + FridaIntimateTime + 
         ", Social Proximity Time To Ingrid = " + IngridSocialTime + ", Personal Proximity Time To Ingrid = " + IngridPersonalTime + ", Intimate Proximity Time To Ingrid = " + IngridIntimateTime + 
@@ -195,7 +190,7 @@ public class DataLogManager : MonoBehaviour
     }
 
     
-    public void StartCountGaze()        //Called on action event of Hover Enter on NPC gaze collider
+    /*public void StartCountGaze()        //Called on action event of Hover Enter on NPC gaze collider
     {
         startGazeTime = Time.fixedTime;         //The time in seconds since the start of the game saved in startGazeTime float variable
     }
@@ -206,7 +201,7 @@ public class DataLogManager : MonoBehaviour
         totalGazeTime += (stopGazeTime - startGazeTime);        //The time that the user has JUST spent looking at an NPC is added to the totalGazeTime float variable,
                                                                 //by subtracting the time from when the user started looking at the NPC, from the current time when
                                                                 //the user stopped looking at the NPC.
-    }
+    }*/
 
     private void CountTalkPrompts(InputAction.CallbackContext context)
     {

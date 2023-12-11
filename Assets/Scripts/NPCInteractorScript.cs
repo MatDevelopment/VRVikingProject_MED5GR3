@@ -304,13 +304,26 @@ public class NPCInteractorScript : MonoBehaviour
     public void StopGazeCount()
     {
         stopGazeTime = Time.fixedTime;          //The time in seconds since the start of the game stored in stopGazeTime, when the user stops looking at an NPC
-        
-        
-        totalGazeTime += (stopGazeTime - startGazeTime);        //The time that the user has JUST spent looking at an NPC is added to the totalGazeTime float variable,
+
+        switch (nameOfThisNPC)
+        {
+            case "Erik":
+                DataLogManager.Erik_GazeTime += (stopGazeTime - startGazeTime);
+                break;
+            case "Arne":
+                DataLogManager.Arne_GazeTime += (stopGazeTime - startGazeTime);
+                break;
+            case "Frida":
+                DataLogManager.Frida_GazeTime += (stopGazeTime - startGazeTime);
+                break;
+            case "Ingrid":
+                DataLogManager.Ingrid_GazeTime += (stopGazeTime - startGazeTime);
+                break;
+        }
+
+        //totalGazeTime += (stopGazeTime - startGazeTime);        //The time that the user has JUST spent looking at an NPC is added to the totalGazeTime float variable,
         //by subtracting the time from when the user started looking at the NPC, from the current time when
         //the user stopped looking at the NPC.
-        
-        
     }
     
     /*public async void MakeNpcCountRemainingBelongings(string countPrompt)
