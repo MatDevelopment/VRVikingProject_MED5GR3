@@ -20,6 +20,8 @@ public class DialogueTrigger : MonoBehaviour
     private List<string> questions;
     private List<Sound> answers;
 
+    [SerializeField] private AudioClip[] thinkingSoundsArray;
+    
     public AudioSource audioSource;
     public Animator animator;
     public CanvasGroup dialogueCanvas;
@@ -75,26 +77,7 @@ public class DialogueTrigger : MonoBehaviour
     public void DisplayNextQuestion()
     {
         StartCoroutine(FadeOut(fadeDuration));
-        dialogueCanvas.interactable = false;
-
-        audioSource.clip = answers[currentIndex].clip;
-
-        audioSource.Play(); // Plays the corresponding sound
-        faded = true;
-
-        currentIndex += 1; // Changes to next question index
-
-        if (isErikPersonal) { EPid = currentIndex; }
-        if (isErikWorld) { EWid = currentIndex; }
-        if (isErikBurial) { EBid = currentIndex; }
-
-        if (currentIndex >= questions.Count) {
-            currentIndex = 0; // Resets the index if it goes over the total amount of questions
-        }
-
-        string question = questions[currentIndex]; // Sets current question to current index
-        buttonText.text = question; // Sets new question as the visible text
-
+        StartCoroutine(DisplayNextQuestionAfterWait(4, 6));
 
     }
 
@@ -102,6 +85,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (isHovered && context.performed)
         {
+            
             DisplayNextQuestion();
         }
     }
@@ -153,4 +137,51 @@ public class DialogueTrigger : MonoBehaviour
         }
         dialogueCanvas.alpha = 0;
     }
+
+    IEnumerator DisplayNextQuestionAfterWait(int min, int max)
+    {
+        int waitTime = Random.Range(min, max);
+        
+        dialogueCanvas.interactable = false;
+
+        StartCoroutine(SayThinkingSound());
+        yield return new WaitForSeconds(waitTime);
+        
+        audioSource.clip = answers[currentIndex].clip;
+
+        audioSource.Play(); // Plays the corresponding sound
+        faded = true;
+
+        currentIndex += 1; // Changes to next question index
+
+        if (isErikPersonal) { EPid = currentIndex; }
+        if (isErikWorld) { EWid = currentIndex; }
+        if (isErikBurial) { EBid = currentIndex; }
+
+        if (currentIndex >= questions.Count) {
+            currentIndex = 0; // Resets the index if it goes over the total amount of questions
+        }
+
+        string question = questions[currentIndex]; // Sets current question to current index
+        buttonText.text = question; // Sets new question as the visible text
+    }
+    
+    public IEnumerator SayThinkingSound()      //Gets called in Whisper.cs after the user stops talking (context.cancelled)
+    {
+        yield return new WaitForSeconds(0.4f);
+        PickThinkingSound(audioSource);
+    }
+    
+    private void PickThinkingSound(AudioSource audioSourceToPlayOn)
+    {
+        if (thinkingSoundsArray.Length > 0)
+        {
+            int arrayThinkingSoundsMax = thinkingSoundsArray.Length;
+            int pickedThinkingSoundToPlay = Random.Range(0, arrayThinkingSoundsMax);
+            audioSourceToPlayOn.clip = thinkingSoundsArray[pickedThinkingSoundToPlay];
+                
+            audioSourceToPlayOn.Play();
+        }
+    }
+    
 }

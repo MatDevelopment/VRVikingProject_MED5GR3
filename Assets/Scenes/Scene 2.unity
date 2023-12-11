@@ -7600,6 +7600,10 @@ MonoBehaviour:
       volume: 0
       pitch: 0
       source: {fileID: 0}
+  thinkingSoundsArray:
+  - {fileID: 8300000, guid: 4987dfc4b6cd9fc47ac79f48896d69ae, type: 3}
+  - {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  - {fileID: 8300000, guid: efc13dd2b9270c24e99130317edd11a2, type: 3}
   audioSource: {fileID: 925760007}
   animator: {fileID: 439217974}
   dialogueCanvas: {fileID: 87840026}
@@ -25745,6 +25749,10 @@ MonoBehaviour:
       volume: 0
       pitch: 0
       source: {fileID: 0}
+  thinkingSoundsArray:
+  - {fileID: 8300000, guid: 4987dfc4b6cd9fc47ac79f48896d69ae, type: 3}
+  - {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  - {fileID: 8300000, guid: efc13dd2b9270c24e99130317edd11a2, type: 3}
   audioSource: {fileID: 925760007}
   animator: {fileID: 439217974}
   dialogueCanvas: {fileID: 87840026}
@@ -33515,6 +33523,10 @@ MonoBehaviour:
       volume: 0
       pitch: 0
       source: {fileID: 0}
+  thinkingSoundsArray:
+  - {fileID: 8300000, guid: 4987dfc4b6cd9fc47ac79f48896d69ae, type: 3}
+  - {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  - {fileID: 8300000, guid: efc13dd2b9270c24e99130317edd11a2, type: 3}
   audioSource: {fileID: 925760007}
   animator: {fileID: 439217974}
   dialogueCanvas: {fileID: 87840026}
@@ -36001,6 +36013,10 @@ MonoBehaviour:
       volume: 0
       pitch: 0
       source: {fileID: 0}
+  thinkingSoundsArray:
+  - {fileID: 8300000, guid: 4987dfc4b6cd9fc47ac79f48896d69ae, type: 3}
+  - {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  - {fileID: 8300000, guid: efc13dd2b9270c24e99130317edd11a2, type: 3}
   audioSource: {fileID: 925760007}
   animator: {fileID: 439217974}
   dialogueCanvas: {fileID: 87840026}

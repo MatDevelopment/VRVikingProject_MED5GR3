@@ -12,12 +12,12 @@ public class NotLookingAtReset : MonoBehaviour
 
     private void Start()
     {
-        int ChoppedWooodLayer = LayerMask.NameToLayer("ChoppedWood");
+        /*int ChoppedWooodLayer = LayerMask.NameToLayer("ChoppedWood");
         if (gameObject.layer == ChoppedWooodLayer)
         {
             resetPosition = GameObject.Find("WoodResetPosition").transform;
             playerZone = GameObject.Find("Outside Zone Trigger").GetComponent<Collider>();
-        }
+        }*/
     }
 
     private void OnBecameInvisible()
