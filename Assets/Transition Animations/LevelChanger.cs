@@ -70,6 +70,8 @@ public class LevelChanger : MonoBehaviour
             [SerializeField] private GameObject xrOriginGameobject;
             [SerializeField] private NPCInteractorScript erikInteractorScript;
 
+            [SerializeField] private Transform set_XROriginToThisTransform;
+
     void Awake()
     {
         if (IntroSceneActive == true)
@@ -82,7 +84,8 @@ public class LevelChanger : MonoBehaviour
         // Managing bools when loading LevelChanger object in new scenes.
         if (Scene1Active == true)
         {
-            SetXROriginPosRotation();
+            //SetXROriginPosRotation();
+            SetXROriginToTransformInMoveableArea();
             WoodStacked = false;
             WoodChopped = false;
             OpeningDoor = false;
@@ -92,7 +95,8 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene2Active == true)
         {
-            SetXROriginPosRotation();
+            //SetXROriginPosRotation();
+            SetXROriginToTransformInMoveableArea();
             OpeningDoor = false;
             AllItemGathered = false;
             Debug.Log("Scene 2 Is Now Active!");
@@ -100,7 +104,8 @@ public class LevelChanger : MonoBehaviour
 
         if (Scene3Active == true)
         {
-            SetXROriginPosRotation();
+            //SetXROriginPosRotation();
+            SetXROriginToTransformInMoveableArea();
             StonesPlaced = false;
             WoodPlacedOnPyre = false;
             Debug.Log("Scene 3 Is Now Active!");
@@ -108,7 +113,8 @@ public class LevelChanger : MonoBehaviour
         
         if (Scene4Active == true)
         {
-            SetXROriginPosRotation();
+            //SetXROriginPosRotation();
+            SetXROriginToTransformInMoveableArea();
             FuneralPyreLit = false;
             Debug.Log("Scene 4 Is Now Active!");
         }
@@ -302,6 +308,12 @@ public class LevelChanger : MonoBehaviour
     {
         xrOriginRig_Transform = xrOriginGameobject.transform.localPosition;
         xrOriginRig_Rotation = xrOriginGameobject.transform.localRotation;
+    }
+
+    private void SetXROriginToTransformInMoveableArea()
+    {
+        xrOriginGameobject.transform.localPosition = set_XROriginToThisTransform.localPosition;
+        xrOriginGameobject.transform.localRotation = set_XROriginToThisTransform.localRotation;
     }
 
     private void OnDestroy()

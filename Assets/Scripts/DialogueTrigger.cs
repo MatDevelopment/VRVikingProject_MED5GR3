@@ -16,7 +16,8 @@ public class DialogueTrigger : MonoBehaviour
     public bool isHovered = false;
 
     public Dialogue dialogue;
-
+    public static bool dialogueOptionChosen = false;
+    
     private List<string> questions;
     private List<Sound> answers;
 
@@ -140,6 +141,7 @@ public class DialogueTrigger : MonoBehaviour
 
     IEnumerator DisplayNextQuestionAfterWait(int min, int max)
     {
+        dialogueOptionChosen = true;
         int waitTime = Random.Range(min, max);
         
         dialogueCanvas.interactable = false;
@@ -164,6 +166,8 @@ public class DialogueTrigger : MonoBehaviour
 
         string question = questions[currentIndex]; // Sets current question to current index
         buttonText.text = question; // Sets new question as the visible text
+        
+        dialogueOptionChosen = false;
     }
     
     public IEnumerator SayThinkingSound()      //Gets called in Whisper.cs after the user stops talking (context.cancelled)

@@ -59,6 +59,12 @@ public class DataLogManager : MonoBehaviour
     private float stopGazeTime = 0f;
     private float totalGazeTime = 0f;
 
+    public static float Erik_GazeTime;
+    public static float Arne_GazeTime;
+    public static float Frida_GazeTime;
+    public static float Ingrid_GazeTime;
+    
+
     // Keep script intact
     static DataLogManager dataLogManager;
 
