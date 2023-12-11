@@ -18,7 +18,7 @@ public class DataLogManager : MonoBehaviour
     public GameObject gameObject;
 
     // Prompt button
-    [SerializeField] private InputActionReference PromptButtonPress = null;
+    [SerializeField] private InputActionReference PromptButtonPress;
 
     [Header ("File Related")]
     // Variables for outputting the log file

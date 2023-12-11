@@ -819,6 +819,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PromptCountButton",
+                    "type": "Button",
+                    "id": "c567fc4c-6ff8-425c-8aab-04e42183405d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1017,6 +1026,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "DialogueButtonPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69464754-a713-4a70-813f-2a9e4e68aa68",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PromptCountButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
