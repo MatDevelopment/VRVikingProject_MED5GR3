@@ -6,6 +6,9 @@ public class DoorProperties : MonoBehaviour
 {
     public LevelChanger levelChanger;
     // Start is called before the first frame update
+    [SerializeField] private AudioSource doorAudioSource;
+    [SerializeField] private AudioClip doorOpeningClosingSound;
+    
     void Awake()
     {
         levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
@@ -23,6 +26,8 @@ public class DoorProperties : MonoBehaviour
         {
             if (levelChanger.WoodStacked == true && levelChanger.WoodChopped == true)
             {
+                doorAudioSource.clip = doorOpeningClosingSound;
+                doorAudioSource.Play();
                 levelChanger.OpeningDoor = true;
             }
         }
@@ -31,6 +36,8 @@ public class DoorProperties : MonoBehaviour
         {
             if (levelChanger.AllItemGathered == true)
             {
+                doorAudioSource.clip = doorOpeningClosingSound;
+                doorAudioSource.Play();
                 levelChanger.OpeningDoor = true;
             }
         }

@@ -377,6 +377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelChanger: {fileID: 0}
+  doorAudioSource: {fileID: 558863800}
+  doorOpeningClosingSound: {fileID: 8300000, guid: a76fc38e1558a7d4294a033b958219c3,
+    type: 3}
 --- !u!65 &15080270
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15512,7 +15515,7 @@ PrefabInstance:
     - target: {fileID: 9008320322171692451, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2075005
+      value: 6.194
       objectReference: {fileID: 0}
     - target: {fileID: 9008320322171692451, guid: 9b1eb6aa9c286ff42a2bb01e6a4ecb4e,
         type: 3}
@@ -15634,10 +15637,10 @@ MonoBehaviour:
   NPCgameObject: {fileID: 925760006}
   NPCaudioSource: {fileID: 925760007}
   arrayNPCsounds:
-  - {fileID: 8300000, guid: 8f625b0180e853e4faadafedae32d91c, type: 3}
-  - {fileID: 8300000, guid: 3e334defd1a21d2419c7a0e1b4a01a2d, type: 3}
-  - {fileID: 8300000, guid: a144c5109756ef748a42eb659acffe37, type: 3}
-  - {fileID: 8300000, guid: b9ac5392d98011649950f142066e7279, type: 3}
+  - {fileID: 8300000, guid: b31e0ca40b71cf4448c0c16bd14893d8, type: 3}
+  - {fileID: 8300000, guid: e8e7c43481cf69e478fb38c75e2d7a09, type: 3}
+  - {fileID: 8300000, guid: 97afe591c0ab94f4a98048410eb4476d, type: 3}
+  - {fileID: 8300000, guid: 1af5d4376f728a1498431c92b7aa1ae6, type: 3}
   arrayThinkingNPCsounds:
   - {fileID: 8300000, guid: 4987dfc4b6cd9fc47ac79f48896d69ae, type: 3}
   - {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
@@ -16933,7 +16936,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 603a5a6a6dd5b0549becdb027d971ae8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -44450,7 +44453,7 @@ GameObject:
   - component: {fileID: 1980358983}
   - component: {fileID: 1980358982}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DoorProperties
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44469,6 +44472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelChanger: {fileID: 0}
+  doorAudioSource: {fileID: 558863800}
+  doorOpeningClosingSound: {fileID: 8300000, guid: a76fc38e1558a7d4294a033b958219c3,
+    type: 3}
 --- !u!65 &1980358983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46615,7 +46621,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &743771670890066738
 PrefabInstance:

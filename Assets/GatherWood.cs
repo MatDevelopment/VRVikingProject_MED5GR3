@@ -5,7 +5,10 @@ using UnityEngine;
 public class GatherWood : MonoBehaviour
 {
     public LevelChanger levelChanger;
-    public int GatheredWood = 0; 
+    public int GatheredWood = 0;
+
+    [SerializeField] private GameObject closedDoorGameObject;
+    [SerializeField] private GameObject halfOpenDoorGameObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,8 @@ public class GatherWood : MonoBehaviour
         {
             //levelChanger.CountWoodStacked();
             levelChanger.WoodStacked = true;
+            closedDoorGameObject.SetActive(false);
+            halfOpenDoorGameObject.SetActive(true);
         }
         else
         {
