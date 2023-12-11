@@ -72,6 +72,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2188670424396749146}
     m_Modifications:
+    - target: {fileID: -694247387268051564, guid: e3b5be001bdd79f40b4fe099a93d4dee,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 192304505983713037, guid: e3b5be001bdd79f40b4fe099a93d4dee,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -194,7 +199,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -422,6 +427,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 14.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299427933878079560, guid: cd5a53535df197c4e85c4aa6657cb48b,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123736547387399793, guid: cd5a53535df197c4e85c4aa6657cb48b,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

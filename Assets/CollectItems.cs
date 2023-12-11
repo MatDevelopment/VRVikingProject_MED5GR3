@@ -34,10 +34,10 @@ public class CollectItems : MonoBehaviour
             switch (itemsCollected)
             {
                 case 1:         //If the player has put a single personal belonging in the basket, then a prompt will be sent to the API instructing it to count the amount of picked items.
-                    npcInteractorScript.MakeNpcCountRemainingBelongings(countPrompt_1);
+                    npcInteractorScript.SendSystemPromptToChatGPT(countPrompt_1);
                     break;
                 case 2:
-                    npcInteractorScript.MakeNpcCountRemainingBelongings(countPrompt_2);
+                    npcInteractorScript.SendSystemPromptToChatGPT(countPrompt_2);
                     levelChanger.AllItemGathered = true;
                     break;
             }

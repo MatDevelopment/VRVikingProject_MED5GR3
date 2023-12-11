@@ -47,8 +47,8 @@ namespace OpenAI
             if (LevelChanger.LLM_VersionPlaying == false)
             {
                 buttonHoldReference.action.started -= StartRecording;
-                buttonHoldReference.action.performed += StartRecording;
-                buttonHoldReference.action.canceled += StartRecording;
+                buttonHoldReference.action.performed -= StartRecording;
+                buttonHoldReference.action.canceled -= StartRecording;
             }
             
         }

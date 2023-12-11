@@ -15,11 +15,11 @@ public class GatherWood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GatheredWood >= 2)
+        if (levelChanger.countStackedWood >= 2 && levelChanger.WoodStacked == false)
         {
+            //levelChanger.CountWoodStacked();
             levelChanger.WoodStacked = true;
         }
-
         else
         {
             levelChanger.WoodStacked = false;
@@ -30,7 +30,7 @@ public class GatherWood : MonoBehaviour
     {
         if (other.CompareTag("ChoppedLog"))
         {
-            GatheredWood += 1;
+            levelChanger.countStackedWood += 1;
         }
 
         else if (other.CompareTag("WoodLog"))
@@ -43,7 +43,7 @@ public class GatherWood : MonoBehaviour
     {
         if (other.CompareTag("ChoppedLog"))
         {
-            GatheredWood -= 1;
+            levelChanger.countStackedWood -= 1;
         }
     }
 }

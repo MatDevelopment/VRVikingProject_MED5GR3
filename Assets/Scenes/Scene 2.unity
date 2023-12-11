@@ -6167,6 +6167,11 @@ PrefabInstance:
       propertyPath: xrOriginGameobject
       value: 
       objectReference: {fileID: 1905786972}
+    - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
+        type: 3}
+      propertyPath: erikInteractorScript
+      value: 
+      objectReference: {fileID: 439217976}
     - target: {fileID: 7632599690436865488, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42333,7 +42338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1905786977}
-  m_MoveSpeed: 0.6
+  m_MoveSpeed: 2.3
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -45269,17 +45274,17 @@ MonoBehaviour:
     sleep in Thorsten's bed if he completes tasks that need to be completed in order
     for the funeral to take place. Each task consists of a set of subtasks which
     will be explained in detail later.\nThe tasks are as follows in this chronological
-    order:\nTask 1: The Traveller needs to chop three wooden logs and bring the chopped
-    pieces of wood into a cart placed nearby the Traveller.\nTask 2: The Traveller
-    needs to find two personal belongings of Thorsten's to be put by his funeral
-    pyre. Thorsten's funeral pyre is located on the peak of the burial hill, Lindholm
-    H\xF8je.\nTask 3: The Traveller needs to assemble a stone formation around Thorsten's
-    funeral pyre in the formation of a longship, with two bigger stones at each end
-    to resemble the stem and the stern of the longship. The Traveller also needs
-    to put the wood that they chopped in Task 1 unto the middle of the funeral pyre.\nTask
-    4: The Traveller needs to light a torch and thereafter light Thorsten's funeral
-    pyre. The Traveller is also encouraged to talk with the villagers to learn more
-    about Thorsten when he was alive."
+    order:\nTask 1: The Traveller needs to chop atleast one wooden log and place
+    atleast two chopped wood pieces into a wagon placed nearby the Traveller.\nTask
+    2: The Traveller needs to find two personal belongings of Thorsten's to be put
+    by his funeral pyre. Thorsten's funeral pyre is located on the peak of the burial
+    hill, Lindholm H\xF8je.\nTask 3: The Traveller needs to assemble a stone formation
+    around Thorsten's funeral pyre in the formation of a longship, with two bigger
+    stones at each end to resemble the stem and the stern of the longship. The Traveller
+    also needs to put the wood that they chopped in Task 1 unto the middle of the
+    funeral pyre.\nTask 4: The Traveller needs to light a torch and thereafter light
+    Thorsten's funeral pyre. The Traveller is also encouraged to talk with the villagers
+    to learn more about Thorsten when he was alive."
   gameWorld: "You are a viking villager from the 900th century living in a small
     village next to a burial hill named Lindholm H\xF8je located in the northern
     part of Jylland, Denmark close to Limfjorden.\nYour funeral traditions are deeply

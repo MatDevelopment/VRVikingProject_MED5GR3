@@ -173,7 +173,7 @@ public class NPCInteractorScript : MonoBehaviour
             if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {
                 PlayAudioOnItemPickup();
-                MakeNpcDescribeItem(itemDescription_Horn);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                SendSystemPromptToChatGPT(itemDescription_Horn);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Horn = true;                               //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 //chatTestScript.SendReply(itemDescription_Horn);
                 //levelChangerScript.ItemGathered_Horn = false;
@@ -183,7 +183,7 @@ public class NPCInteractorScript : MonoBehaviour
             else if (nameOfItem == "Brooch" && ItemGathered_Brooch == false)
             {
                 PlayAudioOnItemPickup();
-                MakeNpcDescribeItem(itemDescription_Brooch);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                SendSystemPromptToChatGPT(itemDescription_Brooch);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Brooch = true;
                 //chatTestScript.SendReply(itemDescription_Brooch);
                 //levelChangerScript.ItemGathered_Brooch = false;
@@ -198,7 +198,7 @@ public class NPCInteractorScript : MonoBehaviour
             else if (nameOfItem == "Knife" && ItemGathered_Knife == false)
             {
                 PlayAudioOnItemPickup();
-                MakeNpcDescribeItem(itemDescription_Knife);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                SendSystemPromptToChatGPT(itemDescription_Knife);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Knife = true;
                 //chatTestScript.SendReply(itemDescription_Knife);
                 //levelChangerScript.ItemGathered_Knife = false;
@@ -207,7 +207,7 @@ public class NPCInteractorScript : MonoBehaviour
             else if (nameOfItem == "ThorsHammer" && ItemGathered_ThorsHammer == false)
             {
                 PlayAudioOnItemPickup();
-                MakeNpcDescribeItem(itemDescription_ThorsHammer);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                SendSystemPromptToChatGPT(itemDescription_ThorsHammer);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_ThorsHammer = true;
                 //chatTestScript.SendReply(itemDescription_ThorsHammer);
                 //levelChangerScript.ItemGathered_ThorsHammer = false;
@@ -283,10 +283,10 @@ public class NPCInteractorScript : MonoBehaviour
     }
     
     
-    private async void MakeNpcDescribeItem(string itemDescription)
+    public async void SendSystemPromptToChatGPT(string systemPrompt)
     {
         whisperScript.isDoneTalking = false;
-        chatTestScript.AddSystemInstructionToChatLog(itemDescription);
+        chatTestScript.AddSystemInstructionToChatLog(systemPrompt);
         string chatGptResponse = await chatTestScript.AskChatGPT(chatTestScript.messages);
         chatTestScript.AddNpcResponseToChatLog(chatGptResponse);
         Debug.Log(chatGptResponse);
@@ -294,7 +294,7 @@ public class NPCInteractorScript : MonoBehaviour
         whisperScript.isDoneTalking = true;
     }
     
-    public async void MakeNpcCountRemainingBelongings(string countPrompt)
+    /*public async void MakeNpcCountRemainingBelongings(string countPrompt)
     {
         whisperScript.isDoneTalking = false;
         chatTestScript.AddSystemInstructionToChatLog(countPrompt);
@@ -303,9 +303,9 @@ public class NPCInteractorScript : MonoBehaviour
         Debug.Log(chatGptResponse);
         textToSpeechScript.MakeAudioRequest(chatGptResponse);
         whisperScript.isDoneTalking = true;
-    }
+    }*/
 
-    public void PlayerIsLookingAtOtherThanSelectedNpc()
+    /*public void PlayerIsLookingAtOtherThanSelectedNpc()
     {
         if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
         {
@@ -319,7 +319,7 @@ public class NPCInteractorScript : MonoBehaviour
         {
             lookingAtOtherThanSelectedNPC = false;
         }
-    }
+    }*/
     
     
     

@@ -56,7 +56,9 @@ public class LevelChanger : MonoBehaviour
             [SerializeField] public bool StonesPlaced;
             [SerializeField] public bool WoodPlacedOnPyre;
             [FormerlySerializedAs("TorchLit")] [SerializeField] public bool FuneralPyreLit;
-
+            
+            public int countChoppedWood = 0;
+            public int countStackedWood = 0;
             private int countStonesPlaced;
             private int countWoodPlaced;
 
@@ -66,6 +68,7 @@ public class LevelChanger : MonoBehaviour
             public static Quaternion xrOriginRig_Rotation;
 
             [SerializeField] private GameObject xrOriginGameobject;
+            [SerializeField] private NPCInteractorScript erikInteractorScript;
 
     void Awake()
     {
@@ -214,14 +217,36 @@ public class LevelChanger : MonoBehaviour
         }
 
     }
+    
+    public void CountWooodChopped()
+    {
+        //countChoppedWood++;
+        Debug.Log("Wood chopped: " + countChoppedWood);
+        
+        erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now chopped all the wood needed for Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+        WoodChopped = true;
+    }
 
+    public void CountWoodStacked()
+    {
+        //countChoppedWood++;
+        Debug.Log("Wood stacked: " + countStackedWood);
+        if (WoodStacked == false)
+        {
+            erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. Tell the Traveller that they did a good job.\n");
+        }
+        WoodChopped = true;
+    }
+    
+    
     public void CountStonePlacements()
     {
         countStonesPlaced++;
         Debug.Log("Stones placed: " + countStonesPlaced);
 
-        if (countStonesPlaced == 12)
+        if (countStonesPlaced == 12 && StonesPlaced == false)
         {
+            erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
             StonesPlaced = true;
         }
     }
@@ -231,8 +256,9 @@ public class LevelChanger : MonoBehaviour
         countWoodPlaced++;
         Debug.Log("Wood placed: " + countWoodPlaced);
         
-        if (countWoodPlaced == 7)
+        if (countWoodPlaced == 7 && WoodPlacedOnPyre == false)
         {
+            erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
             WoodPlacedOnPyre = true;
         }
     }
