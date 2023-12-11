@@ -5,6 +5,7 @@ using System;
 using System.Globalization;
 using System.Threading;
 using System.IO;
+using UnityEngine.InputSystem;
 
 public class DataLogManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class DataLogManager : MonoBehaviour
     public LevelChanger levelChanger;
     public ProximityCounter proximityCounter;
     public GameObject gameObject;
+
+    // Prompt button
+    [SerializeField] private InputActionReference PromptButtonPress = null;
 
     [Header ("File Related")]
     // Variables for outputting the log file
@@ -59,7 +63,10 @@ public class DataLogManager : MonoBehaviour
     static DataLogManager dataLogManager;
 
     void Awake()
-    {        
+    {       
+        // Get Prompt Amount across scenes
+        PromptAmount = PlayerPrefs.GetInt("PromptAmount", PromptAmount);
+
         // Get the current date and time in GMT+2
         localTime = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(2));
 
@@ -69,6 +76,9 @@ public class DataLogManager : MonoBehaviour
         // Get ProximityCounter
         proximityCounter = GameObject.Find("Proximity").GetComponent<ProximityCounter>();
 
+        // Enable prompt count on press
+        PromptButtonPress.action.Enable();
+        PromptButtonPress.action.performed += CountTalkPrompts;
 
         // Don't overwrite file
         if (PlayerPrefs.GetString("Filename", Filename) != "" && PlayerPrefs.GetString("Filename", Filename) != null)
@@ -95,8 +105,7 @@ public class DataLogManager : MonoBehaviour
         else
         {
             Debug.Log("Logging Not Allowed!");
-        }
-        
+        }    
     }
 
     // Start is called before the first frame update
@@ -137,6 +146,11 @@ public class DataLogManager : MonoBehaviour
 
         // Gaze time
         NPCGazeTime = (int) totalGazeTime;
+    }
+
+    void OnDestroy()
+    {
+        PlayerPrefs.SetInt("PromptAmount", PromptAmount);
     }
 
     void OnApplicationQuit()
@@ -187,4 +201,12 @@ public class DataLogManager : MonoBehaviour
                                                                 //by subtracting the time from when the user started looking at the NPC, from the current time when
                                                                 //the user stopped looking at the NPC.
     }
+
+    private void CountTalkPrompts(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PromptAmount += 1;
+        }
+    } 
 }
