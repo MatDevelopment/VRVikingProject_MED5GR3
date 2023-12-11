@@ -77,7 +77,6 @@ public class LevelChanger : MonoBehaviour
             LLM_VersionPlaying = SetLLM_VersionPlaying;
             buttonPressToStart.action.Enable();
             buttonPressToStart.action.performed += StartExperienceOnButtonPress;
-            
         }
         
         // Managing bools when loading LevelChanger object in new scenes.
