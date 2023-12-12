@@ -7619,6 +7619,8 @@ MonoBehaviour:
   isErikPersonal: 0
   isErikWorld: 0
   isErikBurial: 1
+  levelChangerScript: {fileID: 0}
+  LLMversionPlayingScript: {fileID: 0}
 --- !u!114 &195719859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15672,6 +15674,7 @@ MonoBehaviour:
   textToSpeechScript: {fileID: 1916229181}
   whisperScript: {fileID: 816927121}
   levelChangerScript: {fileID: 109734148}
+  LLMversionPlayingScript: {fileID: 0}
   nameOfThisNPC: Erik
   voiceIDNameThisNpc: Stephen
   itemDescription_Horn: "The Traveller picks up a hand-carved drinking horn which
@@ -15692,7 +15695,6 @@ MonoBehaviour:
     a symbol of his family\u2019s enduring legacy and the connection to his ancestors.\u201D\r\nTell
     the Traveller about the brooch considering the physical description of the object
     and what the brooch meant for Torsten.\r"
-  itemDescription_Blanket: 
   itemDescription_Knife: "The Traveller picks up a fishing knife which belonged to
     the man, Thorsten, being buried today. The following is the physical description
     of this object:\r\n\u201CA well-worn, but carefully maintained fishing knife.\u201D\r\nThis
@@ -21408,6 +21410,7 @@ MonoBehaviour:
   dropdown: {fileID: 1577160255}
   chatTest: {fileID: 538264677}
   textToSpeechScript: {fileID: 1916229181}
+  LLMversionPlayingScript: {fileID: 0}
   progress: {fileID: 1577160254}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
@@ -25774,6 +25777,8 @@ MonoBehaviour:
   isErikPersonal: 0
   isErikWorld: 0
   isErikBurial: 0
+  levelChangerScript: {fileID: 0}
+  LLMversionPlayingScript: {fileID: 0}
 --- !u!114 &1054666832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28153,6 +28158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelChanger: {fileID: 109734148}
+  LLMversionPlayingScript: {fileID: 0}
   npcInteractorScript: {fileID: 439217976}
   textToSpeechScript: {fileID: 1916229181}
   whisperScript: {fileID: 816927121}
@@ -33584,6 +33590,8 @@ MonoBehaviour:
   isErikPersonal: 0
   isErikWorld: 1
   isErikBurial: 0
+  levelChangerScript: {fileID: 0}
+  LLMversionPlayingScript: {fileID: 0}
 --- !u!114 &1606541243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36074,6 +36082,8 @@ MonoBehaviour:
   isErikPersonal: 1
   isErikWorld: 0
   isErikBurial: 0
+  levelChangerScript: {fileID: 0}
+  LLMversionPlayingScript: {fileID: 0}
 --- !u!114 &1748335166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43428,6 +43438,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3545988014101328822, guid: 3f8546c080f822e4c9a8ee697e73ed42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3557935415182402245, guid: 3f8546c080f822e4c9a8ee697e73ed42,
         type: 3}
       propertyPath: m_Mass
@@ -47663,6 +47678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101793728923683367, guid: ff14792790ec38246bbc8844e9aea775,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8633683775195084956, guid: ff14792790ec38246bbc8844e9aea775,
         type: 3}

@@ -976,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
       propertyPath: newFileName
-      value: Test 1 LLM
+      value: Test 5 LLM
       objectReference: {fileID: 0}
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
@@ -4891,7 +4891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thorsten has now passed onto the afterlife...
+  m_text: Torsten has now passed onto the afterlife...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 058586c02fd75ea40ae55f565a796c3b, type: 2}
   m_sharedMaterial: {fileID: -2549441042094030370, guid: 058586c02fd75ea40ae55f565a796c3b,

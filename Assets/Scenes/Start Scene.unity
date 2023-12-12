@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a39def3c47f4144b8c5e27d368bd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LLMversionIsPlaying: 0
+  LLMversionIsPlaying: 1
 --- !u!4 &80037590
 Transform:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: This day, The villagers of Lindholm are preparing a traditional viking
-    funeral for their deceased community member, Thorsten.
+    funeral for their deceased community member, Torsten.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cfb1f845295d7149a1eb35bb2dd036d, type: 2}
   m_sharedMaterial: {fileID: 1059262822609207477, guid: 2cfb1f845295d7149a1eb35bb2dd036d,
@@ -3404,7 +3404,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: This day, The villagers of Lindholm are preparing a traditional viking
-    funeral for their deceased community member, Thorsten.
+    funeral for their deceased community member, Torsten.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cfb1f845295d7149a1eb35bb2dd036d, type: 2}
   m_sharedMaterial: {fileID: 1059262822609207477, guid: 2cfb1f845295d7149a1eb35bb2dd036d,
@@ -5033,7 +5033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You have offered to help the villagers prepare for the funeral of Thorsten,
+  m_text: 'You have offered to help the villagers prepare for the funeral of Torsten,
     in exchange for a bed for the night.
 
 
