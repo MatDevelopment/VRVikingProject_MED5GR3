@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,13 +71,16 @@ public class ProximityCounter : MonoBehaviour
 
     void Awake()
     {
+        levelChanger = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
         // Find Proximity Object
         ProximitySpaces = GameObject.Find("Proximity");
 
-        // Find levelChanger
-        levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
-
         GetProximityValues();
+    }
+
+    private void Start()
+    {
+        
     }
 
     // Update is called once per frame

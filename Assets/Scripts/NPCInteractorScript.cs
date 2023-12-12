@@ -40,6 +40,7 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] private TextToSpeech textToSpeechScript;
     [SerializeField] private Whisper whisperScript;
     [SerializeField] private LevelChanger levelChangerScript;
+    [SerializeField] private LLMversionPlaying LLMversionPlayingScript;
     
     public string nameOfThisNPC;
     public string voiceIDNameThisNpc;
@@ -48,8 +49,8 @@ public class NPCInteractorScript : MonoBehaviour
     [SerializeField] string itemDescription_Horn;
     [TextArea(3,20)]
     [SerializeField] string itemDescription_Brooch;
-    [TextArea(3,20)]
-    [SerializeField] string itemDescription_Blanket;
+    /*[TextArea(3,20)]
+    [SerializeField] string itemDescription_Blanket;*/
     [TextArea(3,20)]
     [SerializeField] string itemDescription_Knife;
     [TextArea(3,20)]
@@ -63,7 +64,7 @@ public class NPCInteractorScript : MonoBehaviour
     private bool playedFirstVoiceLine = false;
     private bool playedSecondVoiceLine = false;
     
-    public static bool lookingAtOtherThanSelectedNPC;
+    //public static bool lookingAtOtherThanSelectedNPC;
 
     private float gazeTimeToActivate = 1f;
     
@@ -74,11 +75,16 @@ public class NPCInteractorScript : MonoBehaviour
     
     private float startGazeTime = 0f;
     private float stopGazeTime = 0f;
-    
-    
+
+    private void Awake()
+    {
+        LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        //levelChangerScript = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
         
         var message = new ChatMessage
         {
@@ -170,7 +176,7 @@ public class NPCInteractorScript : MonoBehaviour
     //Method that gets called on Select of XR Grab , aka the personal belongings of the deceased that the player are able to bring to the burial
     public void AppendItemDescriptionToPrompt(string nameOfItem)    //Add a time.DeltaTime that makes sure that there are atleast 30 seconds between item checks
     {
-        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false && LevelChanger.LLM_VersionPlaying == true)
+        if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false && LLMversionPlayingScript.LLMversionIsPlaying == true)
         {
             if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {

@@ -21,7 +21,7 @@ private void Awake()
 {
     healthSystem = new HealthSystem(100);
 
-    levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
+    levelChanger = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
 }
 
 // Using update instead of event system used in video

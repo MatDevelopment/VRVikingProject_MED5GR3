@@ -39,17 +39,24 @@ public class DialogueTrigger : MonoBehaviour
     public bool isErikWorld = false;
     public bool isErikBurial = false;
 
+    [SerializeField] private LevelChanger levelChangerScript;
+    [SerializeField] private LLMversionPlaying LLMversionPlayingScript;
+    
     private void Awake()
     {
-        if (LevelChanger.LLM_VersionPlaying)
-        {
-            this.gameObject.SetActive(false);
-        }
+        levelChangerScript = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
+        LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
+        if (LLMversionPlayingScript.LLMversionIsPlaying)
+        {
+            this.gameObject.SetActive(false);
+        }
+        
         if (isErikPersonal) { currentIndex = EPid; }
         if (isErikWorld) { currentIndex = EWid; }
         if (isErikBurial) { currentIndex = EBid; }

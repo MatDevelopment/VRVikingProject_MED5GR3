@@ -12,7 +12,7 @@ public class GatherWood : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
+        levelChanger = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
     }
 
     // Update is called once per frame

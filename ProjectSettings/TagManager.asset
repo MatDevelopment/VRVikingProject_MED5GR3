@@ -16,6 +16,9 @@ TagManager:
   - PlayerZone
   - TorchFireHere
   - IgniteFuneralPyreTag
+  - LevelChanger
+  - SpawnPoint
+  - LLMversionGameObject
   layers:
   - Default
   - TransparentFX

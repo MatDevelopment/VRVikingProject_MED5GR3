@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,14 @@ public class PersonalSpace : MonoBehaviour
     void Awake()
     {
         proximityCounter = GameObject.Find("Proximity").GetComponent<ProximityCounter>();
-        levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
+        
     }
+
+    private void Start()
+    {
+        levelChanger = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Erik"))

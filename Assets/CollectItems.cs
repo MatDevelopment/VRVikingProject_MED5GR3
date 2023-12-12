@@ -7,6 +7,7 @@ using UnityEngine;
 public class CollectItems : MonoBehaviour
 {
     public LevelChanger levelChanger;
+    public LLMversionPlaying LLMversionPlayingScript;
     public NPCInteractorScript npcInteractorScript;
     public TextToSpeech textToSpeechScript;
     public Whisper whisperScript;
@@ -21,8 +22,13 @@ public class CollectItems : MonoBehaviour
 
     void Awake()
     {
-        //levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();          //Redundant code execution since the level changer script is already being accessed through the inspector and stored in the variable levelChanger
-                                                                                                //Generally you do not want to use Find() method since it's expensive and slows down the program.
+        levelChanger = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
+        LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
+    }
+
+    private void Start()
+    {
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -42,7 +48,7 @@ public class CollectItems : MonoBehaviour
         }
         
 
-        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false && LevelChanger.LLM_VersionPlaying == true)
+        if (other.gameObject.CompareTag("PersonalItem") && textToSpeechScript.isGeneratingSpeech == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && textToSpeechScript.audioSource.isPlaying == false && LLMversionPlayingScript.LLMversionIsPlaying == true)
         {  
             switch (itemsCollected)
             {

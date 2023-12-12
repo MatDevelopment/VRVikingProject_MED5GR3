@@ -73,8 +73,7 @@ public class DataLogManager : MonoBehaviour
         // Get the current date and time in GMT+2
         localTime = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(2));
 
-        // Get LevelChanger
-        levelChanger = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
+        
 
         // Get ProximityCounter
         proximityCounter = GameObject.Find("Proximity").GetComponent<ProximityCounter>();
@@ -108,13 +107,14 @@ public class DataLogManager : MonoBehaviour
         else
         {
             Debug.Log("Logging Not Allowed!");
-        }    
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Get LevelChanger
+        levelChanger = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
 
         if (AllowLogging == true)
         {

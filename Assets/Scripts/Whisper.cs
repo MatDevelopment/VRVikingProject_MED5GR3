@@ -16,6 +16,7 @@ namespace OpenAI
         [SerializeField] private ChatTest chatTest;
         [SerializeField] private TextToSpeech textToSpeechScript;
         //[SerializeField] private LevelChanger levelChangerScript;
+        [SerializeField] private LLMversionPlaying LLMversionPlayingScript;
         [SerializeField] private Image progress;
         [SerializeField] private InputActionReference buttonHoldReference = null;
         
@@ -34,17 +35,12 @@ namespace OpenAI
 
         private void Awake()
         {
-            if (LevelChanger.LLM_VersionPlaying == true)
-            {
-                buttonHoldReference.action.Enable();
-                buttonHoldReference.action.performed += StartRecording;
-                buttonHoldReference.action.canceled += StartRecording;
-            }
+            LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
         }
 
         private void OnDestroy()
         {
-            if (LevelChanger.LLM_VersionPlaying == true)
+            if (LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
                 buttonHoldReference.action.Disable();
                 buttonHoldReference.action.started -= StartRecording;
@@ -56,7 +52,15 @@ namespace OpenAI
 
         private void Start()
         {
+            //levelChangerScript = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
             
+            if (LLMversionPlayingScript.LLMversionIsPlaying == true)
+            {
+                buttonHoldReference.action.Enable();
+                buttonHoldReference.action.performed += StartRecording;
+                buttonHoldReference.action.canceled += StartRecording;
+            }
+
             foreach (var device in Microphone.devices)
             {
                 dropdown.options.Add(new Dropdown.OptionData(device));
@@ -75,7 +79,7 @@ namespace OpenAI
         
         private async void StartRecording(InputAction.CallbackContext context)
         {
-            if (context.canceled && LevelChanger.LLM_VersionPlaying == true)
+            if (context.canceled && LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
                 //time = 0;
                 isRecording = false;
@@ -113,7 +117,7 @@ namespace OpenAI
                 // Debug.Log($"isDoneTalking: {isDoneTalking}");
 
             }
-            if(context.performed && LevelChanger.LLM_VersionPlaying == true)
+            if(context.performed && LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
                 StartCoroutine(InterruptNpcTalkingAfterDuration(timeToInterruptTalk));
                 Debug.Log("Start recording...");

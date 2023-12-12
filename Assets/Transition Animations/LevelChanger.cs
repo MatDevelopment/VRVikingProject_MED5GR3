@@ -17,9 +17,9 @@ public class LevelChanger : MonoBehaviour
     private int levelToLoad;
     
     // bool to check if you are playing the AI version of the experience (AI or scripted dialogue version)
-    public static bool LLM_VersionPlaying;
-    [SerializeField] public bool SetLLM_VersionPlaying;
-    
+    //public static bool LLM_VersionPlaying;
+    //[SerializeField] public bool SetLLM_VersionPlaying;
+    [SerializeField] private LLMversionPlaying LLMversionPlayingScript;
     
     // bool to unlock test conditions
     [Header ("Test Load Scene Function:")]
@@ -74,9 +74,10 @@ public class LevelChanger : MonoBehaviour
 
     void Awake()
     {
+        LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
+        
         if (IntroSceneActive == true)
         {
-            LLM_VersionPlaying = SetLLM_VersionPlaying;
             buttonPressToStart.action.Enable();
             buttonPressToStart.action.performed += StartExperienceOnButtonPress;
         }
@@ -251,7 +252,7 @@ public class LevelChanger : MonoBehaviour
 
         if (countStonesPlaced == 12 && StonesPlaced == false)
         {
-            if (LLM_VersionPlaying == true)
+            if (LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
                 erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
             }
@@ -266,7 +267,7 @@ public class LevelChanger : MonoBehaviour
         
         if (countWoodPlaced == 7 && WoodPlacedOnPyre == false)
         {
-            if (LLM_VersionPlaying == true)
+            if (LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
                 erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
             }

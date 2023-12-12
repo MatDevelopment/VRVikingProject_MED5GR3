@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4331426678088035235}
   m_Layer: 0
   m_Name: LevelChanger
-  m_TagString: Untagged
+  m_TagString: LevelChanger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,12 +67,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb0e4932c97140468dc41305b2c6ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5987577592180214808}
+  LLM_VersionPlaying: 0
   ReloadSceneTest: 0
   NewSceneTest: 1
-  animator: {fileID: 5987577592180214808}
+  IntroSceneActive: 1
   Scene1Active: 1
   Scene2Active: 0
   Scene3Active: 0
+  Scene4Active: 0
+  buttonPressToStart: {fileID: 0}
+  WoodChopped: 0
+  WoodStacked: 0
+  OpeningDoor: 0
+  AllItemGathered: 0
+  StonesPlaced: 0
+  WoodPlacedOnPyre: 0
+  FuneralPyreLit: 0
+  countChoppedWood: 0
+  countStackedWood: 0
+  ambienceMusicAudioSource: {fileID: 0}
+  XROriginCameraGameObject: {fileID: 0}
+  xrOriginGameobject: {fileID: 0}
+  erikInteractorScript: {fileID: 0}
+  set_XROriginToThisTransform: {fileID: 0}
+  sceneNumber: 0
 --- !u!1 &970832946183865165
 GameObject:
   m_ObjectHideFlags: 0
