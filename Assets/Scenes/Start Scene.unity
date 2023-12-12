@@ -3225,7 +3225,7 @@ PrefabInstance:
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
       propertyPath: NewSceneTest
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
@@ -3240,7 +3240,7 @@ PrefabInstance:
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
       propertyPath: IntroSceneActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
@@ -5145,7 +5145,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2ca35425d089d44e8df297408beb361, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.26
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
