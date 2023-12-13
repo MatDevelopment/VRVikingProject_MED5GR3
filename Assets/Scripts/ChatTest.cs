@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ namespace OpenAI
         [SerializeField] private NPCInteractorScript ingridInteractorScript;
         
         [SerializeField] private TextToSpeech textToSpeech;
+        [SerializeField] private LLMversionPlaying LLMversionPlayingScript;
         
         
         public UnityEvent OnReplyReceived;
@@ -35,6 +37,11 @@ namespace OpenAI
         public List<ChatMessage> messages = new List<ChatMessage>();
 
         public AudioClip[] currentNpcThinkingSoundsArray;
+
+        private void Awake()
+        {
+            LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
+        }
 
         private void Start()
         {
@@ -94,7 +101,7 @@ namespace OpenAI
             return null;
         }
 
-        public List<ChatMessage> AddPlayerInputToChatLog(string playerInput)
+        public void AddPlayerInputToChatLog(string playerInput)
         {
             var userMessage = new ChatMessage()
             {
@@ -102,24 +109,25 @@ namespace OpenAI
                 Content = playerInput
             };
             messages.Add(userMessage);
-            if (nameOfCurrentNPC == "Erik")
+            switch (nameOfCurrentNPC)
             {
-                erikInteractorScript.ChatLogWithNPC.Add(userMessage);
+                case "Erik":
+                    erikInteractorScript.ChatLogWithNPC.Add(userMessage);
+                    break;
+                case "Arne":
+                    arneInteractorScript.ChatLogWithNPC.Add(userMessage);
+                    break;
+                case "Frida":
+                    fridaInteractorScript.ChatLogWithNPC.Add(userMessage);
+                    break;
+                case "Ingrid":
+                    ingridInteractorScript.ChatLogWithNPC.Add(userMessage);
+                    break;
+                default:
+                    erikInteractorScript.ChatLogWithNPC.Add(userMessage);
+                    break;
             }
-            if (nameOfCurrentNPC == "Arne")
-            {
-                arneInteractorScript.ChatLogWithNPC.Add(userMessage);
-            }
-            if (nameOfCurrentNPC == "Frida")
-            {
-                fridaInteractorScript.ChatLogWithNPC.Add(userMessage);
-            }
-            if (nameOfCurrentNPC == "Ingrid")
-            {
-                ingridInteractorScript.ChatLogWithNPC.Add(userMessage);
-            }
-
-            return messages;
+            
         }
 
         public void AddNpcResponseToChatLog(string npcResponse)
@@ -131,35 +139,59 @@ namespace OpenAI
             };
             
             messages.Add(assistantMessage);
-            if (nameOfCurrentNPC == "Erik")
+            switch (nameOfCurrentNPC)
             {
-                erikInteractorScript.ChatLogWithNPC.Add(assistantMessage);
-            }
-            if (nameOfCurrentNPC == "Arne")
-            {
-                arneInteractorScript.ChatLogWithNPC.Add(assistantMessage);
-            }
-            if (nameOfCurrentNPC == "Frida")
-            {
-                fridaInteractorScript.ChatLogWithNPC.Add(assistantMessage);
-            }
-            if (nameOfCurrentNPC == "Ingrid")
-            {
-                ingridInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+                case "Erik":
+                    erikInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+                    break;
+                case "Arne":
+                    arneInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+                    break;
+                case "Frida":
+                    fridaInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+                    break;
+                case "Ingrid":
+                    ingridInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+                    break;
+                default:
+                    erikInteractorScript.ChatLogWithNPC.Add(assistantMessage);
+                    break;
             }
 
-            messages.Add(assistantMessage);
+            //messages.Add(assistantMessage);
         }
 
-        public List<ChatMessage> AddSystemInstructionToChatLog(string instruction)
+        public void AddSystemInstructionToChatLog(string instruction)
         {
-            var message = new ChatMessage()
+            if (LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
-                Role = "system",
-                Content = instruction
-            };
-            messages.Add(message);
-            if (nameOfCurrentNPC == "Erik")
+                var message = new ChatMessage()
+                {
+                    Role = "system",
+                    Content = instruction
+                };
+                messages.Add(message);
+
+                switch (nameOfCurrentNPC)
+                {
+                    case "Erik":
+                        erikInteractorScript.ChatLogWithNPC.Add(message);
+                        break;
+                    case "Arne":
+                        arneInteractorScript.ChatLogWithNPC.Add(message);
+                        break;
+                    case "Frida":
+                        fridaInteractorScript.ChatLogWithNPC.Add(message);
+                        break;
+                    case "Ingrid":
+                        ingridInteractorScript.ChatLogWithNPC.Add(message);
+                        break;
+                    default:
+                        erikInteractorScript.ChatLogWithNPC.Add(message);
+                        break;
+                }
+            }
+            /*if (nameOfCurrentNPC == "Erik")
             {
                 erikInteractorScript.ChatLogWithNPC.Add(message);
             }
@@ -174,9 +206,9 @@ namespace OpenAI
             if (nameOfCurrentNPC == "Ingrid")
             {
                 ingridInteractorScript.ChatLogWithNPC.Add(message);
-            }
+            }*/
 
-            return messages;
+            //return messages;
         }
         
     }

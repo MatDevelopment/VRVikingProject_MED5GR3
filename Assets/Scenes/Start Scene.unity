@@ -3225,7 +3225,7 @@ PrefabInstance:
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
       propertyPath: NewSceneTest
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4331426678088035235, guid: 5f89bbb3ce313a342b7ebc4d29c6f5be,
         type: 3}
@@ -4897,8 +4897,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You are a villager from a small village in the northern part of denmark,
-    jutland.
+  m_text: You are a villager from a small village in the northern part of Denmark,
+    Jylland.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cfb1f845295d7149a1eb35bb2dd036d, type: 2}
   m_sharedMaterial: {fileID: 1059262822609207477, guid: 2cfb1f845295d7149a1eb35bb2dd036d,
@@ -5038,7 +5038,7 @@ MonoBehaviour:
 
 
     Talk with the villagers to learn about
-    the ways of life in the village and the reason for their traditions.'
+    the ways of life in the village and the reason for their religious traditions.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cfb1f845295d7149a1eb35bb2dd036d, type: 2}
   m_sharedMaterial: {fileID: 1059262822609207477, guid: 2cfb1f845295d7149a1eb35bb2dd036d,
@@ -5354,7 +5354,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817682313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.991}
+  m_LocalPosition: {x: 0, y: 0, z: 3.278}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:

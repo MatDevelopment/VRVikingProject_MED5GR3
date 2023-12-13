@@ -15780,7 +15780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcAnimator: {fileID: 439217974}
-  lookTarget: {fileID: 1479202473}
+  travellerLookTarget: {fileID: 1479202473}
+  funeralPyreLookTarget: {fileID: 0}
+  levelChangerScript: {fileID: 0}
 --- !u!1001 &439226244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16663,6 +16665,7 @@ MonoBehaviour:
   fridaInteractorScript: {fileID: 0}
   ingridInteractorScript: {fileID: 0}
   textToSpeech: {fileID: 1916229181}
+  LLMversionPlayingScript: {fileID: 0}
   OnReplyReceived:
     m_PersistentCalls:
       m_Calls: []
@@ -21414,8 +21417,13 @@ MonoBehaviour:
   progress: {fileID: 1577160254}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  ErikHmmSound: {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  ArneHmmSound: {fileID: 0}
+  FridaHmmSound: {fileID: 0}
+  IngridHmmSound: {fileID: 0}
   isRecording: 0
   isDoneTalking: 1
+  contextIsPerformed: 0
 --- !u!4 &816927122
 Transform:
   m_ObjectHideFlags: 0
@@ -25185,6 +25193,11 @@ PrefabInstance:
     - target: {fileID: 6767331634610331220, guid: 5eb3b1e145bace74da310a270c604d22,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767331634610331220, guid: 5eb3b1e145bace74da310a270c604d22,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7654804076208700887, guid: 5eb3b1e145bace74da310a270c604d22,
@@ -30031,17 +30044,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 66f1d6329270c84479ad27752af66d84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1187
+      value: 1.0096996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66f1d6329270c84479ad27752af66d84,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3768
+      value: 0.3847999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66f1d6329270c84479ad27752af66d84,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3548
+      value: -2.2058046
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66f1d6329270c84479ad27752af66d84,
         type: 3}
@@ -30588,17 +30601,17 @@ PrefabInstance:
     - target: {fileID: 5487021800772809738, guid: 4cb9b0cc3da640a40940ea1905dc765f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.155
+      value: 4.046
       objectReference: {fileID: 0}
     - target: {fileID: 5487021800772809738, guid: 4cb9b0cc3da640a40940ea1905dc765f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.197
+      value: 7.205
       objectReference: {fileID: 0}
     - target: {fileID: 5487021800772809738, guid: 4cb9b0cc3da640a40940ea1905dc765f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.522
+      value: -32.373
       objectReference: {fileID: 0}
     - target: {fileID: 5487021800772809738, guid: 4cb9b0cc3da640a40940ea1905dc765f,
         type: 3}
@@ -31097,9 +31110,37 @@ MonoBehaviour:
           m_StringArgument: ThorsHammer
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 538264677}
+        m_TargetAssemblyTypeName: OpenAI.ChatTest, Assembly-CSharp
+        m_MethodName: AddSystemInstructionToChatLog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "The Traveller has now picked up Thorsten's personal
+            belonging: \"Small wooden carving of Thor\u2019s hammer\", and is holding
+            it in their hand. Keep this in mind."
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 538264677}
+        m_TargetAssemblyTypeName: OpenAI.ChatTest, Assembly-CSharp
+        m_MethodName: AddSystemInstructionToChatLog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "The Traveller has now dropped Thorsten's personal belonging:
+            \"Small wooden carving of Thor\u2019s hammer\" and is no longer holding
+            it in their hand. Keep this in mind."
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -43805,9 +43846,37 @@ MonoBehaviour:
           m_StringArgument: Knife
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 538264677}
+        m_TargetAssemblyTypeName: OpenAI.ChatTest, Assembly-CSharp
+        m_MethodName: AddSystemInstructionToChatLog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'The Traveller has now picked up Thorsten''s personal
+            belonging: "Well-worn fishing knife", and is holding it in their hand.
+            Keep this in mind.'
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 538264677}
+        m_TargetAssemblyTypeName: OpenAI.ChatTest, Assembly-CSharp
+        m_MethodName: AddSystemInstructionToChatLog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'The Traveller has now dropped Thorsten''s personal belonging:
+            "Well-worn fishing knife", and is no longer holding it in their hand.
+            Keep this in mind.'
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -45007,6 +45076,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 237870201054602742, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4373539926373372176, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_Name
@@ -45022,10 +45096,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 4373539926373372176, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
@@ -45034,13 +45123,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 538264677}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 439217976}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 538264677}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddSystemInstructionToChatLog
       objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
@@ -45049,8 +45168,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: AddSystemInstructionToChatLog
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OpenAI.ChatTest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NPCInteractorScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: OpenAI.ChatTest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 'The Traveller has now dropped Thorsten''s: "Bronze brooch with viking
+        knotwork designs" and is no longer holding it in their hand. Keep this in
+        mind.'
       objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
@@ -45059,43 +45200,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: 'The Traveller has now picked up Thorsten''s personal belonging: "Bronze
+        brooch with viking knotwork designs", and is holding it in their hand. Keep
+        this in mind.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092778546477130554, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.427
+      value: 3.185
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: -0.0516
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.028
+      value: -1.852
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.58427703
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.58427715
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.39827165
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.3982715
       objectReference: {fileID: 0}
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
@@ -45110,11 +45283,16 @@ PrefabInstance:
     - target: {fileID: 5357245888002149654, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 68.56
       objectReference: {fileID: 0}
     - target: {fileID: 6820174123308500128, guid: 50845ae85059d8e4788b217f6b2200e7,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208485862669921043, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9133544480784375087, guid: 50845ae85059d8e4788b217f6b2200e7,
@@ -45126,6 +45304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133544480784375087, guid: 50845ae85059d8e4788b217f6b2200e7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47359,8 +47542,18 @@ PrefabInstance:
       objectReference: {fileID: 675198403}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
@@ -47369,13 +47562,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 538264677}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 439217976}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 538264677}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddSystemInstructionToChatLog
       objectReference: {fileID: 0}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
@@ -47384,8 +47607,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: AddSystemInstructionToChatLog
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OpenAI.ChatTest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NPCInteractorScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: OpenAI.ChatTest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 'The Traveller has now dropped Thorsten''s: "Hand-carved drinking horn",
+        and is no longer holding it in their hand. Keep this in mind.'
       objectReference: {fileID: 0}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
@@ -47394,7 +47638,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: 'The Traveller has now picked up Thorsten''s personal belonging: "Hand-carved
+        drinking horn", and is holding it in their hand. Keep this in mind.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765431933606084947, guid: 8626b3677526b5440a5f72c8aa18766c,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8095346281586970199, guid: 8626b3677526b5440a5f72c8aa18766c,

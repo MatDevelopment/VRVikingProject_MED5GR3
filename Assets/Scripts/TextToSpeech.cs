@@ -133,4 +133,11 @@ public class TextToSpeech : MonoBehaviour
         reader.Close();
     }
 
+    private void OnDestroy()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+    }
 }

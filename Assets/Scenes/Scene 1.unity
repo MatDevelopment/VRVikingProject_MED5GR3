@@ -23760,7 +23760,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 603a5a6a6dd5b0549becdb027d971ae8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.92
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -33166,6 +33166,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6444e796ec18c4a4eb555f26a837c446, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6444e796ec18c4a4eb555f26a837c446, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6444e796ec18c4a4eb555f26a837c446, type: 3}
@@ -61621,8 +61625,18 @@ MonoBehaviour:
     You and the Traveller are in the frontyard of
     Thorsten and Ingrid''s house.
 
-    You and the Traveller have already been introduced
-    to one another.'
+    The physical appearence of the door into Thorsten
+    and Ingrid''s house is as follows:
+
+    Dark brown wooden door with a crooked
+    doorhandle.
+
+    The door to Thorsten and Ingrid''s house is located next to
+    a round yellow and black shield hanging on the outer wall of the house. The door
+    is located on the NPC''s right-hand side.
+
+    You and the Traveller have already
+    been introduced to one another.'
 --- !u!4 &1217653506
 Transform:
   m_ObjectHideFlags: 0
@@ -61935,11 +61949,17 @@ MonoBehaviour:
   dropdown: {fileID: 1924129681}
   chatTest: {fileID: 1913314628}
   textToSpeechScript: {fileID: 963082272}
+  LLMversionPlayingScript: {fileID: 0}
   progress: {fileID: 479291662}
   buttonHoldReference: {fileID: 1533704310230560322, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  ErikHmmSound: {fileID: 8300000, guid: e4dd29ac11aa4e9478bf529e86079090, type: 3}
+  ArneHmmSound: {fileID: 0}
+  FridaHmmSound: {fileID: 0}
+  IngridHmmSound: {fileID: 0}
   isRecording: 0
   isDoneTalking: 1
+  contextIsPerformed: 0
 --- !u!4 &1221211526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b375698b498496640b77976be04ec05e,
@@ -69622,11 +69642,11 @@ MonoBehaviour:
   subTasks: 'Subtask 1: Chop atleast one wooden log.
 
     Subtask 2: Place atleast
-    two chopped wood pieces in the nearby wagon.
+    two chopped wood pieces in the nearby wagon with wood pieces and stones in it.
 
-    Subtask 3: Go to the nearby
-    door of Thorsten''s house and find two of his personal belongings for Thorsten
-    to bring with him into the afterlife.'
+    Subtask
+    3: Go to the nearby door of Thorsten''s house and find two of his personal belongings
+    for Thorsten to bring with him into the afterlife.'
 --- !u!4 &1390665343
 Transform:
   m_ObjectHideFlags: 0
@@ -76590,44 +76610,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 60848394}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1536399922
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!114 &1539330099 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7237052298687091145, guid: 3009fb9bbb78fda47856947cb518f6b7,
@@ -81174,6 +81156,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 708836594}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1649422093
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!4 &1650295064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f8c4dfd0234dcd1479f34df46631187e,
@@ -92318,6 +92338,7 @@ MonoBehaviour:
   fridaInteractorScript: {fileID: 0}
   ingridInteractorScript: {fileID: 0}
   textToSpeech: {fileID: 963082272}
+  LLMversionPlayingScript: {fileID: 0}
   OnReplyReceived:
     m_PersistentCalls:
       m_Calls: []

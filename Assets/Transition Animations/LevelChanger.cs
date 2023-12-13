@@ -125,8 +125,8 @@ public class LevelChanger : MonoBehaviour
     {
         if (context.performed && IntroSceneActive == true)
         {
-            buttonPressToStart.action.Disable();
             buttonPressToStart.action.performed -= StartExperienceOnButtonPress;
+            buttonPressToStart.action.Disable();
             FadeToNextLevel();
             IntroSceneActive = false;
             Scene1Active = true;
@@ -178,6 +178,7 @@ public class LevelChanger : MonoBehaviour
                 StartCoroutine(EndSceneAfterWaitTime());
                 StartCoroutine(PlayMusicAfterWaitTime());
                 Scene4Active = false;
+                FuneralPyreLit = false;
                 Debug.Log("Experience Is Over!");
             }
         }
@@ -295,13 +296,13 @@ public class LevelChanger : MonoBehaviour
 
     private IEnumerator PlayMusicAfterWaitTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         ambienceMusicAudioSource.Play();
     }
     
     private IEnumerator EndSceneAfterWaitTime()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(21);
         FadeToNextLevel();
     }
     
@@ -325,6 +326,6 @@ public class LevelChanger : MonoBehaviour
 
     /*private void OnDestroy()
     {
-        SaveXR0riginPosRotation();
+        //SaveXR0riginPosRotation();
     }*/
 }

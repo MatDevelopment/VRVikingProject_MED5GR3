@@ -69,7 +69,7 @@ public class PyreTorchScript : MonoBehaviour
         //torchAudioSource.soundOfFireStarting.Play();  
         torchAudioSource.clip = soundOfFireStarting;
         torchAudioSource.Play();
-        yield return new WaitForSeconds(torchAudioSource.clip.length);
+        yield return new WaitForSeconds(torchAudioSource.clip.length - 1.5f);
         
         fx_smoke.SetActive(true);
         fx_fire.SetActive(true);
@@ -89,7 +89,7 @@ public class PyreTorchScript : MonoBehaviour
         //torchAudioSource.soundOfFireStarting.Play();  
         funeralPyreAudioSource.clip = soundOfFireStarting;
         funeralPyreAudioSource.Play();
-        yield return new WaitForSeconds(funeralPyreAudioSource.clip.length);
+        yield return new WaitForSeconds(funeralPyreAudioSource.clip.length - 1);
         
         FuneralFireEffects_1.SetActive(true);
         FuneralFireEffects_2.SetActive(true);

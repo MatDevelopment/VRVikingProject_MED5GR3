@@ -33,7 +33,7 @@ public class PlayCryingAudio : MonoBehaviour
         
         if (arrayCryingSounds.Length > 0)
         {
-            randomInterval = Random.Range(4, 9);
+            randomInterval = Random.Range(8, 13);
             yield return new WaitForSeconds(randomInterval);
             //arrayConversationSoundsMax = arrayNPCsounds.Length;
             pickedCryingSound = Random.Range(0, cryingSoundsMax);
