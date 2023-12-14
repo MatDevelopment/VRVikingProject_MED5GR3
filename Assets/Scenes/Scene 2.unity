@@ -15714,6 +15714,14 @@ MonoBehaviour:
     in the fields or before important events in the village.\u201D\r\nTell the Traveller
     about this object considering the physical description of the object and what
     this object meant for Thorsten.\r"
+  HornDescribeScriptedVersion: {fileID: 8300000, guid: dffeba886e163814e8507e51260eccf5,
+    type: 3}
+  BroochDescribeScriptedVersion: {fileID: 8300000, guid: 81b73789d9b27e848beb70624cc93607,
+    type: 3}
+  KnifeDescribeScriptedVersion: {fileID: 8300000, guid: f5ab03bec43e3604ebc2975a3a785f6e,
+    type: 3}
+  thorsHammerDescribeScriptedVersion: {fileID: 8300000, guid: bf1bdb46dcd1bc94e8d0df84bdeb9323,
+    type: 3}
 --- !u!54 &439217977
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25776,7 +25784,7 @@ MonoBehaviour:
     - What do you need me to do?
     answerAudio:
     - name: Remind Me
-      clip: {fileID: 8300000, guid: 85ce604528b74dc4592107a77f8db056, type: 3}
+      clip: {fileID: 8300000, guid: 949c410e911478b498b53aa752944de0, type: 3}
       volume: 0
       pitch: 0
       source: {fileID: 0}

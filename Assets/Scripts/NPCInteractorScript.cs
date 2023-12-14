@@ -63,6 +63,18 @@ public class NPCInteractorScript : MonoBehaviour
     
     private bool playedFirstVoiceLine = false;
     private bool playedSecondVoiceLine = false;
+
+    //bools for checking if items have been picked up once
+    private bool knifePickedUpOnce;
+    private bool broochPickedUpOnce;
+    private bool thorsHammerPickedUpOnce;
+    private bool hornPickedUpOnce;
+
+    //Sounds for Erik voice lines describing object
+    [SerializeField] AudioClip HornDescribeScriptedVersion;
+    [SerializeField] AudioClip BroochDescribeScriptedVersion;
+    [SerializeField] AudioClip KnifeDescribeScriptedVersion;
+    [SerializeField] AudioClip thorsHammerDescribeScriptedVersion;
     
     //public static bool lookingAtOtherThanSelectedNPC;
 
@@ -178,6 +190,34 @@ public class NPCInteractorScript : MonoBehaviour
     //Method that gets called on Select of XR Grab , aka the personal belongings of the deceased that the player are able to bring to the burial
     public void AppendItemDescriptionToPrompt(string nameOfItem)    //Add a time.DeltaTime that makes sure that there are atleast 30 seconds between item checks
     {
+        if(LLMversionPlayingScript.LLMversionIsPlaying == false)
+        {
+            if(nameOfItem == "Horn" && hornPickedUpOnce == false)
+            {
+                NPCaudioSource.clip = HornDescribeScriptedVersion;
+                NPCaudioSource.Play();
+                hornPickedUpOnce = true;
+            }
+            else if(nameOfItem == "Brooch" && broochPickedUpOnce == false)
+            {
+                NPCaudioSource.clip = BroochDescribeScriptedVersion;
+                NPCaudioSource.Play();
+                broochPickedUpOnce = true;
+            }
+            else if(nameOfItem == "Knife" && knifePickedUpOnce == false)
+            {
+                NPCaudioSource.clip = KnifeDescribeScriptedVersion;
+                NPCaudioSource.Play();
+                knifePickedUpOnce = true;
+            }
+            else if(nameOfItem == "ThorsHammer" && thorsHammerPickedUpOnce == false)
+            {
+                NPCaudioSource.clip = thorsHammerDescribeScriptedVersion;
+                NPCaudioSource.Play();
+                thorsHammerPickedUpOnce = true;
+            }
+            
+        }
         if (levelChangerScript.Scene2Active == true && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false && LLMversionPlayingScript.LLMversionIsPlaying == true)
         {
             if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
