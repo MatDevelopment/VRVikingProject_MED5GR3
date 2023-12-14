@@ -976,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
       propertyPath: newFileName
-      value: Scripted - Test 17
+      value: Scripted - Test 20
       objectReference: {fileID: 0}
     - target: {fileID: 5508119622879808596, guid: e6e613542551cb4488ad7bd9db55e7a2,
         type: 3}
