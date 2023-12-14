@@ -180,7 +180,7 @@ namespace OpenAI
         {
             yield return new WaitForSeconds(interruptDuration);
             textToSpeechScript.audioSource.Stop();
-            StartCoroutine(PlayHmmThinkingSound(textToSpeechScript.audioSource, 0.2f));
+            StartCoroutine(PlayHmmThinkingSound(textToSpeechScript.audioSource, 0.1f));
         }
         
         

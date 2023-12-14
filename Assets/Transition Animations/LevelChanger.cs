@@ -33,6 +33,8 @@ public class LevelChanger : MonoBehaviour
         [SerializeField] public bool Scene2Active = false;
         [SerializeField] public bool Scene3Active = false;
         [SerializeField] public bool Scene4Active = false;
+
+        [SerializeField] public bool disableNPCdialogueStarters = false;
         
     // Button press to start definition
         [Header ("Button Reference:")]
@@ -179,6 +181,7 @@ public class LevelChanger : MonoBehaviour
                 StartCoroutine(PlayMusicAfterWaitTime());
                 Scene4Active = false;
                 FuneralPyreLit = false;
+                disableNPCdialogueStarters = true;
                 Debug.Log("Experience Is Over!");
             }
         }

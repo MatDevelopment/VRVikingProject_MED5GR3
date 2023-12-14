@@ -47343,7 +47343,7 @@ PrefabInstance:
     - target: {fileID: 200661661393306596, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 747513303780279877, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
@@ -47398,22 +47398,22 @@ PrefabInstance:
     - target: {fileID: 2375291625320609424, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 3021724951182120521, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 3504615074709935888, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 4042359850606805081, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 4475025144501347708, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
@@ -47660,22 +47660,22 @@ PrefabInstance:
     - target: {fileID: 8095346281586970199, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8107288949970767278, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8288527973128135969, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8693049263426470760, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8978392254035059750, guid: 8626b3677526b5440a5f72c8aa18766c,
         type: 3}

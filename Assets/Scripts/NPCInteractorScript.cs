@@ -148,7 +148,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     private void PlayConversationStarterAudioNPC()
     {
-        if (arrayNPCsounds.Length > 0 && textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && levelChangerScript.FuneralPyreLit == false)
+        if (arrayNPCsounds.Length > 0 && textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && levelChangerScript.disableNPCdialogueStarters == false)
         {
             //arrayConversationSoundsMax = arrayNPCsounds.Length;
             pickedSoundToPlay = Random.Range(0, arrayConversationSoundsMax);

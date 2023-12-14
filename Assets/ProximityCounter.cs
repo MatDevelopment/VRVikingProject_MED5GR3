@@ -210,48 +210,44 @@ public class ProximityCounter : MonoBehaviour
             PlayerPrefs.SetFloat("ErikSocial", ErikTimerSocial);
             PlayerPrefs.SetInt("ErikSocialTime", ErikTimeInSocial);
 
+        //Arne
+            //Intimate Values
+            PlayerPrefs.SetFloat("ArneIntimate", ArneTimerIntimate);
+            PlayerPrefs.SetInt("ArneIntimateTime", ArneTimeInIntimate);
 
-        if (levelChanger.Scene4Active == true)
-        {
-            //Arne
-                //Intimate Values
-                PlayerPrefs.SetFloat("ArneIntimate", ArneTimerIntimate);
-                PlayerPrefs.SetInt("ArneIntimateTime", ArneTimeInIntimate);
+            //Personal Values
+            PlayerPrefs.SetFloat("ArnePersonal", ArneTimerPersonal);
+            PlayerPrefs.SetInt("ArnePersonalTime", ArneTimeInPersonal);
 
-                //Personal Values
-                PlayerPrefs.SetFloat("ArnePersonal", ArneTimerPersonal);
-                PlayerPrefs.SetInt("ArnePersonalTime", ArneTimeInPersonal);
-
-                //Social Values
-                PlayerPrefs.SetFloat("ArneSocial", ArneTimerSocial);
-                PlayerPrefs.SetInt("ArneSocialTime", ArneTimeInSocial);
+            //Social Values
+            PlayerPrefs.SetFloat("ArneSocial", ArneTimerSocial);
+            PlayerPrefs.SetInt("ArneSocialTime", ArneTimeInSocial);
             
-            //Frida
-                //Intimate Values
-                PlayerPrefs.SetFloat("FridaIntimate", FridaTimerIntimate);
-                PlayerPrefs.SetInt("FridaIntimateTime", FridaTimeInIntimate);
+        //Frida
+            //Intimate Values
+            PlayerPrefs.SetFloat("FridaIntimate", FridaTimerIntimate);
+            PlayerPrefs.SetInt("FridaIntimateTime", FridaTimeInIntimate);
 
-                //Personal Values
-                PlayerPrefs.SetFloat("FridaPersonal", FridaTimerPersonal);
-                PlayerPrefs.SetInt("FridaPersonalTime", FridaTimeInPersonal);
+            //Personal Values
+            PlayerPrefs.SetFloat("FridaPersonal", FridaTimerPersonal);
+            PlayerPrefs.SetInt("FridaPersonalTime", FridaTimeInPersonal);
 
-                //Social Values
-                PlayerPrefs.SetFloat("FridaSocial", FridaTimerSocial);
-                PlayerPrefs.SetInt("FridaSocialTime", FridaTimeInSocial);
+            //Social Values
+            PlayerPrefs.SetFloat("FridaSocial", FridaTimerSocial);
+            PlayerPrefs.SetInt("FridaSocialTime", FridaTimeInSocial);
 
-            //Ingrid
-                //Intimate Values
-                PlayerPrefs.SetFloat("IngridIntimate", IngridTimerIntimate);
-                PlayerPrefs.SetInt("IngridIntimateTime", IngridTimeInIntimate);
+        //Ingrid
+            //Intimate Values
+            PlayerPrefs.SetFloat("IngridIntimate", IngridTimerIntimate);
+            PlayerPrefs.SetInt("IngridIntimateTime", IngridTimeInIntimate);
 
-                //Personal Values
-                PlayerPrefs.SetFloat("IngridPersonal", IngridTimerPersonal);
-                PlayerPrefs.SetInt("IngridPersonalTime", IngridTimeInPersonal);
+            //Personal Values
+            PlayerPrefs.SetFloat("IngridPersonal", IngridTimerPersonal);
+            PlayerPrefs.SetInt("IngridPersonalTime", IngridTimeInPersonal);
 
-                //Social Values
-                PlayerPrefs.SetFloat("IngridSocial", IngridTimerSocial);
-                PlayerPrefs.SetInt("IngridSocialTime", IngridTimeInSocial);
-        }
+            //Social Values
+            PlayerPrefs.SetFloat("IngridSocial", IngridTimerSocial);
+            PlayerPrefs.SetInt("IngridSocialTime", IngridTimeInSocial);
     }
 
     void GetProximityValues()
@@ -269,46 +265,43 @@ public class ProximityCounter : MonoBehaviour
             ErikTimerSocial= PlayerPrefs.GetFloat("ErikSocial", ErikTimerSocial);
             ErikTimeInSocial = PlayerPrefs.GetInt("ErikSocialTime", ErikTimeInSocial);
 
-        if (levelChanger.Scene4Active == true)
-        {
-            //Arne
-                // Intimate Values
-                ArneTimerIntimate = PlayerPrefs.GetFloat("ArneIntimate", ArneTimerIntimate);
-                ArneTimeInIntimate = PlayerPrefs.GetInt("ArneIntimateTime", ArneTimeInIntimate);
+        //Arne
+            // Intimate Values
+            ArneTimerIntimate = PlayerPrefs.GetFloat("ArneIntimate", ArneTimerIntimate);
+            ArneTimeInIntimate = PlayerPrefs.GetInt("ArneIntimateTime", ArneTimeInIntimate);
     
-                // Personal Values
-                ArneTimerPersonal = PlayerPrefs.GetFloat("ArnePersonal", ArneTimerPersonal);
-                ArneTimeInPersonal = PlayerPrefs.GetInt("ArnePersonalTime", ArneTimeInPersonal);
+            // Personal Values
+            ArneTimerPersonal = PlayerPrefs.GetFloat("ArnePersonal", ArneTimerPersonal);
+            ArneTimeInPersonal = PlayerPrefs.GetInt("ArnePersonalTime", ArneTimeInPersonal);
     
-                // Social Values
-                ArneTimerSocial= PlayerPrefs.GetFloat("ArneSocial", ArneTimerSocial);
-                ArneTimeInSocial = PlayerPrefs.GetInt("ArneSocialTime", ArneTimeInSocial);
-            
-            //Frida
-                // Intimate Values
-                FridaTimerIntimate = PlayerPrefs.GetFloat("FridaIntimate", FridaTimerIntimate);
-                FridaTimeInIntimate = PlayerPrefs.GetInt("FridaIntimateTime", FridaTimeInIntimate);
+            // Social Values
+            ArneTimerSocial= PlayerPrefs.GetFloat("ArneSocial", ArneTimerSocial);
+            ArneTimeInSocial = PlayerPrefs.GetInt("ArneSocialTime", ArneTimeInSocial);
+        
+        //Frida
+            // Intimate Values
+            FridaTimerIntimate = PlayerPrefs.GetFloat("FridaIntimate", FridaTimerIntimate);
+            FridaTimeInIntimate = PlayerPrefs.GetInt("FridaIntimateTime", FridaTimeInIntimate);
     
-                // Personal Values
-                FridaTimerPersonal = PlayerPrefs.GetFloat("FridaPersonal", FridaTimerPersonal);
-                FridaTimeInPersonal = PlayerPrefs.GetInt("FridaPersonalTime", FridaTimeInPersonal);
+            // Personal Values
+            FridaTimerPersonal = PlayerPrefs.GetFloat("FridaPersonal", FridaTimerPersonal);
+            FridaTimeInPersonal = PlayerPrefs.GetInt("FridaPersonalTime", FridaTimeInPersonal);
     
-                // Social Values
-                FridaTimerSocial= PlayerPrefs.GetFloat("FridaSocial", FridaTimerSocial);
-                FridaTimeInSocial = PlayerPrefs.GetInt("FridaSocialTime", FridaTimeInSocial);
+            // Social Values
+            FridaTimerSocial= PlayerPrefs.GetFloat("FridaSocial", FridaTimerSocial);
+            FridaTimeInSocial = PlayerPrefs.GetInt("FridaSocialTime", FridaTimeInSocial);
 
-            //Ingrid
-                // Intimate Values
-                IngridTimerIntimate = PlayerPrefs.GetFloat("IngridIntimate", IngridTimerIntimate);
-                IngridTimeInIntimate = PlayerPrefs.GetInt("IngridIntimateTime", IngridTimeInIntimate);
+        //Ingrid
+            // Intimate Values
+            IngridTimerIntimate = PlayerPrefs.GetFloat("IngridIntimate", IngridTimerIntimate);
+            IngridTimeInIntimate = PlayerPrefs.GetInt("IngridIntimateTime", IngridTimeInIntimate);
     
-                // Personal Values
-                IngridTimerPersonal = PlayerPrefs.GetFloat("IngridPersonal", IngridTimerPersonal);
-                IngridTimeInPersonal = PlayerPrefs.GetInt("IngridPersonalTime", IngridTimeInPersonal);
+            // Personal Values
+            IngridTimerPersonal = PlayerPrefs.GetFloat("IngridPersonal", IngridTimerPersonal);
+            IngridTimeInPersonal = PlayerPrefs.GetInt("IngridPersonalTime", IngridTimeInPersonal);
     
-                // Social Values
-                IngridTimerSocial= PlayerPrefs.GetFloat("IngridSocial", IngridTimerSocial);
-                IngridTimeInSocial = PlayerPrefs.GetInt("IngridSocialTime", IngridTimeInSocial);
-        }
+            // Social Values
+            IngridTimerSocial= PlayerPrefs.GetFloat("IngridSocial", IngridTimerSocial);
+            IngridTimeInSocial = PlayerPrefs.GetInt("IngridSocialTime", IngridTimeInSocial);
     }
 }
