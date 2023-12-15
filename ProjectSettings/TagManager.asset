@@ -19,6 +19,7 @@ TagManager:
   - LevelChanger
   - SpawnPoint
   - LLMversionGameObject
+  - ErikChatController
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using OpenAI;
 using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class LevelChanger : MonoBehaviour
     //public static bool LLM_VersionPlaying;
     //[SerializeField] public bool SetLLM_VersionPlaying;
     [SerializeField] private LLMversionPlaying LLMversionPlayingScript;
+    [SerializeField] private ChatTest chatTestScript;
     
     // bool to unlock test conditions
     [Header ("Test Load Scene Function:")]
@@ -45,6 +47,7 @@ public class LevelChanger : MonoBehaviour
             [Header ("Test Scene 1 goals:")]
             [SerializeField] public bool WoodChopped;
             [SerializeField] public bool WoodStacked;
+            private bool woodStackedPromptSent;
             [HideInInspector] public bool OpeningDoor;
 
             // Scene 2
@@ -230,22 +233,31 @@ public class LevelChanger : MonoBehaviour
     
     public void CountWooodChopped()
     {
-        //countChoppedWood++;
+        countChoppedWood++;
         Debug.Log("Wood chopped: " + countChoppedWood);
         
         erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now chopped all the wood needed for Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
-        WoodChopped = true;
+        //WoodChopped = true;
     }
 
     public void CountWoodStacked()
     {
-        //countChoppedWood++;
         Debug.Log("Wood stacked: " + countStackedWood);
-        if (WoodStacked == false)
+        if (countStackedWood >= 2 && WoodStacked == false)
         {
-            erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. Tell the Traveller that they did a good job.\n");
+            if (LLMversionPlayingScript.LLMversionIsPlaying == true && woodStackedPromptSent == false)
+            {
+                chatTestScript.AddSystemInstructionToChatLog("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. The NPC, Erik, will be with the Traveller inside the house of Thorsten and Ingrid AFTER the Traveller has entered the house. Keep this in mind.\n");
+
+                if (erikInteractorScript.NPCaudioSource.isPlaying == false)
+                {
+                    erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. The NPC, Erik, will be with the Traveller inside the house of Thorsten and Ingrid AFTER the Traveller has entered the house. Convey this to the Traveller.\n");
+                }
+
+                woodStackedPromptSent = true;
+            }
+            WoodStacked = true;
         }
-        WoodStacked = true;
     }
     
     
@@ -258,7 +270,12 @@ public class LevelChanger : MonoBehaviour
         {
             if (LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
-                erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+                chatTestScript.AddSystemInstructionToChatLog("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Keep this in mind.\n");
+
+                if (erikInteractorScript.NPCaudioSource.isPlaying == false)
+                {
+                    erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+                }
             }
             StonesPlaced = true;
         }
@@ -273,7 +290,12 @@ public class LevelChanger : MonoBehaviour
         {
             if (LLMversionPlayingScript.LLMversionIsPlaying == true)
             {
-                erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+                chatTestScript.AddSystemInstructionToChatLog("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Keep this in mind.\n");
+                
+                if (erikInteractorScript.NPCaudioSource.isPlaying == false)
+                {
+                    erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+                }
             }
             WoodPlacedOnPyre = true;
         }

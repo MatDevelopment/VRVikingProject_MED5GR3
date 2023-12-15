@@ -8,7 +8,7 @@ public class IntroTalk : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField]
-    AudioClip audioClip;
+    public AudioClip audioClip;
 
     [SerializeField]
     float DelayInSeconds = 3;

@@ -36,6 +36,7 @@ public class GatherWood : MonoBehaviour
         if (other.CompareTag("ChoppedLog"))
         {
             levelChanger.countStackedWood += 1;
+            levelChanger.CountWoodStacked(); //Makes sure a prompt is sent to ChatGPT about the user just having finished stacking the wood.
         }
 
         else if (other.CompareTag("WoodLog"))

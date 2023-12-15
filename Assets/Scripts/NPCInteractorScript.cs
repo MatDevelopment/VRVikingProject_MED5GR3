@@ -88,8 +88,11 @@ public class NPCInteractorScript : MonoBehaviour
     private float startGazeTime = 0f;
     private float stopGazeTime = 0f;
 
+    private float lengthOfSceneIntroTalkDialogue;
+    public bool erikSceneStartDialogueDone;
     private void Awake()
     {
+        lengthOfSceneIntroTalkDialogue = GameObject.FindWithTag("ErikChatController").GetComponent<IntroTalk>().audioClip.length;
         LLMversionPlayingScript = GameObject.FindWithTag("LLMversionGameObject").GetComponent<LLMversionPlaying>();
     }
 
@@ -97,7 +100,7 @@ public class NPCInteractorScript : MonoBehaviour
     void Start()
     {
         //levelChangerScript = GameObject.FindWithTag("LevelChanger").GetComponent<LevelChanger>();
-        
+        //StartCoroutine(EnableNpcDialogueAfterSceneIntroduction(lengthOfSceneIntroTalkDialogue));
         var message = new ChatMessage
         {
             Role = "system",
@@ -270,7 +273,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void Start_PickThisNpc_Coroutine()
     {
-        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && !textToSpeechScript.audioSource.isPlaying && whisperScript.isRecording == false)
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && whisperScript.isDoneTalking == true && whisperScript.isRecording == false)
         {
             StartCoroutine(PickThisNpc());
         }
@@ -278,7 +281,11 @@ public class NPCInteractorScript : MonoBehaviour
 
     public void StartCoroutine_PlayNpcDialogueAfterSetTime()
     {
-        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && arrayNPCsounds.Length > 0)
+        if (Time.timeSinceLevelLoad > (lengthOfSceneIntroTalkDialogue + 3) && erikSceneStartDialogueDone == false)
+        {
+            erikSceneStartDialogueDone = true;
+        }
+        if (textToSpeechScript.audioSource.isPlaying == false && whisperScript.isDoneTalking == true && whisperScript.isRecording == false && arrayNPCsounds.Length > 0 && erikSceneStartDialogueDone == true)
         {
             Debug.Log("Started NPC dialogue coroutine on: " + nameOfThisNPC);
             StartCoroutine(PlayNpcDialogueAfterSetTime());
@@ -392,7 +399,7 @@ public class NPCInteractorScript : MonoBehaviour
             lookingAtOtherThanSelectedNPC = true;
         }
     }
-    
+
     public void PlayerNotLookingAtOtherThanSelectedNpc()
     {
         if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)
@@ -400,97 +407,97 @@ public class NPCInteractorScript : MonoBehaviour
             lookingAtOtherThanSelectedNPC = false;
         }
     }*/
-    
-    
-    
-    
+
+
+
+
 
 
     //-------------OLD CODE--------------//
-    
-        /*void Update()
+
+    /*void Update()
+{
+
+    /*if (isGazingUpon)
     {
-        
-        /*if (isGazingUpon)
+        //notGazingTime = 0;        //Moved from here...
+        if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false)
         {
-            //notGazingTime = 0;        //Moved from here...
-            if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC && textToSpeechScript.isGeneratingSpeech == false)
-            {
-                notGazingTime = 0;      //to here...
-                gazeTime += Time.deltaTime; //Count up when the user looks at the NPC 
-            }
-            if (gazeTime >= gazeTimeActivate && chatTestScript.isDone == true && chatTestScript.nameOfCurrentNPC != nameOfThisNPC)      //JUST ADDED chatTestScript after NPC switching focus NOT WORKING
+            notGazingTime = 0;      //to here...
+            gazeTime += Time.deltaTime; //Count up when the user looks at the NPC
+        }
+        if (gazeTime >= gazeTimeActivate && chatTestScript.isDone == true && chatTestScript.nameOfCurrentNPC != nameOfThisNPC)      //JUST ADDED chatTestScript after NPC switching focus NOT WORKING
+        {
+            chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
+            //chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
+            textToSpeechScript.audioSource = NPCaudioSource;
+            textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
+
+            chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
+            gazeTime = 0;
+            gazeTimeActivate = 3;
+
+            /*if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)     //If the name of the currently selected NPC to talk to is not equal to the NPC's name that this script is attached to, then...
             {
                 chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
                 //chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
                 textToSpeechScript.audioSource = NPCaudioSource;
                 textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
-                    
+
                 chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
                 gazeTime = 0;
                 gazeTimeActivate = 3;
-                
-                /*if (chatTestScript.nameOfCurrentNPC != nameOfThisNPC)     //If the name of the currently selected NPC to talk to is not equal to the NPC's name that this script is attached to, then...
-                {
-                    chatTestScript.messages = ChatLogWithNPC;               //Sets the ChatGPT chat log to be the chatlog/prompts stored on this NPC.
-                    //chatTestScript.nameOfPreviousNPC = chatTestScript.nameOfCurrentNPC;
-                    textToSpeechScript.audioSource = NPCaudioSource;
-                    textToSpeechScript.voiceID_name = voiceIDNameThisNpc;
-                    
-                    chatTestScript.nameOfCurrentNPC = nameOfThisNPC;        //The name of the NPC currently being able to be talked to is changed to this NPC's name.
-                    gazeTime = 0;
-                    gazeTimeActivate = 3;
-                }#2#
+            }#2#
 
-                //if (arrayNPCsounds.Length > 0)
-                //{
-                    //PlayHelpfulAudioNPC();          //If the user has been looking at the NPC for more than 3 seconds, then the NPC will say the randomly chosen helpful dialogue line
-                    //gazeTimeActivate = NPCaudioSource.clip.length + 5;   //Time to gaze at NPC to activate another voiceline while looking at it is set to the just played dialogue plus 5 seconds, in order for it to be able to finish its sentence
-                //}
-                
-                //gazeTime = 0;         //Moved from here....... to up within the if that is before
-                //gazeTimeActivate = 3;     
-            }
+            //if (arrayNPCsounds.Length > 0)
+            //{
+                //PlayHelpfulAudioNPC();          //If the user has been looking at the NPC for more than 3 seconds, then the NPC will say the randomly chosen helpful dialogue line
+                //gazeTimeActivate = NPCaudioSource.clip.length + 5;   //Time to gaze at NPC to activate another voiceline while looking at it is set to the just played dialogue plus 5 seconds, in order for it to be able to finish its sentence
+            //}
+
+            //gazeTime = 0;         //Moved from here....... to up within the if that is before
+            //gazeTimeActivate = 3;
+        }
 
 
 
-            if (isGazingUpon == false)
+        if (isGazingUpon == false)
+        {
+            //gazeTime = 0;     //Moved from here...
+
+            //if (NPCaudioSource.isPlaying == false)
+            //{
+            //    gazeTimeActivate = 3;
+            //}
+            //else if(arrayNPCsounds.Length > 0)
+            //{
+            //    float remainingAudioTime = (NPCaudioSource.clip.length - NPCaudioSource.time) / NPCaudioSource.pitch;
+            //    gazeTimeActivate = remainingAudioTime + 5;
+            //}
+
+
+            if (chatTestScript.nameOfCurrentNPC == nameOfThisNPC && textToSpeechScript.isGenereatingSpeech == false)
             {
-                //gazeTime = 0;     //Moved from here...
-                
-                //if (NPCaudioSource.isPlaying == false)
-                //{
-                //    gazeTimeActivate = 3;
-                //}
-                //else if(arrayNPCsounds.Length > 0)
-                //{
-                //    float remainingAudioTime = (NPCaudioSource.clip.length - NPCaudioSource.time) / NPCaudioSource.pitch;
-                //    gazeTimeActivate = remainingAudioTime + 5;
-                //}
-                
-                
-                if (chatTestScript.nameOfCurrentNPC == nameOfThisNPC && textToSpeechScript.isGenereatingSpeech == false)
-                {
-                    gazeTime = 0;       //To here...
-                    notGazingTime += Time.deltaTime;            //Only count the time not looking at this NPC if this NPC is the currently selected NPC to talk to.
-                }
-
-                if (notGazingTime >= newNPCFocusTime && chatTestScript.isDone == true && listOfOtherNpcs.Contains(gazeManagerScript.lastGazedUpon.transform.parent.name))        //If you haven't looked at this NPC for the set duration, while
-                {
-                    chatTestScript.messages.Clear();
-                    ChatLogWithNPC = chatTestScript.messages;
-
-                    notGazingTime = 0;
-                    //UpdateChatLog();                                                   //then we update the chat log stored on this NPC, before we switch to another NPC.
-                }
-            
-            
+                gazeTime = 0;       //To here...
+                notGazingTime += Time.deltaTime;            //Only count the time not looking at this NPC if this NPC is the currently selected NPC to talk to.
             }
 
-            
-        }#1#
-    }*/
-    
+            if (notGazingTime >= newNPCFocusTime && chatTestScript.isDone == true && listOfOtherNpcs.Contains(gazeManagerScript.lastGazedUpon.transform.parent.name))        //If you haven't looked at this NPC for the set duration, while
+            {
+                chatTestScript.messages.Clear();
+                ChatLogWithNPC = chatTestScript.messages;
+
+                notGazingTime = 0;
+                //UpdateChatLog();                                                   //then we update the chat log stored on this NPC, before we switch to another NPC.
+            }
+
+
+        }
+
+
+    }#1#
+}*/
+
     /*public void GazingUpon()
     {
         isGazingUpon = true;
@@ -500,7 +507,7 @@ public class NPCInteractorScript : MonoBehaviour
     {
         isGazingUpon = false;
     }*/
-    
+
     /*private void OnCollisionEnter(Collision other)
     {
         collisionTime = 0;      //The time that the user have looked at the NPC is set to 0, effectively being reset
@@ -508,7 +515,7 @@ public class NPCInteractorScript : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        collisionTime += Time.deltaTime;        //When the user looks at the NPC 
+        collisionTime += Time.deltaTime;        //When the user looks at the NPC
         if (collisionTime >= 3)
         {
             PlayHelpfulAudioNPC();          //If the user has been looking at the NPC for more than 3 seconds, then the NPC will say the randomly chosen helpful dialogue line

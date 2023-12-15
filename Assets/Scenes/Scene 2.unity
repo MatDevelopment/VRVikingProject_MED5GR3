@@ -15722,6 +15722,7 @@ MonoBehaviour:
     type: 3}
   thorsHammerDescribeScriptedVersion: {fileID: 8300000, guid: bf1bdb46dcd1bc94e8d0df84bdeb9323,
     type: 3}
+  erikSceneStartDialogueDone: 0
 --- !u!54 &439217977
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22037,10 +22038,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e860a7ab79d9f42ae5d29720c7c4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneInfo: 'You and the Traveller are currently inside the home of Thorsten.
+  SceneInfo: 'The NPC, Erik, and the Traveller are currently inside the home of Thorsten.
 
-    You
-    and the Traveller have already been introduced to one another.'
+    The
+    NPC, Erik, and the Traveller have already been introduced to one another.
+
+    The
+    NPC, Erik, has just informed the traveller of their current task.'
 --- !u!4 &835290297
 Transform:
   m_ObjectHideFlags: 0
@@ -23391,7 +23395,7 @@ GameObject:
   - component: {fileID: 925760011}
   m_Layer: 0
   m_Name: ChatController
-  m_TagString: Erik
+  m_TagString: ErikChatController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
