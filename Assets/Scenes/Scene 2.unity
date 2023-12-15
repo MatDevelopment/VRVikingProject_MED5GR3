@@ -45837,15 +45837,17 @@ MonoBehaviour:
     that only adults have souls. Children dying is not uncommon in these harsh environment
     conditions.\nYour village is close to an abundance of forest.\nYour village has
     suffered a great deal of sandstorms through its existence due to a lack of vegetation
-    growth.\nThe sandstorms have ruined many crop yields.\nFood can become scarce
-    during winter.\nThe environment is generally cold and wet but can become really
-    hot during the summer.\nThe trails and paths within the village boundaries are
-    often very muddy because of the generally wet environment.\nThere are a few warriors
-    living in the village whose duty it is to protect the village and its populace.\nNone
-    of the warriors have fought in battles or wars.\nYour chieftain's name is Olaf
-    and he is currently travelling outside the village to find new lands to settle
-    upon because of how unbearable the sandstorms have become here in the village
-    of Lindholm."
+    growth.\nThe sandstorms have ruined many crop yields.\nOver the last few years,
+    people living close to the burial hill of Lindholm H\xF8je have begun seeking
+    new places to live since the sandstorms plaguing the surrounding area of Lindholm
+    H\xF8je are becoming more and more intense.\nFood can become scarce during winter.\nThe
+    environment is generally cold and wet but can become really hot during the summer.\nThe
+    trails and paths within the village boundaries are often very muddy because of
+    the generally wet environment.\nThere are a few warriors living in the village
+    whose duty it is to protect the village and its populace.\nNone of the warriors
+    have fought in battles or wars.\nYour chieftain's name is Olaf and he is currently
+    travelling outside the village to find new lands to settle upon because of how
+    unbearable the sandstorms have become here in the village of Lindholm."
 --- !u!4 &2055502857
 Transform:
   m_ObjectHideFlags: 0
