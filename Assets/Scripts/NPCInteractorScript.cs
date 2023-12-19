@@ -226,7 +226,7 @@ public class NPCInteractorScript : MonoBehaviour
             if (nameOfItem == "Horn" && ItemGathered_Horn == false)     //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
             {
                 PlayAudioOnItemPickup();
-                SendSystemPromptToChatGPT(itemDescription_Horn);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                InformAndInitiateNpcTalk(itemDescription_Horn);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Horn = true;                               //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 //chatTestScript.SendReply(itemDescription_Horn);
                 //levelChangerScript.ItemGathered_Horn = false;
@@ -236,7 +236,7 @@ public class NPCInteractorScript : MonoBehaviour
             else if (nameOfItem == "Brooch" && ItemGathered_Brooch == false)
             {
                 PlayAudioOnItemPickup();
-                SendSystemPromptToChatGPT(itemDescription_Brooch);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                InformAndInitiateNpcTalk(itemDescription_Brooch);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Brooch = true;
                 //chatTestScript.SendReply(itemDescription_Brooch);
                 //levelChangerScript.ItemGathered_Brooch = false;
@@ -251,7 +251,7 @@ public class NPCInteractorScript : MonoBehaviour
             else if (nameOfItem == "Knife" && ItemGathered_Knife == false)
             {
                 PlayAudioOnItemPickup();
-                SendSystemPromptToChatGPT(itemDescription_Knife);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                InformAndInitiateNpcTalk(itemDescription_Knife);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_Knife = true;
                 //chatTestScript.SendReply(itemDescription_Knife);
                 //levelChangerScript.ItemGathered_Knife = false;
@@ -260,7 +260,7 @@ public class NPCInteractorScript : MonoBehaviour
             else if (nameOfItem == "ThorsHammer" && ItemGathered_ThorsHammer == false)
             {
                 PlayAudioOnItemPickup();
-                SendSystemPromptToChatGPT(itemDescription_ThorsHammer);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
+                InformAndInitiateNpcTalk(itemDescription_ThorsHammer);              //IMPLEMENT THIS FOR THE OTHER ITEMS ALSO
                 ItemGathered_ThorsHammer = true;
                 //chatTestScript.SendReply(itemDescription_ThorsHammer);
                 //levelChangerScript.ItemGathered_ThorsHammer = false;
@@ -340,11 +340,11 @@ public class NPCInteractorScript : MonoBehaviour
     }
     
     
-    public async void SendSystemPromptToChatGPT(string systemPrompt)
+    public async void InformAndInitiateNpcTalk(string systemPrompt)
     {
         whisperScript.isDoneTalking = false;
         chatTestScript.AddSystemInstructionToChatLog(systemPrompt);
-        string chatGptResponse = await chatTestScript.AskChatGPT(chatTestScript.messages);
+        string chatGptResponse = await chatTestScript.SendRequestToChatGpt(chatTestScript.messages);
         chatTestScript.AddNpcResponseToChatLog(chatGptResponse);
         Debug.Log(chatGptResponse);
         textToSpeechScript.MakeAudioRequest(chatGptResponse);

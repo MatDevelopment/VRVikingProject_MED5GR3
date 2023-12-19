@@ -236,7 +236,7 @@ public class LevelChanger : MonoBehaviour
         countChoppedWood++;
         Debug.Log("Wood chopped: " + countChoppedWood);
         
-        erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now chopped all the wood needed for Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+        erikInteractorScript.InformAndInitiateNpcTalk("The Traveller has now chopped all the wood needed for Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
         //WoodChopped = true;
     }
 
@@ -251,7 +251,7 @@ public class LevelChanger : MonoBehaviour
 
                 if (erikInteractorScript.NPCaudioSource.isPlaying == false)
                 {
-                    erikInteractorScript.SendSystemPromptToChatGPT("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. The NPC, Erik, will be with the Traveller inside the house of Thorsten and Ingrid AFTER the Traveller has entered the house. Convey this to the Traveller.\n");
+                    erikInteractorScript.InformAndInitiateNpcTalk("The Traveller has now stacked all the wood needed for Thorsten's funeral pyre unto the wagon nearby. The NPC, Erik, will be with the Traveller inside the house of Thorsten and Ingrid AFTER the Traveller has entered the house. Convey this to the Traveller.\n");
                 }
 
                 woodStackedPromptSent = true;
@@ -274,7 +274,7 @@ public class LevelChanger : MonoBehaviour
 
                 if (erikInteractorScript.NPCaudioSource.isPlaying == false)
                 {
-                    erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+                    erikInteractorScript.InformAndInitiateNpcTalk("The Traveller have now placed the stones in the stone formation of a longship around Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
                 }
             }
             StonesPlaced = true;
@@ -294,7 +294,7 @@ public class LevelChanger : MonoBehaviour
                 
                 if (erikInteractorScript.NPCaudioSource.isPlaying == false)
                 {
-                    erikInteractorScript.SendSystemPromptToChatGPT("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
+                    erikInteractorScript.InformAndInitiateNpcTalk("The Traveller have now placed all the wood pieces unto Thorsten's funeral pyre. Tell the Traveller that they did a good job.\n");
                 }
             }
             WoodPlacedOnPyre = true;

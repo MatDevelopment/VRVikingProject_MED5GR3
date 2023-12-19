@@ -80,7 +80,7 @@ namespace OpenAI
             
         }
         
-        public async Task<string> AskChatGPT(List<ChatMessage> combinedMessages)
+        public async Task<string> SendRequestToChatGpt(List<ChatMessage> combinedMessages)
         {
             CreateChatCompletionRequest request = new CreateChatCompletionRequest();
             request.Messages = combinedMessages;
@@ -191,24 +191,6 @@ namespace OpenAI
                         break;
                 }
             }
-            /*if (nameOfCurrentNPC == "Erik")
-            {
-                erikInteractorScript.ChatLogWithNPC.Add(message);
-            }
-            if (nameOfCurrentNPC == "Arne")
-            {
-                arneInteractorScript.ChatLogWithNPC.Add(message);
-            }
-            if (nameOfCurrentNPC == "Frida")
-            {
-                fridaInteractorScript.ChatLogWithNPC.Add(message);
-            }
-            if (nameOfCurrentNPC == "Ingrid")
-            {
-                ingridInteractorScript.ChatLogWithNPC.Add(message);
-            }*/
-
-            //return messages;
         }
         
     }

@@ -138,7 +138,7 @@ namespace OpenAI
                     chatTest.AddPlayerInputToChatLog(res.Text);
                     isDoneTalking = false;
                     // Debug.Log($"isDoneTalking: {isDoneTalking}");
-                    string chatGptResponse = await chatTest.AskChatGPT(chatTest.messages);
+                    string chatGptResponse = await chatTest.SendRequestToChatGpt(chatTest.messages);
                     chatTest.AddNpcResponseToChatLog(chatGptResponse);
                     Debug.Log(chatGptResponse);
                     textToSpeechScript.MakeAudioRequest(chatGptResponse);
